@@ -15,6 +15,7 @@ void dfs(int u, vector<vector<int>>& tree, vector<int>& node) {
         node[u] += node[v] + 1;
     }
 }
+
 void Solve() {
 	int n;
 	cin >> n;

@@ -27,8 +27,8 @@ void bfs(int s) {
         q.pop();
         for (auto v : g[u]) {
             if (!visit[v]) {
-                d[v]     = d[u] + 1;
-                par[v]   = u;
+                d[v] = d[u] + 1;
+                par[v] = u;
                 visit[v] = true;
                 q.push(v);
             }
@@ -40,8 +40,7 @@ void Solve() {
 	if (!visit[u]) cout << "No path!";
 	else {
 	    vector <int> path;
-	    for (int v = u; v != -1; v = par[v])
-	        path.push_back(v);
+	    for (int v = u; v != -1; v = par[v]) path.push_back(v);
 	    reverse(path.begin(), path.end());
 	
 	    cout << "Path: ";

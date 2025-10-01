@@ -20,20 +20,20 @@ vector<int> cal(vector<int>& a, vector<int>& b, int k) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     
-    priority_queue<strc, vector<strc>, greater<strc>> min_heap;
+    priority_queue<strc, vector<strc>, greater<strc>> pq;
     
     for (int i = 0; i < a.size(); ++i) {
-        min_heap.push({a[i] + b[0], i, 0});
+        pq.push({a[i] + b[0], i, 0});
     }
     
     vector<int> res;
-    while (k-- && !min_heap.empty()) {
-        strc current = min_heap.top();
-        min_heap.pop();
+    while (k-- && !pq.empty()) {
+        strc current = pq.top();
+        pq.pop();
         res.push_back(current.sum);
         
         if (current.y + 1 < b.size()) {
-            min_heap.push({a[current.x] + b[current.y + 1], current.x, current.y + 1});
+            pq.push({a[current.x] + b[current.y + 1], current.x, current.y + 1});
         }
     }
     
