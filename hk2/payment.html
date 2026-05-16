@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-concept payment-page">
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="model-3.html" class="dropdown-toggle">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact</a>
+        <a href="schedule.html">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>
+    </div>
+</header>
+
+<main class="payment-main">
+    <section class="payment-layout">
+        <aside class="payment-summary">
+            <h1>Order Summary</h1>
+            <p class="payment-summary-sub">Selected vehicles</p>
+            <div id="payment-cart-items" class="payment-cart-items"></div>
+            <!--- <div id="payment-discount-panel" class="payment-discount-panel">
+                <div class="payment-line"><span>Subtotal</span><span id="payment-subtotal">$0</span></div>
+                <div class="payment-discount-select-row">
+                    <label for="payment-discount-select">Discount</label>
+                    <select id="payment-discount-select" aria-label="Promotional discount">
+                        <option value="">None</option>
+                        <option value="SAVE10">10% off — code SAVE10</option>
+                        <option value="EV500">$500 off — code EV500</option>
+                    </select>
+                </div>
+                <div class="payment-line payment-discount-line" id="payment-discount-line" hidden>
+                    <span>Discount</span><span id="payment-discount-amount">-$0</span>
+                </div>
+            </div> -->
+            <div class="payment-line payment-total"><span>Total Due</span><span id="payment-total">$47,490</span></div>
+            <a href="inventory.html" class="btn btn-outline payment-continue-shopping">Continue shopping</a>
+        </aside>
+
+        <section class="payment-form-wrap">
+            <h2>Contact Information</h2>
+            <form id="order-form" class="payment-form">
+                <div class="form-grid-2">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Street Address" required>
+                <div class="form-grid-2">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="State" required>
+                </div>
+                <div class="form-grid-2">
+                    <input type="text" placeholder="Card Number" required>
+                    <input type="text" placeholder="CVV" required>
+                </div>
+                <button class="btn btn-red payment-submit" type="submit">Place Order</button>
+            </form>
+        </section>
+    </section>
+</main>
+
+<footer class="concept-footer-links">
+    <p>TESLA © 2026 &nbsp;|&nbsp; PRIVACY & LEGAL &nbsp;|&nbsp; CONTACT &nbsp;|&nbsp; CAREERS &nbsp;|&nbsp; NEWS &nbsp;|&nbsp; LOCATIONS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

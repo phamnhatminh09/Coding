@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện Inline MouseOver</title>
+</head>
+<body>
+
+    <h3>Di chuyển chuột vào các phần tử bên dưới:</h3>
+
+    <form>
+        <p>
+            Họ tên: 
+            <input type="text" name="HoTen" 
+                   onmouseover="hienThi('Bạn đang di chuyển chuột vào ô nhập Họ tên')" 
+                   onmouseout="xoaThongBao()">
+        </p>
+
+        <p>
+            Giới tính:
+            <input type="radio" name="GioiTinh" value="Nam" 
+                   onmouseover="hienThi('Bạn đang vào giới tính Nam')" 
+                   onmouseout="xoaThongBao()"> Nam
+            
+            <input type="radio" name="GioiTinh" value="Nu" 
+                   onmouseover="hienThi('Bạn đang vào giới tính Nữ')" 
+                   onmouseout="xoaThongBao()"> Nữ
+        </p>
+
+        <p>
+            <input type="button" value="Gửi" 
+                   onmouseover="hienThi('Bạn đang di chuyển chuột vào nút Gửi')" 
+                   onmouseout="xoaThongBao()"
+                   onclick="alert('Bạn vừa click vào nút Gửi!')">
+        </p>
+    </form>
+
+    <div id="thanhTrangThai" style="color: blue; font-weight: bold; margin-top: 20px;"></div>
+
+    <script>
+        function hienThi(loiNhan) {
+            document.getElementById("thanhTrangThai").innerHTML = loiNhan;
+            window.status = loiNhan;
+        }
+
+        function xoaThongBao() {
+            document.getElementById("thanhTrangThai").innerHTML = "";
+            window.status = "";
+        }
+    </script>
+
+</body>
+</html>

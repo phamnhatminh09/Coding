@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e6f0eb;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .calc-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .calculator {
+            background-color: #d9e4e0;
+            padding: 10px;
+            border: 2px solid #fff;
+            box-shadow: 
+                inset -2px -2px 5px rgba(0,0,0,0.3),
+                inset 2px 2px 5px rgba(255,255,255,0.8),
+                2px 2px 5px rgba(0,0,0,0.4);
+            border-radius: 2px;
+            width: 320px;
+        }
+
+        .display-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border: 2px solid #99a;
+            border-right-color: #fff;
+            border-bottom-color: #fff;
+            padding: 2px;
+            background: #fff;
+        }
+
+        #main-display {
+            flex-grow: 1;
+            border: none;
+            background: transparent;
+            text-align: right;
+            font-size: 16px;
+            padding: 4px;
+            outline: none;
+            color: #333;
+        }
+
+        .small-display-box {
+            width: 40px;
+            border: 1px solid #ccc;
+            border-top-color: #888;
+            border-left-color: #888;
+            margin-left: 5px;
+            background-color: #f0f4f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            padding: 4px;
+            border: 1px solid #fff;
+            border-top-color: #99a;
+            border-left-color: #99a;
+        }
+
+        button, .empty-box {
+            padding: 8px 0;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: linear-gradient(to bottom, #fcfcfc 0%, #d8e0da 100%);
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            box-shadow: inset 1px 1px 1px rgba(255,255,255,0.8);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        button:active {
+            background: #c8d0ca;
+            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+            border-color: #888;
+        }
+
+        .empty-box {
+            background: #d9e4e0;
+            border: 1px inset #aaa;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        .btn-equals {
+            position: relative;
+        }
+        
+        .btn-equals::after {
+            content: '';
+            position: absolute;
+            top: 3px; left: 3px; right: 3px; bottom: 3px;
+            border: 1px dotted #888;
+            pointer-events: none;
+        }
+
+        .btn-equals:focus {
+            outline: none;
+            background: linear-gradient(to bottom, #e0ebfb 0%, #b8d0e8 100%);
+        }
+
+        .more-options {
+            margin-top: 10px;
+            padding: 5px 15px;
+            background: linear-gradient(to bottom, #fcfcfc 0%, #d8e0da 100%);
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            color: #555;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calc-wrapper">
+    <div class="calculator">
+        <div class="display-container">
+            <input type="text" id="main-display" value="0" readonly>
+            <div class="small-display-box" id="operator-display"></div>
+        </div>
+
+        <div class="keypad">
+            <div class="empty-box"></div>
+            <button class="span-2" onclick="backspace()">BkSp</button>
+            <button class="span-2" onclick="clearEntry()">CE</button>
+            <button onclick="clearAll()">C</button>
+
+            <button onclick="memoryClear()">MC</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="chooseOperation('/')">/</button>
+            <button onclick="calculateSpecial('sqr')">sqr</button>
+
+            <button onclick="memoryRecall()">MR</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="chooseOperation('*')">*</button>
+            <button onclick="calculateSpecial('%')">%</button>
+
+            <button onclick="memoryStore()">MS</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="chooseOperation('-')">-</button>
+            <button onclick="calculateSpecial('1/x')">1/x</button>
+
+            <button onclick="memoryAdd()">M+</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="toggleSign()">+/-</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button onclick="chooseOperation('+')">+</button>
+            <button class="btn-equals" onclick="compute()">=</button>
+        </div>
+    </div>
+    <button class="more-options">More Options</button>
+</div>
+
+<script>
+    const display = document.getElementById('main-display');
+    const operatorDisplay = document.getElementById('operator-display');
+    let currentInput = '0'; 
+    let previousInput = '';
+    let operation = undefined;
+    let memory = 0;
+    let shouldResetScreen = false;
+
+    function updateDisplay() {
+        display.value = currentInput;
+    }
+
+    function appendNumber(number) {
+        if (shouldResetScreen) {
+            currentInput = '';
+            shouldResetScreen = false;
+        }
+        if (number === '.' && currentInput.includes('.')) return;
+        if (currentInput === '0' && number !== '.') {
+            currentInput = number;
+        } else {
+            currentInput += number;
+        }
+        updateDisplay();
+    }
+
+    function chooseOperation(op) {
+        if (currentInput === '' && previousInput === '') return;
+        
+        if (previousInput !== '' && !shouldResetScreen) {
+            compute();
+        }
+        operation = op;
+        previousInput = currentInput;
+        shouldResetScreen = true;
+
+        operatorDisplay.innerText = op;
+    }
+
+    function compute() {
+        let computation;
+        const prev = parseFloat(previousInput);
+        const current = parseFloat(currentInput);
+        if (isNaN(prev) || isNaN(current)) return;
+        
+        switch (operation) {
+            case '+': computation = prev + current; break;
+            case '-': computation = prev - current; break;
+            case '*': computation = prev * current; break;
+            case '/': 
+                if (current === 0) {
+                    alert("Cannot divide by zero");
+                    clearAll();
+                    return;
+                }
+                computation = prev / current; 
+                break;
+            default: return;
+        }
+        
+        currentInput = parseFloat(computation.toPrecision(15)).toString();
+        operation = undefined;
+        previousInput = '';
+        shouldResetScreen = true;
+
+        operatorDisplay.innerText = '';
+        
+        updateDisplay();
+    }
+
+    function calculateSpecial(type) {
+        if (currentInput === '') return;
+        let val = parseFloat(currentInput);
+        
+        switch(type) {
+            case 'sqr': currentInput = parseFloat((val * val).toPrecision(15)).toString(); break;
+            case '1/x': 
+                if (val === 0) { alert("Cannot divide by zero"); return; }
+                currentInput = parseFloat((1 / val).toPrecision(15)).toString(); 
+                break;
+            case '%': currentInput = parseFloat((val / 100).toPrecision(15)).toString(); break;
+        }
+        shouldResetScreen = true;
+        operatorDisplay.innerText = '';
+        updateDisplay();
+    }
+
+    function toggleSign() {
+        if (currentInput === '' || currentInput === '0') return;
+        currentInput = (parseFloat(currentInput) * -1).toString();
+        updateDisplay();
+    }
+
+    function clearAll() {
+        currentInput = '0';
+        previousInput = '';
+        operation = undefined;
+        operatorDisplay.innerText = '';
+        updateDisplay();
+    }
+
+    function clearEntry() {
+        currentInput = '0';
+        updateDisplay();
+    }
+
+    function backspace() {
+        if (shouldResetScreen) return;
+        currentInput = currentInput.toString().slice(0, -1);
+        if (currentInput === '' || currentInput === '-') currentInput = '0';
+        updateDisplay();
+    }
+
+    // Memory Functions
+    function memoryClear() { memory = 0; }
+    function memoryRecall() { currentInput = memory.toString(); shouldResetScreen = true; updateDisplay(); }
+    function memoryStore() { memory = parseFloat(currentInput) || 0; shouldResetScreen = true; }
+    function memoryAdd() { memory += parseFloat(currentInput) || 0; shouldResetScreen = true; }
+
+</script>
+</body>
+</html>

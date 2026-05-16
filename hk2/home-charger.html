@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Home Charger</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-concept">
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="home-charger.html" class="dropdown-toggle active">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html" class="active">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact</a>
+        <a href="schedule.html">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>
+    </div>
+</header>
+
+<main class="charger-main">
+    <section class="charger-hero">
+        <div class="charger-hero-copy">
+            <h1>Charge at Home</h1>
+            <p>A convenient at-home charging solution that powers your EV overnight.</p>
+            <button class="btn btn-red" type="button"
+                data-order-model="Home Charger"
+                data-order-trim="Wall Connector"
+                data-order-price="$450"
+                data-order-image="tesla.png"
+                data-order-action="add">Order now</button>
+        </div>
+        <div class="charger-hero-visual" aria-hidden="true">
+            <div class="charger-wall-unit"></div>
+            <div class="charger-cable-loop"></div>
+        </div>
+    </section>
+
+    <section class="charger-features">
+        <article class="feature-card">
+            <h3>44 Miles</h3>
+            <p>Add up to 44 miles of range per hour, based on vehicle and power setup.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Smart Connectivity</h3>
+            <p>Wi-Fi enabled for over-the-air firmware updates and remote monitoring.</p>
+        </article>
+        <article class="feature-card">
+            <h3>Versatile Design</h3>
+            <p>Lightweight indoor/outdoor enclosure with a 24 ft cable.</p>
+        </article>
+        <article class="feature-card feature-card--wide">
+            <div>
+                <h3>Power Sharing</h3>
+                <p>Connect and share power between up to six wall connectors at home.</p>
+            </div>
+            <img src="preview.png" alt="Home charger setup">
+        </article>
+    </section>
+
+    <section class="charger-specs">
+        <div>
+            <h2>Technical Specifications</h2>
+            <div class="spec-row"><span>Cable Length</span><span>24 Feet (7.3 meters)</span></div>
+            <div class="spec-row"><span>Max Power Output</span><span>11.5 kW (48A max)</span></div>
+            <div class="spec-row"><span>Compatibility</span><span>All Tesla models and most EVs</span></div>
+            <div class="spec-row"><span>Input Voltage</span><span>Hardwired 200-240V</span></div>
+        </div>
+        <img src="tesla.png" alt="Charging connector closeup">
+    </section>
+
+    <section class="charger-app">
+        <img src="mod3.png" alt="Tesla app charging monitor">
+        <div>
+            <h2>Your Charge, Anywhere.</h2>
+            <p>Monitor your charger in real time, view charging history, and schedule charging during off-peak hours.</p>
+            <div class="charger-app-list">
+                <span>Scheduled Charging</span>
+                <span>Peak/Off-Peak Stats</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="charger-installation">
+        <h2>Seamless Installation</h2>
+        <p>We recommend installation by a local certified installer for maximum safety and performance.</p>
+        <div class="hero-buttons" style="justify-content:center;">
+            <a href="contact.html" class="btn btn-white">Find an installer</a>
+            <button class="btn btn-red" type="button"
+                data-order-model="Home Charger"
+                data-order-trim="Wall Connector"
+                data-order-price="$450"
+                data-order-image="tesla.png">Checkout now</button>
+        </div>
+    </section>
+</main>
+
+<footer class="concept-footer-links">
+    <p>TESLA © 2026 &nbsp;|&nbsp; PRIVACY & LEGAL &nbsp;|&nbsp; CONTACT &nbsp;|&nbsp; CAREERS &nbsp;|&nbsp; NEWS &nbsp;|&nbsp; LOCATIONS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

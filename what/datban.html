@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNM - Ẩm thực Mỹ Chính thống</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+        }
+
+        a {
+            text-decoration: none;
+            color: #57a8a6;
+        }
+        
+        .main-header {
+            background-color: #2c3e50;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-left img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .header-left .title {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            justify-content: center;   
+            text-align: center;         
+            align-items: center;       
+        }
+
+        .header-left .title h1 {
+            font-size: 36px;
+            margin: 0;
+            color: #57a8a6;
+            font-weight: 700;
+        }
+        
+        .header-left .title p {
+            font-size: 16px;
+            color: #ccc;
+        }
+        
+        .header-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;      
+            justify-content: center; 
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .header-center h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;   
+            margin: 0;
+            font-weight: 700;
+            color: #57a8a6;
+        }
+
+        .header-center p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #ccc;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            min-width: 120px;
+        }
+
+        .social-icons .icon {
+            width: 34px;
+            height: 34px;
+            border: 2px solid #57a8a6;
+            border-radius: 50%;
+            color: #57a8a6;
+            font-size: 17px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .call-button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border: 2px solid #57a8a6;
+            border-radius: 20px;
+            background: white;
+            color: #57a8a6;
+            font-weight: bold;
+        }
+
+        .flag-icon img {
+            height: 22px;
+        }
+
+        .main-nav {
+            background-color: #fff;
+            border-top: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item a {
+            color: #333;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-item .active {
+            color: #57a8a6;
+            border: 2px solid #57a8a6;
+            background-color: #fff;
+            font-weight: 700;
+        }
+
+        .nav-item a:hover:not(.active) {
+            color: #57a8a6;
+        }
+
+        /* Reservation Section Styles */
+        .reservation-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb a {
+            color: #57a8a6;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .reservation-container {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .reservation-form {
+            flex: 1;
+        }
+
+        .room-info {
+            flex: 0 0 40%;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #57a8a6;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .reserve-button {
+            background-color: #57a8a6;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin: 30px auto 0;
+        }
+
+        .reserve-button:hover {
+            background-color: #408a89;
+        }
+
+        .room-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .room-rating {
+            color: #ffc107;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .room-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .room-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .room-features li {
+            color: #555;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .room-features li:before {
+            content: "✓";
+            color: #57a8a6;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .room-price {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+
+        .price-amount {
+            font-size: 2em;
+            color: #57a8a6;
+            font-weight: 700;
+        }
+
+        .price-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .main-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 20px 10px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding-bottom: 30px;
+        }
+
+        .footer-content h4 {
+            border-bottom: 2px solid #57a8a6;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .reservation-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top-bar {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .header-left, .header-center, .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .reservation-section {
+                padding: 0 20px;
+            }
+            
+            .room-info {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-top-bar">
+            <div class="header-left">
+                <img src="logo.jpg" alt="Logo">
+            </div>
+            <div class="header-center">
+                <h1>P&M</h1>
+                <p>Hangsondapoet</p>
+            </div>
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@Levi97" target="blank" class="icon fa-youtube">Y</a>
+                    <a href="https://www.facebook.com/minhpham.100209" target="blank" class="icon facebook-icon">F</a>
+                    <a href="https://www.tiktok.com/@suwndn16/video/7581056817690709256?is_from_webapp=1&sender_device=pc" target="blank" class="icon tiktok-icon">T</a>
+                </div>
+                <a href="datban.html" class="call-button">☎ GỌI NGAY</a>
+                <div class="flag-icon">
+                    <img src="vietnam.png" alt="Vietnam Flag">
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <ul class = "nav-menu">
+                <li class = "nav-item"><a href = "day10.html"> TRANG CHỦ </a></li>
+                <li class = "nav-item"><a href = "gthieu.html"><b> GIỚI THIỆU </b></a></li>
+		        <li class = "nav-item"><a href = "menu1.html"><b> THỰC ĐƠN </b></a></li>
+                <li class = "nav-item"><a href = "datban.html" class = "active"><b> ĐẶT BÀN </b></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="reservation" class="reservation-section">
+        <h2 class="section-title">ĐẶT BÀN</h2>
+        
+        <div class="reservation-container">
+            <div class="reservation-form">
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">TÊN *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">HỌ *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">SỐ ĐIỆN THOẠI *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivalDate">NGÀY ĐẾN *</label>
+                            <input type="date" id="arrivalDate" name="arrivalDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="departureDate">NGÀY ĐI *</label>
+                            <input type="date" id="departureDate" name="departureDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adults">NGƯỜI LỚN *</label>
+                            <select id="adults" name="adults" required>
+                                <option value="1">1 người</option>
+                                <option value="2">2 người</option>
+                                <option value="3">3 người</option>
+                                <option value="4">4 người</option>
+                                <option value="5">5 người</option>
+                                <option value="6">6+ người</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">TRẺ EM *</label>
+                            <select id="children" name="children" required>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="infants">TRẺ SƠ SINH *</label>
+                            <select id="infants" name="infants" required>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">GHI CHÚ</label>
+                            <textarea id="message" name="message" placeholder="Nhập yêu cầu đặc biệt của bạn..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="reserve-button">ĐẶT BÀN NGAY</button>
+                </form>
+            </div>
+            
+            <div class="room-info">
+                <h3 class="room-title">Bàn Riêng VIP</h3>
+                <div class="room-rating">★★★★☆</div>
+                <p class="room-description">
+                    Tận hưởng không gian ẩm thực sang trọng tại bàn riêng VIP của chúng tôi. 
+                    Thiết kế tinh tế và dịch vụ chuyên nghiệp mang đến trải nghiệm đẳng cấp.
+                </p>
+                
+                <ul class="room-features">
+                    <li>Không gian riêng tư, yên tĩnh</li>
+                    <li>Phục vụ chuyên nghiệp 24/7</li>
+                    <li>Thực đơn đặc biệt VIP</li>
+                    <li>Trải nghiệm ẩm thực cao cấp</li>
+                </ul>
+                
+                <div class="room-price">
+                    <div class="price-amount">Từ 890.000đ</div>
+                    <div class="price-label">/ Bữa ăn</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>Ghé Thăm Chúng Tôi</h4>
+                <p>Số 36 ngõ 120 Yên Lãng,<br>Hà Nội, Việt Nam</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Liên Hệ</h4>
+                <p>&#9742; +84 363636363</p>
+                <p>&#9993; info@mehang.com</p>
+            </div>
+            <div class="footer-hours">
+                <h4>Giờ Mở Cửa</h4>
+                <p>Thứ Hai - Chủ Nhật: 12:00 &dash; 15:00</p>
+                <p>Thứ Hai - Thứ Bảy: 19:00 &dash; 23:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 PNM. Bảo Lưu Mọi Quyền.
+        </div>
+    </footer>
+</body>
+</html>

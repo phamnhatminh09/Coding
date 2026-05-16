@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule a Demo Drive | Tesla</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="schedule-page">
+
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="model-s.html" class="dropdown-toggle">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact</a>
+        <a href="schedule.html" class="active">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>
+    </div>
+</header>
+
+<div class="container">
+    <h2>1. Select a Model</h2>
+    <div class="model-section">
+        <div class="model-list">
+            <div class="option-card active model-opt" data-img="modY.avif">
+                <h4>Model Y</h4>
+                <p>Midsize SUV</p>
+            </div>
+            <div class="option-card model-opt" data-img="mod3.avif">
+                <h4>Model 3</h4>
+                <p>Sports Sedan</p>
+            </div>
+            <div class="option-card model-opt" data-img="cybertruck.png">
+                <h4>Cybertruck</h4>
+                <p>Electric Pickup</p>
+            </div>
+            <div class="option-card model-opt" data-img="modS.avif">
+                <h4>Model S</h4>
+                <p>Luxury Sedan</p>
+            </div>
+            <div class="option-card model-opt" data-img="modX.avif">
+                <h4>Model X</h4>
+                <p>Luxury SUV</p>
+            </div>
+        </div>
+        <div class="model-preview">
+            <img id="car-preview-img" src="modY.avif" alt="Tesla Preview">
+        </div>
+    </div>
+
+    <div class="selection-group">
+        <h2>2. Select Location</h2>
+        <div class="options-grid">
+            <div class="option-card loc-opt active">
+                <h4>Tesla Hanoi</h4>
+                <p>Vinhomes Ocean Park, Gia Lam</p>
+            </div>
+            <div class="option-card loc-opt">
+                <h4>Tesla HCM</h4>
+                <p>District 7, Ho Chi Minh City</p>
+            </div>
+            <div class="option-card loc-opt">
+                <h4>Tesla Da Nang</h4>
+                <p>Ngu Hanh Son, Da Nang</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="selection-group">
+        <h2>3. Select Time</h2>
+        <div class="time-grid">
+            <div class="option-card time-opt"><h4>09:00 AM</h4></div>
+            <div class="option-card time-opt active"><h4>10:30 AM</h4></div>
+            <div class="option-card time-opt"><h4>01:30 PM</h4></div>
+            <div class="option-card time-opt"><h4>03:00 PM</h4></div>
+            <div class="option-card time-opt"><h4>04:30 PM</h4></div>
+        </div>
+    </div>
+
+    <h2>4. Driver's Details</h2>
+    <div class="driver-details-grid">
+        <div class="form-content">
+            <div class="form-group">
+                <div class="input-field"><label>First Name</label><input type="text"></div>
+                <div class="input-field"><label>Last Name</label><input type="text"></div>
+            </div>
+            <div class="form-group">
+                <div class="input-field"><label>Email</label><input type="email"></div>
+                <div class="input-field">
+                    <label>Phone</label>
+                    <div class="phone-group">
+                        <select><option>VN +84</option><option>US +1</option></select>
+                        <input type="text" placeholder="090 123 4567">
+                    </div>
+                </div>
+            </div>
+            <button id="submit-btn" class="btn-submit">Submit Request</button>
+        </div>
+        <div class="form-image">
+            <img id="bottom-car-img" src="modY.avif" alt="Tesla Form">
+        </div>
+    </div>
+</div>
+<!-- Lightweight toast-style alert used by inline form validation feedback. -->
+<div id="custom-alert" style="
+position: fixed;
+top: 30px;
+right: 30px;
+background: #111;
+color: #fff;
+padding: 18px 22px;
+border-radius: 10px;
+border-left: 5px solid #e82127;
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+display: none;
+z-index: 9999;
+min-width: 260px;
+font-size: 14px;
+">
+    <span id="alert-text"></span>
+</div>
+
+<script>
+    // Generic active-state handler for selectable card groups (model/location/time).
+    function setupSelection(className) {
+        const options = document.querySelectorAll('.' + className);
+        options.forEach(opt => {
+            opt.addEventListener('click', function() {
+                options.forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Keep top preview + bottom form image synced when model selection changes.
+                if(className === 'model-opt') {
+                    const topImg = document.getElementById('car-preview-img');
+                    const bottomImg = document.getElementById('bottom-car-img');
+                    const newSrc = this.getAttribute('data-img');
+                    
+                    // Fade out both images first for a smoother visual switch.
+                    topImg.style.opacity = 0;
+                    bottomImg.style.opacity = 0;
+                    
+                    // Update source and fade in shortly after.
+                    setTimeout(() => {
+                        topImg.src = newSrc;
+                        bottomImg.src = newSrc;
+                        topImg.style.opacity = 1;
+                        bottomImg.style.opacity = 1;
+                    }, 200);
+                }
+            });
+        });
+    }
+
+    setupSelection('model-opt');
+    setupSelection('loc-opt');
+    setupSelection('time-opt');
+
+    // Reusable status popup: green on success, red on error.
+    function showAlert(message, success=true){
+    const box = document.getElementById("custom-alert");
+    const text = document.getElementById("alert-text");
+
+    text.innerHTML = message;
+
+    box.style.borderLeftColor = success ? "#4caf50" : "#e82127";
+    box.style.display = "block";
+
+    setTimeout(()=>{
+        box.style.display = "none";
+    },3000);
+}
+// Validate required fields and mandatory selections before submit.
+document.getElementById("submit-btn").addEventListener("click", function(){
+
+    const firstName = document.querySelector('input[type="text"]');
+    const lastName = document.querySelectorAll('input[type="text"]')[1];
+    const email = document.querySelector('input[type="email"]');
+    const phone = document.querySelector('.phone-group input');
+
+    let errors = [];
+
+    // check input
+    if(!firstName.value.trim()) errors.push("First Name");
+    if(!lastName.value.trim()) errors.push("Last Name");
+    if(!email.value.trim()) errors.push("Email");
+    if(!phone.value.trim()) errors.push("Phone");
+
+    // check chọn model
+    if(!document.querySelector('.model-opt.active')){
+        errors.push("Model");
+    }
+
+    // check location
+    if(!document.querySelector('.loc-opt.active')){
+        errors.push("Location");
+    }
+
+    // check time
+    if(!document.querySelector('.time-opt.active')){
+        errors.push("Time");
+    }
+
+    // Show one consolidated message listing all missing fields/selections.
+    const language = localStorage.getItem("teslaLanguage") === "vi" ? "vi" : "en";
+    if (errors.length === 0) {
+        const successMessage = language === "vi" ? "✅ Gửi yêu cầu thành công!" : "✅ Request submitted successfully!";
+        showAlert(successMessage, true);
+    } else {
+        const missingPrefix = language === "vi" ? "❌ Thiếu thông tin:<br>- " : "❌ Missing information:<br>- ";
+        showAlert(missingPrefix + errors.join("<br>- "), false);
+    }
+});
+
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

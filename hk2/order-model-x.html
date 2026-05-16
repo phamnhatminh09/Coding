@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Model X Configurator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-concept">
+
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="model-x.html" class="dropdown-toggle">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html" class="active">Inventory</a>
+        <a href="contact.html">Contact</a>
+        <a href="schedule.html">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>
+    </div>
+</header>
+
+<main class="order-config-main">
+    <section class="order-config-layout">
+
+        <!-- IMAGE -->
+        <div class="order-config-visual">
+            <img id="car-image" src="modx-red.png" alt="Model X">
+
+        </div>
+
+        <!-- PANEL -->
+        <div class="order-config-panel">
+            <a href="inventory.html" class="order-back-link">&larr; Back to inventory</a>
+            <h1>Model X</h1>
+            <p class="order-config-sub">Design your performance</p>
+
+            <p class="config-section-title">Paint</p>
+            <div class="config-chip-row">
+                <button class="config-chip" data-paint="white" style="background:#f1f1f1;"></button>
+                <button class="config-chip" data-paint="black" style="background:#191919;"></button>
+                <button class="config-chip active" data-paint="red" style="background:#e82127;"></button>
+                <button class="config-chip" data-paint="blue" style="background:#1f3e90;"></button>
+                <button class="config-chip" data-paint="silver" style="background:#8793a5;"></button>
+            </div>
+
+            <p class="config-section-title">Wheels</p>
+            <div class="config-tiles">
+                <article class="config-tile active">
+                    <img src="w20.png">
+                    <strong>20" Cyberstream</strong>
+                    <span>Optimized range</span>
+                </article>
+                <article class="config-tile">
+                    <img src="w22.png">
+                    <strong>22" Turbine</strong>
+                    <span>$5,500</span>
+                </article>
+            </div>
+
+            <div class="order-config-price">
+                <div>
+                    <span>Vehicle price</span>
+                    <strong>$79,990</strong>
+                </div>
+                <span>Est. Delivery Dec 2024</span>
+            </div>
+
+            <label class="order-home-charger">
+                <input type="checkbox" data-home-charger> Include home charger (+$450)
+            </label>
+
+            <button class="btn btn-red order-config-cta" type="button"
+                data-order-model="Model X"
+                data-order-trim="Dual Motor All-Wheel Drive"
+                data-order-price="$79,990"
+                data-order-image="modx.png">
+                Continue to payment
+            </button>
+        </div>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+<!-- SCRIPT ĐỔI MÀU -->
+<script>
+const chips = document.querySelectorAll(".config-chip");
+const carImg = document.getElementById("car-image");
+
+chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+
+        chips.forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+
+        const color = chip.dataset.paint;
+
+        carImg.style.opacity = 0;
+
+        setTimeout(() => {
+            carImg.src = "modx-" + color + ".png";
+            carImg.style.opacity = 1;
+        }, 200);
+    });
+});
+</script>
+
+</body>
+</html>

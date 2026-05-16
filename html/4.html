@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Bán Hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2e75e6;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        header i {
+            margin-right: 8px;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f0f2f5;
+            min-height: calc(100vh - 54px);
+        }
+
+        .products-section {
+            flex: 2;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            align-content: start;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e1e4e8;
+        }
+
+        .product-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .product-info {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .btn-add {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-add:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-add i {
+            margin-right: 5px;
+        }
+
+        .cart-section {
+            flex: 1;
+            background-color: white;
+            border-left: 1px solid #e1e4e8;
+            padding: 20px;
+        }
+
+        .cart-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .cart-list {
+            list-style: none;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+            min-height: 50px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .item-name {
+            flex: 1;
+        }
+
+        .item-price {
+            margin-right: 10px;
+        }
+
+        .btn-remove {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-remove:hover {
+            background-color: #dc2626;
+        }
+
+        .cart-total {
+            font-size: 16px;
+            font-weight: bold;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <i class="fas fa-shopping-cart"></i> HỆ THỐNG BÁN HÀNG
+    </header>
+
+    <div class="container">
+        <div class="products-section" id="productList">
+            </div>
+
+        <div class="cart-section">
+            <h2>Hóa đơn</h2>
+            <ul class="cart-list" id="cartList">
+                </ul>
+            <div class="cart-total" id="cartTotal">
+                Tổng: 0đ
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: 'Bút', price: 5000, img: '' },
+            { id: 2, name: 'Vở', price: 10000, img: '' },
+            { id: 3, name: 'Sách', price: 20000, img: '' },
+            { id: 4, name: 'Tẩy', price: 3000, img: '' },
+            { id: 5, name: 'Thước', price: 7000, img: '' },
+            { id: 6, name: 'Balo', price: 150000, img: '' },
+            { id: 7, name: 'Hộp bút', price: 30000, img: '' },
+            { id: 8, name: 'Compa', price: 25000, img: '' }
+        ];
+
+        let cart = [];
+
+        function formatCurrency(number) {
+            return number.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function renderProducts() {
+            const productListElement = document.getElementById('productList');
+            productListElement.innerHTML = '';
+
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product-card';
+                productDiv.innerHTML = `
+                    <img src="a.jpg" alt="${product.name}" onerror="this.style.display='none'">
+                    <div class="product-info">${product.name} - ${formatCurrency(product.price)}</div>
+                    <button class="btn-add" onclick="addToCart(${product.id})">
+                        <i class="fas fa-cart-plus"></i> Chọn
+                    </button>
+                `;
+                productListElement.appendChild(productDiv);
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartUI();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartListElement = document.getElementById('cartList');
+            const cartTotalElement = document.getElementById('cartTotal');
+            
+            cartListElement.innerHTML = '';
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+
+                const li = document.createElement('li');
+                li.className = 'cart-item';
+                li.innerHTML = `
+                    <span class="item-name">${item.name} x ${item.quantity}</span>
+                    <span class="item-price">${formatCurrency(itemTotal)}</span>
+                    <button class="btn-remove" onclick="removeFromCart(${item.id})">x</button>
+                `;
+                cartListElement.appendChild(li);
+            });
+
+            cartTotalElement.innerText = `Tổng: ${formatCurrency(totalPrice)}`;
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>

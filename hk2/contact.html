@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-concept">
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="model-s.html" class="dropdown-toggle">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="schedule.html">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>
+    </div>
+</header>
+
+<main class="contact-page contact-page--concept">
+    <div class="concept-contact-hero">
+        <p class="inquiry">INQUIRY</p>
+        <h1>Contact Tesla</h1>
+    </div>
+
+    <section class="contact-grid">
+        <div class="contact-panel form-underline">
+            <h2 style="margin-bottom:28px;">Send a Message</h2>
+            <form id="contact-form" class="form-grid">
+                <div class="field">
+                    <label for="first-name">First Name</label>
+                    <input id="first-name" name="firstName" type="text" required>
+                </div>
+                <div class="field">
+                    <label for="last-name">Last Name</label>
+                    <input id="last-name" name="lastName" type="text" required>
+                </div>
+                <div class="field full-row">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+                <div class="field full-row">
+                    <label for="topic">Topic</label>
+                    <select id="topic" name="topic" required>
+                        <option value="">Select a topic</option>
+                        <option value="order">Order</option>
+                        <option value="service">Service</option>
+                        <option value="support">Roadside Assistance</option>
+                    </select>
+                </div>
+                <div class="field full-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <div class="full-row">
+                    <button class="btn btn-red" type="submit" style="width:100%;">SUBMIT INQUIRY</button>
+                    <p id="contact-success" class="success-message">Inquiry submitted successfully. We will contact you soon.</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="contact-cards">
+            <article class="contact-panel info-card info-card--badge">
+                <span class="badge">24/7 SUPPORT</span>
+                <h3>Sales</h3>
+                <p>1-888-518-3752</p>
+                <p>Monday – Sunday, 8am – 9pm PT</p>
+            </article>
+            <article class="contact-panel info-card info-card--badge">
+                <span class="badge">AVAILABLE NOW</span>
+                <h3>Service</h3>
+                <p>1-877-798-3752</p>
+                <p>Open 24 hours for online requests</p>
+            </article>
+            <article class="contact-panel info-card info-card--badge">
+                <span class="badge badge--emergency">EMERGENCY</span>
+                <h3>Roadside Assistance</h3>
+                <p>1-877-798-3752</p>
+                <p>Global roadside support 24/7</p>
+            </article>
+        </div>
+    </section>
+
+</main>
+
+<footer class="concept-footer-links">
+    <p>TESLA © 2026 &nbsp;|&nbsp; PRIVACY & LEGAL &nbsp;|&nbsp; VEHICLE RECALLS &nbsp;|&nbsp; CONTACT &nbsp;|&nbsp; CAREERS &nbsp;|&nbsp; NEWS &nbsp;|&nbsp; ENGAGE &nbsp;|&nbsp; LOCATIONS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

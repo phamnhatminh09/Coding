@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý công việc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f5f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #999;
+        }
+
+        .btn-add {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-add:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-delete-all {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn-delete-all:hover {
+            background-color: #cc0000;
+        }
+
+        .task-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f5f7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .task-text {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .task-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 20px;
+            color: #000;
+        }
+
+        .task-actions button:hover {
+            text-decoration: underline;
+        }
+
+        .stats p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2><i class="fa-regular fa-clipboard"></i> Quản lý công việc</h2>
+        
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Nhập công việc...">
+            <button class="btn-add" id="btnAdd">Thêm</button>
+        </div>
+        
+        <button class="btn-delete-all" id="btnDeleteAll">Xóa tất cả</button>
+        
+        <ul class="task-list" id="taskList">
+            </ul>
+        
+        <div class="stats">
+            <p>Tổng công việc: <span id="totalTasks">0</span></p>
+            <p>Đã hoàn thành: <span id="completedTasks">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskInput = document.getElementById('taskInput');
+            const btnAdd = document.getElementById('btnAdd');
+            const btnDeleteAll = document.getElementById('btnDeleteAll');
+            const taskList = document.getElementById('taskList');
+            const totalTasksEl = document.getElementById('totalTasks');
+            const completedTasksEl = document.getElementById('completedTasks');
+
+            let tasks = [
+                { id: 1, text: 'làm bài tập toán', completed: false },
+                { id: 2, text: 'học Tiếng Anh', completed: false }
+            ];
+            
+            function renderTasks() {
+                taskList.innerHTML = '';
+                let completedCount = 0;
+
+                tasks.forEach(task => {
+                    if (task.completed) completedCount++;
+
+                    const li = document.createElement('li');
+                    li.className = `task-item ${task.completed ? 'completed' : ''}`;
+                    
+                    li.innerHTML = `
+                        <span class="task-text">${task.text}</span>
+                        <div class="task-actions">
+                            <button onclick="toggleComplete(${task.id})">${task.completed ? 'Bỏ hoàn thành' : 'Hoàn thành'}</button>
+                            <button onclick="deleteTask(${task.id})">Xóa</button>
+                        </div>
+                    `;
+                    taskList.appendChild(li);
+                });
+                
+                totalTasksEl.textContent = tasks.length;
+                completedTasksEl.textContent = completedCount;
+            }
+            
+            function addTask() {
+                const text = taskInput.value.trim();
+                if (text !== '') {
+                    tasks.push({
+                        id: Date.now(),
+                        text: text,
+                        completed: false
+                    });
+                    taskInput.value = '';
+                    renderTasks();
+                }
+            }
+            
+            btnAdd.addEventListener('click', addTask);
+            
+            taskInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    addTask();
+                }
+            });
+            
+            btnDeleteAll.addEventListener('click', () => {
+                tasks = [];
+                renderTasks();
+            });
+            
+            window.toggleComplete = (id) => {
+                tasks = tasks.map(task => {
+                    if (task.id === id) {
+                        return { ...task, completed: !task.completed };
+                    }
+                    return task;
+                });
+                renderTasks();
+            };
+            
+            window.deleteTask = (id) => {
+                tasks = tasks.filter(task => task.id !== id);
+                renderTasks();
+            };
+            
+            renderTasks();
+        });
+    </script>
+</body>
+</html>

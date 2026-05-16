@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-concept inventory-page">
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="model-3.html" class="dropdown-toggle">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html" class="active">Inventory</a>
+        <a href="contact.html">Contact</a>
+        <a href="schedule.html">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>
+    </div>
+</header>
+
+<main class="inventory-main inventory-showcase">
+    <aside class="inventory-filters">
+        <h2>Inventory Filters</h2>
+        <div class="filter-group">
+            <h3>Model</h3>
+            <label><input type="checkbox" class="inventory-model-filter" value="Model S"> Model S</label>
+            <label><input type="checkbox" class="inventory-model-filter" value="Model 3"> Model 3</label>
+            <label><input type="checkbox" class="inventory-model-filter" value="Model X"> Model X</label>
+            <label><input type="checkbox" class="inventory-model-filter" value="Model Y"> Model Y</label>
+            <label><input type="checkbox" class="inventory-model-filter" value="Cybertruck"> Cybertruck</label>
+        </div>
+
+        <div class="filter-group">
+            <h3>Trim</h3>
+            <button type="button" class="filter-pill" data-trim="Standard Wheels">Standard Wheels</button>
+            <button type="button" class="filter-pill" data-trim="Sport Wheels">Sport Wheels</button>
+            <button type="button" class="filter-pill" data-trim="Performance Wheels">Performance Wheels</button>
+        </div>
+        <div class="filter-group">
+            <h3>Delivery City</h3>
+            <button type="button" class="city-pill active" data-city="">All Cities</button>
+            <button type="button" class="city-pill" data-city="Hanoi">Hanoi</button>
+            <button type="button" class="city-pill" data-city="Da Nang">Da Nang</button>
+            <button type="button" class="city-pill" data-city="Ho Chi Minh City">Ho Chi Minh City</button>
+        </div>
+
+        <button id="inventory-reset" type="button" class="btn btn-white inventory-reset">Reset All Filters</button>
+    </aside>
+
+    <section class="inventory-content">
+        <div class="inventory-head">
+            <div>
+                <h1>New Inventory</h1>
+                <p>Available cars for immediate delivery near <span id="inventory-city-label">All Cities</span>, Vietnam</p>
+            </div>
+            <div class="inventory-sort-wrap">
+                <span>Sort by:</span>
+                <select id="inventory-sort" aria-label="Sort inventory">
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                </select>
+                <a href="payment.html" class="btn btn-outline inventory-checkout-btn">Checkout Cart</a>
+            </div>
+        </div>
+
+        <section class="inventory-grid">
+            <article class="inventory-card" data-model="Model 3" data-trim="Standard Wheels" data-city="Hanoi" data-price="38990">
+                <img src="model3.png" alt="Model 3">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model 3</h3>
+                        <strong>$38,990</strong>
+                    </div>
+                    <p>Standard Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>325 mi</span><small>Range (EPA)</small></div>
+                        <div><span>5.2 s</span><small>0-60 mph</small></div>
+                        <div><span>140 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-3.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button"
+                            data-order-model="Model 3"
+                            data-order-trim="Standard Wheels"
+                            data-order-price="$38,990"
+                            data-order-image="model3.png"
+                            data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model X" data-trim="Standard Wheels" data-city="Da Nang" data-price="68990">
+                <img src="modelx.png" alt="Model X">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model X</h3>
+                        <strong>$68,990</strong>
+                    </div>
+                    <p>Standard Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>310 mi</span><small>Range (EPA)</small></div>
+                        <div><span>4.9 s</span><small>0-60 mph</small></div>
+                        <div><span>145 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-x.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Model X" data-order-trim="Standard Wheels" data-order-price="$68,990" data-order-image="modelx.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model Y" data-trim="Standard Wheels" data-city="Ho Chi Minh City" data-price="43990">
+                <img src="modely.png" alt="Model Y">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model Y</h3>
+                        <strong>$43,990</strong>
+                    </div>
+                    <p>Standard Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>300 mi</span><small>Range (EPA)</small></div>
+                        <div><span>5.0 s</span><small>0-60 mph</small></div>
+                        <div><span>137 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-y.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Model Y" data-order-trim="Standard Wheels" data-order-price="$43,990" data-order-image="modely.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model S" data-trim="Standard Wheels" data-city="Hanoi" data-price="62990">
+                <img src="models.jpg" alt="Model S">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model S</h3>
+                        <strong>$62,990</strong>
+                    </div>
+                    <p>Standard Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>360 mi</span><small>Range (EPA)</small></div>
+                        <div><span>4.5 s</span><small>0-60 mph</small></div>
+                        <div><span>150 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-s.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button"
+                            data-order-model="Model S"
+                            data-order-trim="Standard Wheels"
+                            data-order-price="$62,990"
+                            data-order-image="models.jpg"
+                            data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Cybertruck" data-trim="Standard Wheels" data-city="Da Nang" data-price="82990">
+                <img src="cbt.png" alt="Cybertruck">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Cybertruck</h3>
+                        <strong>$82,990</strong>
+                    </div>
+                    <p>Standard Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>300 mi</span><small>Range (EPA)</small></div>
+                        <div><span>4.2 s</span><small>0-60 mph</small></div>
+                        <div><span>118 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-cybertruck.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Cybertruck" data-order-trim="Standard Wheels" data-order-price="$82,990" data-order-image="cbt.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model 3" data-trim="Sport Wheels" data-city="Ho Chi Minh City" data-price="47490">
+                <img src="model3.png" alt="Model 3">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model 3</h3>
+                        <strong>$47,490</strong>
+                    </div>
+                    <p>Sport Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>341 mi</span><small>Range (EPA)</small></div>
+                        <div><span>4.2 s</span><small>0-60 mph</small></div>
+                        <div><span>145 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-3.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Model 3" data-order-trim="Sport Wheels" data-order-price="$47,490" data-order-image="model3.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model X" data-trim="Sport Wheels" data-city="Hanoi" data-price="79990">
+                <img src="modelx.png" alt="Model X">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model X</h3>
+                        <strong>$79,990</strong>
+                    </div>
+                    <p>Sport Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>335 mi</span><small>Range (EPA)</small></div>
+                        <div><span>3.8 s</span><small>0-60 mph</small></div>
+                        <div><span>149 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-x.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Model X" data-order-trim="Sport Wheels" data-order-price="$79,990" data-order-image="modelx.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model Y" data-trim="Sport Wheels" data-city="Da Nang" data-price="52490">
+                <img src="modely.png" alt="Model Y">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model Y</h3>
+                        <strong>$52,490</strong>
+                    </div>
+                    <p>Sport Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>320 mi</span><small>Range (EPA)</small></div>
+                        <div><span>4.4 s</span><small>0-60 mph</small></div>
+                        <div><span>145 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-y.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Model Y" data-order-trim="Sport Wheels" data-order-price="$52,490" data-order-image="modely.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model S" data-trim="Sport Wheels" data-city="Ho Chi Minh City" data-price="74990">
+                <img src="models.jpg" alt="Model S">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Model S</h3>
+                        <strong>$74,990</strong>
+                    </div>
+                    <p>Sport Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>402 mi</span><small>Range (EPA)</small></div>
+                        <div><span>3.1 s</span><small>0-60 mph</small></div>
+                        <div><span>149 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-model-s.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Model S" data-order-trim="Sport Wheels" data-order-price="$74,990" data-order-image="models.jpg" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Cybertruck" data-trim="Sport Wheels" data-city="Hanoi" data-price="94990">
+                <img src="cbt.png" alt="Cybertruck">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top">
+                        <h3>Cybertruck</h3>
+                        <strong>$94,990</strong>
+                    </div>
+                    <p>Sport Wheels</p>
+                    <div class="inventory-specs-mini">
+                        <div><span>325 mi</span><small>Range (EPA)</small></div>
+                        <div><span>3.2 s</span><small>0-60 mph</small></div>
+                        <div><span>124 mph</span><small>Top speed</small></div>
+                    </div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions">
+                        <a href="order-cybertruck.html" class="btn btn-red">Configure</a>
+                        <button class="btn btn-outline" type="button" data-order-model="Cybertruck" data-order-trim="Sport Wheels" data-order-price="$94,990" data-order-image="cbt.png" data-order-action="add">Add to cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model 3" data-trim="Performance Wheels" data-city="Da Nang" data-price="57990">
+                <img src="model3.png" alt="Model 3">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top"><h3>Model 3</h3><strong>$57,990</strong></div>
+                    <p>Performance Wheels</p>
+                    <div class="inventory-specs-mini"><div><span>303 mi</span><small>Range (EPA)</small></div><div><span>3.1 s</span><small>0-60 mph</small></div><div><span>162 mph</span><small>Top speed</small></div></div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions"><a href="order-model-3.html" class="btn btn-red">Configure</a><button class="btn btn-outline" type="button" data-order-model="Model 3" data-order-trim="Performance Wheels" data-order-price="$57,990" data-order-image="model3.png" data-order-action="add">Add to cart</button></div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model X" data-trim="Performance Wheels" data-city="Ho Chi Minh City" data-price="89990">
+                <img src="modelx.png" alt="Model X">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top"><h3>Model X</h3><strong>$89,990</strong></div>
+                    <p>Performance Wheels</p>
+                    <div class="inventory-specs-mini"><div><span>320 mi</span><small>Range (EPA)</small></div><div><span>2.9 s</span><small>0-60 mph</small></div><div><span>155 mph</span><small>Top speed</small></div></div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions"><a href="order-model-x.html" class="btn btn-red">Configure</a><button class="btn btn-outline" type="button" data-order-model="Model X" data-order-trim="Performance Wheels" data-order-price="$89,990" data-order-image="modelx.png" data-order-action="add">Add to cart</button></div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model Y" data-trim="Performance Wheels" data-city="Hanoi" data-price="61990">
+                <img src="modely.png" alt="Model Y">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top"><h3>Model Y</h3><strong>$61,990</strong></div>
+                    <p>Performance Wheels</p>
+                    <div class="inventory-specs-mini"><div><span>285 mi</span><small>Range (EPA)</small></div><div><span>3.5 s</span><small>0-60 mph</small></div><div><span>155 mph</span><small>Top speed</small></div></div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions"><a href="order-model-y.html" class="btn btn-red">Configure</a><button class="btn btn-outline" type="button" data-order-model="Model Y" data-order-trim="Performance Wheels" data-order-price="$61,990" data-order-image="modely.png" data-order-action="add">Add to cart</button></div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Model S" data-trim="Performance Wheels" data-city="Da Nang" data-price="84990">
+                <img src="models.jpg" alt="Model S">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top"><h3>Model S</h3><strong>$84,990</strong></div>
+                    <p>Performance Wheels</p>
+                    <div class="inventory-specs-mini"><div><span>390 mi</span><small>Range (EPA)</small></div><div><span>2.3 s</span><small>0-60 mph</small></div><div><span>200 mph</span><small>Top speed</small></div></div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions"><a href="order-model-s.html" class="btn btn-red">Configure</a><button class="btn btn-outline" type="button" data-order-model="Model S" data-order-trim="Performance Wheels" data-order-price="$84,990" data-order-image="models.jpg" data-order-action="add">Add to cart</button></div>
+                </div>
+            </article>
+
+            <article class="inventory-card" data-model="Cybertruck" data-trim="Performance Wheels" data-city="Ho Chi Minh City" data-price="99990">
+                <img src="cbt.png" alt="Cybertruck">
+                <div class="inventory-card-body">
+                    <div class="inventory-card-top"><h3>Cybertruck</h3><strong>$99,990</strong></div>
+                    <p>Performance Wheels</p>
+                    <div class="inventory-specs-mini"><div><span>340 mi</span><small>Range (EPA)</small></div><div><span>2.6 s</span><small>0-60 mph</small></div><div><span>130 mph</span><small>Top speed</small></div></div>
+                    <label class="inventory-addon"><input type="checkbox" data-home-charger> Include Home Charger (+$450)</label>
+                    <div class="inventory-card-actions"><a href="order-cybertruck.html" class="btn btn-red">Configure</a><button class="btn btn-outline" type="button" data-order-model="Cybertruck" data-order-trim="Performance Wheels" data-order-price="$99,990" data-order-image="cbt.png" data-order-action="add">Add to cart</button></div>
+                </div>
+            </article>
+        </section>
+
+        <div class="inventory-load-wrap">
+            <button id="inventory-load-more" type="button" class="btn btn-outline">Load More Vehicles</button>
+        </div>
+    </section>
+</main>
+
+<footer class="concept-footer-links">
+    <p>TESLA © 2026 &nbsp;|&nbsp; PRIVACY & LEGAL &nbsp;|&nbsp; CONTACT &nbsp;|&nbsp; CAREERS &nbsp;|&nbsp; NEWS &nbsp;|&nbsp; LOCATIONS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

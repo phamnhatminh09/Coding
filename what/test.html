@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bố Cục Chia Đôi Trên Background Sẵn</title>
+    
+    <style>
+        /* 1. CSS DÀNH CHO TRANG WEB CÓ BACKGROUND SẴN */
+        body {
+            /* THAY ĐỔI ĐƯỜNG DẪN ẢNH NỀN CỦA BẠN TẠI ĐÂY */
+            background-image: url('duong_dan_anh_nen_cua_ban.jpg'); 
+            background-size: cover;
+            background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 50px; /* Thêm khoảng đệm trên cùng nếu cần */
+        }
+
+        /* 2. CSS CHO BỐ CỤC CHIA ĐÔI */
+        .container-wrapper {
+            max-width: 1200px; /* Chiều rộng tổng thể của bố cục 2 cột */
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4); /* Thêm bóng để nổi bật khỏi background */
+            overflow: hidden; /* Đảm bảo shadow hoạt động đúng */
+        }
+
+        .split-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-column {
+            flex: 1; /* Chiếm 50% */
+            /* ĐẶT MÀU NỀN để che ảnh nền body */
+            background-color: #333; 
+            background-image: url('placeholder_image_old_ebbitt.jpg'); /* Ảnh nền của riêng cột trái */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; 
+            justify-content: flex-start; 
+            padding: 50px;
+            color: white; 
+            position: relative;
+            min-height: 550px;
+        }
+        
+        .overlay {
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background-color: rgba(0, 0, 0, 0.4); /* Lớp phủ mờ cho cột trái */
+            z-index: 0;
+        }
+
+        .left-content {
+            z-index: 1; /* Đảm bảo chữ nằm trên lớp phủ */
+        }
+
+        .right-column {
+            flex: 1; /* Chiếm 50% */
+            /* ĐẶT MÀU NỀN để che ảnh nền body */
+            background-color: #F7F5F0; 
+            padding: 60px 80px; 
+            font-family: Georgia, serif;
+        }
+
+        .right-column h2 {
+            font-size: 28px; 
+            color: #4A4A4A; 
+            margin-top: 0;
+        }
+
+        .right-column p {
+            text-align: justify; 
+            line-height: 1.7; 
+            color: #555;
+        }
+
+        /* MEDIA QUERY ĐỂ HIỂN THỊ TỐT TRÊN DI ĐỘNG */
+        @media (max-width: 768px) {
+            .split-container {
+                flex-direction: column; /* Chuyển thành 1 cột trên màn hình nhỏ */
+            }
+            .left-column {
+                min-height: 300px; /* Giảm chiều cao cột ảnh trên di động */
+                padding: 30px;
+            }
+            .right-column {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-wrapper">
+        <div class="split-container">
+
+            <div class="left-column">
+                <div class="overlay"></div>
+                <div class="left-content">
+                    <h1 style="font-size: 50px; margin: 0;">FOUNDED IN 1856</h1>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <h2>THE OLDEST SALOON IN WASHINGTON</h2>
+                
+                <p>
+                    'The Old Ebbitt Grill, Washington's oldest saloon, was founded in **1856** when... (Nội dung giới thiệu)...
+                </p>
+
+                <p>
+                    As a boarding house, the Ebbitt guest list read like a Who's Who of American History. Presidents **Ulysses S. Grant**, **Andrew Johnson**, **Grover Cleveland**...
+                </p>
+                
+                <p>
+                    Old Ebbitt became Washington's first known saloon. In the 1920s, they were combined into a single Old Ebbitt Grill.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý học sinh</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .input-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-form input {
+            padding: 8px 10px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        #nameInput {
+            width: 250px;
+        }
+
+        #mathInput, #litInput, #engInput {
+            width: 80px;
+        }
+
+        .input-form button {
+            padding: 8px 15px;
+            border: 1px solid #999;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .input-form button:hover {
+            background-color: #e0e0e0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+        
+        table td:first-child {
+            text-align: center; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>QUẢN LÝ DANH SÁCH SẢN PHẨM</h2>
+        
+        <div class="input-form">
+            <input type="text" id="nameInput" placeholder="Tên sản phẩm">
+            <input type="number" id="amountInput" placeholder="Số lượng" min="0">
+            <input type="number" id="priceInput" placeholder="Đơn giá" min="0">
+            <button id="addItemBtn">Thêm sản phẩm</button>
+        </div>
+
+        <table id="itemTable">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('addItemBtn').addEventListener('click', function() {
+            const name = document.getElementById('nameInput').value.trim();
+            const amount = document.getElementById('amountInput').value;
+            const price = document.getElementById('priceInput').value;
+
+            if (name === "" || isNaN(amount) || isNaN(price) || amount === 0 || price === 0) {
+                alert("Vui lòng nhập đầy đủ tên sản phẩm và số lượng và đơn giá!");
+                return;
+            }
+
+            const total = (amount * price);
+
+            const tableBody = document.querySelector('#itemTable tbody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${amount}</td>
+                <td>${price}</td>
+                <td>${total}</td>
+            `;
+
+            tableBody.appendChild(newRow);
+
+            document.getElementById('nameInput').value = "";
+            document.getElementById('amountInput').value = "";
+            document.getElementById('priceInput').value = "";
+        });
+    </script>
+</body>
+</html>

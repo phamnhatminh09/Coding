@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders</title>
+  <style>
+    body {
+      margin: 24px;
+      font-family: "Times New Roman", serif;
+      background: #ffffff;
+    }
+
+    .orders-wrap {
+      width: 700px;
+    }
+
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 40px;
+      font-weight: 600;
+      color: #4f809f;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 36px;
+      font-style: italic;
+      font-weight: 700;
+      color: #111;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+      font-size: 32px;
+    }
+
+    th,
+    td {
+      border: 1px solid #c9c9c9;
+      padding: 6px 8px;
+      vertical-align: middle;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .check-col {
+      width: 42px;
+      text-align: center;
+    }
+
+    .order-col {
+      width: 155px;
+    }
+
+    .customer-col {
+      width: 260px;
+    }
+
+    .date-col {
+      width: 170px;
+    }
+
+    .value-col {
+      width: 230px;
+    }
+
+    .value-input,
+    .total-input {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 30px;
+      font-family: inherit;
+      padding: 4px 6px;
+      border: 1px solid #a8a8a8;
+      background: #fff;
+    }
+
+    .total-label {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .action-cell {
+      text-align: right;
+      background: #fff;
+    }
+
+    .action-btn {
+      font-size: 30px;
+      font-family: inherit;
+      border: 1px solid #8a8a8a;
+      background: #efefef;
+      border-radius: 4px;
+      padding: 4px 14px;
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="orders-wrap">
+    <h2>Your orders</h2>
+
+    <form id="ordersForm" action="process.php" method="post">
+      <table aria-label="Orders table">
+        <thead>
+          <tr>
+            <th class="check-col">
+              <input type="checkbox" id="selectAll" aria-label="Select all orders">
+            </th>
+            <th class="order-col">Order No</th>
+            <th class="customer-col">Customer Name</th>
+            <th class="date-col">Order Date</th>
+            <th class="value-col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="check-col">
+              <input class="row-check" type="checkbox" name="orders[]" value="SHD11" aria-label="Select SHD 11">
+            </td>
+            <td>SHD 11</td>
+            <td>Nguyen Van A</td>
+            <td>12/2/2009</td>
+            <td>
+              <input id="valueSHD11" class="value-input" type="text" name="values[SHD11]" value="20000" inputmode="numeric">
+            </td>
+          </tr>
+          <tr>
+            <td class="check-col">
+              <input class="row-check" type="checkbox" name="orders[]" value="SHD12" aria-label="Select SHD 12">
+            </td>
+            <td>SHD 12</td>
+            <td>Nguyen Bich Thao</td>
+            <td>12/11/2009</td>
+            <td>
+              <input id="valueSHD12" class="value-input" type="text" name="values[SHD12]" value="55000" inputmode="numeric">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="total-label">Total:</td>
+            <td>
+              <input id="totalValue" class="total-input" type="text" value="0" readonly>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" class="action-cell">
+              <button class="action-btn" type="button" id="updateBtn">Update</button>
+              <button class="action-btn" type="submit" id="saveBtn">Save</button>
+              <button class="action-btn" type="button" id="backBtn">Back</button>
+              <button class="action-btn" type="reset" id="resetBtn">Reset</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById("ordersForm");
+      const selectAll = document.getElementById("selectAll");
+      const rowChecks = Array.from(document.querySelectorAll(".row-check"));
+      const totalValue = document.getElementById("totalValue");
+      const backBtn = document.getElementById("backBtn");
+      const updateBtn = document.getElementById("updateBtn");
+      const valueInputs = Array.from(document.querySelectorAll(".value-input"));
+
+      function parseValue(rawValue) {
+        const cleaned = String(rawValue).replace(/[^\d.-]/g, "");
+        const parsed = Number(cleaned);
+        return Number.isFinite(parsed) ? parsed : 0;
+      }
+
+      function normalizeValueInput(input) {
+        input.value = String(parseValue(input.value));
+      }
+
+      function getRowValueInput(checkbox) {
+        const row = checkbox.closest("tr");
+        return row ? row.querySelector(".value-input") : null;
+      }
+
+      function updateTotal() {
+        let sum = 0;
+        rowChecks.forEach((checkbox) => {
+          if (checkbox.checked) {
+            const valueInput = getRowValueInput(checkbox);
+            if (valueInput) {
+              sum += parseValue(valueInput.value);
+            }
+          }
+        });
+        totalValue.value = String(sum);
+      }
+
+      function syncMaster() {
+        const allChecked = rowChecks.every((checkbox) => checkbox.checked);
+        const anyChecked = rowChecks.some((checkbox) => checkbox.checked);
+        selectAll.checked = allChecked;
+        selectAll.indeterminate = anyChecked && !allChecked;
+      }
+
+      function toggleAll() {
+        rowChecks.forEach((checkbox) => {
+          checkbox.checked = selectAll.checked;
+        });
+        selectAll.indeterminate = false;
+      }
+
+      function resetSelection() {
+        rowChecks.forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+        selectAll.checked = false;
+        selectAll.indeterminate = false;
+        totalValue.value = "0";
+      }
+
+      selectAll.addEventListener("change", toggleAll);
+
+      rowChecks.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          syncMaster();
+        });
+      });
+
+      valueInputs.forEach((input) => {
+        input.addEventListener("blur", function () {
+          normalizeValueInput(input);
+        });
+      });
+
+      form.addEventListener("reset", function () {
+        // Let the native reset happen first, then normalize all states.
+        window.setTimeout(resetSelection, 0);
+      });
+
+      backBtn.addEventListener("click", function () {
+        window.history.back();
+      });
+
+      updateBtn.addEventListener("click", function () {
+        syncMaster();
+        valueInputs.forEach(normalizeValueInput);
+        updateTotal();
+      });
+
+      form.addEventListener("submit", function () {
+        valueInputs.forEach((input) => {
+          normalizeValueInput(input);
+          input.disabled = true;
+        });
+
+        rowChecks.forEach((checkbox) => {
+          const rowInput = getRowValueInput(checkbox);
+          if (checkbox.checked && rowInput) {
+            rowInput.disabled = false;
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

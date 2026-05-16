@@ -1,5 +1,19 @@
 {
-    "files.associations": {
-        "iostream": "cpp"
-    }
+  "clangd.path": "C:/msys64/ucrt64/bin/clangd.exe",
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+    "--include-dir=C:/msys64/ucrt64/include/c++/15.2.0"
+  ],
+  "terminal.integrated.env.windows": {
+    "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+  },
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportGeneralTypeIssues": "none",
+    "reportOptionalMemberAccess": "none",
+    "reportOptionalSubscript": "none",
+    "reportUndefinedVariable": "none"
+  }
 }

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <a href="index.html" class="logo">TESLA</a>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <div class="nav-dropdown">
+            <a href="#products" class="dropdown-toggle">Products</a>
+            <div class="nav-dropdown-menu">
+                <a href="model-s.html">Model S</a>
+                <a href="model-3.html">Model 3</a>
+                <a href="model-x.html">Model X</a>
+                <a href="model-y.html">Model Y</a>
+                <a href="cybertruck.html">Cybertruck</a>
+                <a href="home-charger.html">Home Charger</a>
+            </div>
+        </div>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact</a>
+        <a href="schedule.html">Schedule</a>
+    </nav>
+    <div class="nav-right">
+        <a href="inventory.html" class="btn btn-red btn-order-compact">ORDER</a>    
+    </div>
+</header>
+
+<section class="hero hero-home">
+    <div class="slider">
+        <img src="mod3.avif" class="slide active" alt="Tesla Model 3">
+        <img src="modS.avif" class="slide" alt="Tesla Model S">
+        <img src="modX.avif" class="slide" alt="Tesla Model X">
+        <img src="modY.avif" class="slide" alt="Tesla Model Y">
+        <img src="cybertruck.avif" class="slide" alt="Tesla Cybertruck">
+    </div>
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Experience the Future of Electric</h1>
+        <div class="hero-buttons">
+            <a href="#products" class="btn btn-red">Shop Now</a>
+            <a href="schedule.html" class="btn btn-gray">Book a Test Drive</a>
+        </div>
+    </div>
+</section>
+
+<section class="products section" id="products">
+    <div class="section-header">
+        <span class="tag">The Lineup</span>
+        <h2>Precision Engineered</h2>
+    </div>
+    <div class="product-list">
+        <article class="card">
+            <div class="card-img"><img src="modS.avif" alt="Model S"></div>
+            <div class="card-body">
+                <div class="card-info"><h3>Model S</h3><span>$74,990</span></div>
+                <a class="btn btn-outline card-link" href="model-s.html">View Details</a>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card-img"><img src="mod3.avif" alt="Model 3"></div>
+            <div class="card-body">
+                <div class="card-info"><h3>Model 3</h3><span>$38,990</span></div>
+                <a class="btn btn-outline card-link" href="model-3.html">View Details</a>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card-img"><img src="modX.avif" alt="Model X"></div>
+            <div class="card-body">
+                <div class="card-info"><h3>Model X</h3><span>$79,990</span></div>
+                <a class="btn btn-outline card-link" href="model-x.html">View Details</a>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card-img"><img src="modY.avif" alt="Model Y"></div>
+            <div class="card-body">
+                <div class="card-info"><h3>Model Y</h3><span>$42,990</span></div>
+                <a class="btn btn-outline card-link" href="model-y.html">View Details</a>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card-img"><img src="cybertruck.png" alt="Cybertruck"></div>
+            <div class="card-body">
+                <div class="card-info"><h3>Cybertruck</h3><span>$99,990</span></div>
+                <a class="btn btn-outline card-link" href="cybertruck.html">View Details</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="tech section" id="tech">
+    <div class="tech-grid">
+        <div class="tech-box box-autopilot">
+            <div class="content">
+                <div class="tech-tag">AUTOPILOT_CLUSTER</div>
+                <h3>Autopilot</h3>
+                <p>Advanced safety features designed to assist you with driving.</p>
+            </div>
+        </div>
+        <div class="tech-box box-battery">
+            <div class="content">
+                <div class="icon">Battery</div>
+                <h3>Fast Charge</h3>
+                <p>Recharge up to 200 miles in only 15 minutes.</p>
+            </div>
+            <div class="battery-stat">400mi+</div>
+        </div>
+        <div class="tech-box box-screen">
+            <div class="content">
+                <div class="icon">Display</div>
+                <h3>Smart Screen</h3>
+                <p>A cinematic 17-inch touchscreen gives real-time control.</p>
+            </div>
+        </div>
+        <div class="tech-box box-structure">
+            <div class="content">
+                <h3>Rigid Structure</h3>
+                <p>Designed from the ground up for maximum protection.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="driving-experience">
+    <div class="driving-content">
+        <h2>Driving has never been this fun</h2>
+        <p>Experience instant torque with a smooth and quiet ride.</p>
+        <a class="btn btn-white" href="schedule.html">Schedule A Drive</a>
+    </div>
+</section>
+
+<section class="contact section">
+    <h2>Get In Touch</h2>
+    <p>Questions about ordering, service, or ownership? Contact us directly.</p>
+    <a href="contact.html" class="btn btn-red">Contact Tesla</a>
+</section>
+
+<footer>
+    <p>TESLA © 2026. ALL RIGHTS RESERVED. | PRIVACY & LEGAL | CONTACT | CAREERS | NEWS | LOCATIONS</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

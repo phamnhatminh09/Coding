@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Delicious Place - Spaghetti Bolognese</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f4f4f4;
+			color: #333;
+		}
+		header {
+			background-color: #8B0000; /* Dark Red */
+			color: white;
+			padding: 1em 0;
+			text-align: center;
+		}
+		nav {
+			background-color: #555;
+			color: white;
+			padding: 0.5em 0;
+			text-align: center;
+		}
+		nav a {
+			color: white;
+			text-decoration: none;
+			padding: 0.5em 1em;
+			display: inline-block;
+		}
+		nav a:hover {
+			background-color: #777;
+		}
+		.container {
+			width: 80%;
+			margin: auto;
+			overflow: hidden;
+			padding: 20px 0;
+		}
+		.content-section {
+			background-color: white;
+			padding: 20px;
+			margin-bottom: 20px;
+			border-radius: 8px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+		.dish-detail-layout {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 30px;
+			align-items: start;
+		}
+		@media (min-width: 768px) {
+			.dish-detail-layout {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+		.dish-detail-layout img {
+			width: 100%;
+			height: auto;
+			border-radius: 8px;
+		}
+		.dish-info h2 {
+			color: #8B0000; /* Dark Red */
+			margin-top: 0;
+			font-size: 2.5em;
+		}
+		.dish-info .price {
+			font-weight: bold;
+			color: #8B0000; /* Dark Red */
+			font-size: 1.5em;
+			margin: 10px 0 20px;
+		}
+		.dish-info p {
+			line-height: 1.6;
+		}
+		.btn {
+			display: inline-block;
+			background-color: #8B0000; /* Dark Red */
+			color: white;
+			padding: 12px 25px;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+			margin-top: 20px;
+		}
+		.btn:hover {
+			background-color: #A52A2A; /* Brown */
+		}
+		footer {
+			background-color: #333;
+			color: white;
+			text-align: center;
+			padding: 1em 0;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>The Delicious Place</h1>
+		<p>Experience the Taste of Perfection</p>
+	</header>
+	<nav>
+		<a href="5.html">Home</a>
+		<a href="5.html#menu">Menu</a>
+		<a href="5.html#about">About Us</a>
+		<a href="5.html#contact">Contact</a>
+	</nav>
+
+	<div class="container">
+		<section class="content-section">
+			<div class="dish-detail-layout">
+				<img src="https://via.placeholder.com/600x400/FF6347/FFFFFF?text=Spaghetti+Bolognese" alt="Spaghetti Bolognese">
+				<div class="dish-info">
+					<h2>Spaghetti Bolognese</h2>
+					<div class="price">$15.99</div>
+					<p>Our Spaghetti Bolognese is a timeless Italian classic, prepared with love and the finest ingredients. It features perfectly cooked spaghetti pasta smothered in a rich, slow-simmered meat sauce made from ground beef, ripe tomatoes, and a secret blend of herbs and spices.</p>
+					<p><strong>Ingredients:</strong> Spaghetti, ground beef, tomatoes, onions, carrots, celery, garlic, red wine, and a mix of Italian herbs.</p>
+					<a href="5.html#menu" class="btn">Back to Menu</a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer id="contact">
+		<p>&copy; 2024 The Delicious Place. All Rights Reserved.</p>
+		<p>Contact us: (123) 456-7890 | contact@deliciousplace.com</p>
+	</footer>
+
+</body>
+</html>
