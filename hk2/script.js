@@ -371,6 +371,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     quantity: 1
                 };
                 const parentScope = button.closest(".inventory-card, .order-config-panel");
+                const activeConfigTile = parentScope ? parentScope.querySelector(".config-tiles .config-tile.active") : null;
+                if (activeConfigTile) {
+                    const selectedTrim = activeConfigTile.getAttribute("data-config-trim");
+                    const selectedPrice = activeConfigTile.getAttribute("data-config-price");
+                    if (selectedTrim) {
+                        payload.trim = selectedTrim;
+                    }
+                    if (selectedPrice) {
+                        payload.price = selectedPrice;
+                    }
+                }
                 const homeChargerCheckbox = parentScope ? parentScope.querySelector("[data-home-charger]") : null;
                 if (homeChargerCheckbox && homeChargerCheckbox.checked) {
                     const upgradedPrice = parsePrice(payload.price) + 450;
@@ -566,6 +577,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const wheelTiles = document.querySelectorAll(".config-tiles .config-tile");
     if (wheelTiles.length) {
+        const syncConfigPrice = (group) => {
+            const activeTile = group.querySelector(".config-tile.active");
+            const selectedPrice = activeTile ? activeTile.getAttribute("data-config-price") : "";
+            const panel = group.closest(".order-config-panel");
+            const priceText = panel ? panel.querySelector(".order-config-price strong") : null;
+            if (selectedPrice && priceText) {
+                priceText.textContent = selectedPrice;
+            }
+        };
         wheelTiles.forEach((tile) => {
             tile.addEventListener("click", () => {
                 const group = tile.closest(".config-tiles");
@@ -574,8 +594,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 const siblings = group.querySelectorAll(".config-tile");
                 siblings.forEach((item) => item.classList.toggle("active", item === tile));
+                syncConfigPrice(group);
             });
         });
+        document.querySelectorAll(".config-tiles").forEach((group) => syncConfigPrice(group));
     }
 
     const paymentCartItems = document.getElementById("payment-cart-items");
