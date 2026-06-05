@@ -286,6 +286,18 @@
             background-color: #408a89;
         }
 
+        .reservation-message {
+            display: none;
+            margin-top: 18px;
+            padding: 14px 16px;
+            border: 1px solid #57a8a6;
+            border-radius: 4px;
+            background-color: #eef8f7;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: 600;
+        }
+
         .room-title {
             font-size: 1.8em;
             color: #2c3e50;
@@ -445,7 +457,7 @@
         
         <div class="reservation-container">
             <div class="reservation-form">
-                <form>
+                <form id="reservationForm" method="post" action="">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="firstName">TÊN *</label>
@@ -507,6 +519,9 @@
                     </div>
                     
                     <button type="submit" class="reserve-button">ĐẶT BÀN NGAY</button>
+                    <p id="reservationMessage" class="reservation-message" role="status" aria-live="polite">
+                        Cảm ơn bạn! Thông tin đặt bàn đã được ghi nhận.
+                    </p>
                 </form>
             </div>
             
@@ -554,5 +569,21 @@
             &copy; 2025 PNM. Bảo Lưu Mọi Quyền.
         </div>
     </footer>
+    <script>
+        const reservationForm = document.getElementById('reservationForm');
+        const reservationMessage = document.getElementById('reservationMessage');
+
+        reservationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            if (!reservationForm.checkValidity()) {
+                reservationForm.reportValidity();
+                return;
+            }
+
+            reservationMessage.style.display = 'block';
+            reservationForm.reset();
+        });
+    </script>
 </body>
 </html>
