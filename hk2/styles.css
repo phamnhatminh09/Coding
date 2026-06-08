@@ -1891,7 +1891,7 @@ body.page-concept {
     text-align: center;
 }
 
-.payment-summary img {
+.payment-summary > img {
     width: 100%;
     height: 220px;
     object-fit: cover;
