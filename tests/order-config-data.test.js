@@ -35,7 +35,7 @@ for (const file of orderPages) {
     );
     const checkoutButton = getMatch(
         html,
-        /<button[^>]*class="[^"]*\border-config-cta\b[^"]*"[\s\S]*?>/,
+        /(<button[^>]*class="[^"]*\border-config-cta\b[^"]*"[\s\S]*?>)/,
         "checkout button",
         file
     );
