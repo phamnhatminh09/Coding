@@ -27,13 +27,12 @@ for (const file of orderPages) {
     const html = fs.readFileSync(filePath, "utf8");
 
     const heading = getMatch(html, /<h1>\s*([^<]+?)\s*<\/h1>/, "page heading", file);
-    const priceBlock = getMatch(
+    const visiblePrice = getMatch(
         html,
-        /<div class="order-config-price">([\s\S]*?)<\/div>\s*<\/div>/,
-        "visible price block",
+        /<div class="order-config-price">[\s\S]*?<strong>\s*([^<]+?)\s*<\/strong>/,
+        "visible price",
         file
     );
-    const visiblePrice = getMatch(priceBlock, /<strong>\s*([^<]+?)\s*<\/strong>/, "visible price", file);
     const checkoutButton = getMatch(
         html,
         /<button[^>]*class="[^"]*\border-config-cta\b[^"]*"[\s\S]*?>/,
