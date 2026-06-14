@@ -29,7 +29,7 @@ for (const file of orderPages) {
     const heading = getMatch(html, /<h1>\s*([^<]+?)\s*<\/h1>/, "page heading", file);
     const priceBlock = getMatch(
         html,
-        /<div class="order-config-price">([\s\S]*?)<\/div>\s*<\/div>/,
+        /<div class="order-config-price">([\s\S]*?)<\/div>\s*<label class="order-home-charger">/,
         "visible price block",
         file
     );
