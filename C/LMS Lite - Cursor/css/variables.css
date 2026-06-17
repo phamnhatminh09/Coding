@@ -1,0 +1,72 @@
+:root {
+  /* OES Primary */
+  --color-dollar-bill: #93be5e;
+  --color-green-cyan: #00926c;
+  --color-pigment: #00aa54;
+  --color-castleton: #0e5c45;
+  --color-ufo: #3dd477;
+
+  /* Secondary */
+  --color-corn: #ffea60;
+  --color-orange: #ed9d3e;
+
+  /* Text & Background */
+  --color-white: #ffffff;
+  --color-culture: #f3f5f6;
+  --color-oh-be: #0b0b0b;
+  --color-text: #1a2e28;
+  --color-text-muted: #5e6d7e;
+  --color-border: #e2e8f0;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #f3f5f6 0%, #ffffff 45%, rgba(147, 190, 94, 0.12) 100%);
+  --gradient-cta: linear-gradient(135deg, #93be5e 0%, #00926c 100%);
+  --gradient-section: linear-gradient(180deg, #ffffff 0%, #f3f5f6 100%);
+
+  /* Typography */
+  --font-main: 'SVN-Gilroy', 'Plus Jakarta Sans', sans-serif;
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+  --fs-h1: clamp(2rem, 4.5vw, 3rem);
+  --fs-h2: clamp(1.5rem, 3vw, 2.25rem);
+  --fs-h3: 1.25rem;
+  --fs-h4: 1.0625rem;
+  --lh-body: 1.45;
+  --lh-heading: 1.2;
+
+  /* Spacing (multiples of 8) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --nav-height: 72px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.1);
+  --shadow-green: 0 8px 32px rgba(0, 146, 108, 0.2);
+
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-index */
+  --z-nav: 100;
+  --z-modal: 200;
+}

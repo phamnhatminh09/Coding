@@ -15,5 +15,6 @@
     "reportOptionalMemberAccess": "none",
     "reportOptionalSubscript": "none",
     "reportUndefinedVariable": "none"
-  }
+  },
+  "liveServer.settings.port": 5501
 }

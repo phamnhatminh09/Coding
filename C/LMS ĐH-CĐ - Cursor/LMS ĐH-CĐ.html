@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LMS cho trường Đại học - Cao đẳng. Triển khai LMS tùy chỉnh, đáp ứng Thông tư 30/2023/TT của Bộ Giáo dục và Đào tạo. Giải pháp OES.">
+  <title>LMS cho trường Đại học - Cao đẳng | OES</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo">OES <span>LMS ĐH-CĐ</span></a>
+      <nav class="header__nav" id="nav-menu">
+        <ul class="header__list">
+          <li><a href="#gioi-thieu" class="header__link">Giới thiệu</a></li>
+          <li><a href="#ly-do" class="header__link">Lý do</a></li>
+          <li><a href="#tinh-nang" class="header__link">Tính năng</a></li>
+          <li><a href="#key-features" class="header__link">Key features</a></li>
+          <li><a href="#giao-dien" class="header__link">Giao diện</a></li>
+          <li><a href="#dang-ky" class="header__link">Đăng ký</a></li>
+        </ul>
+        <div class="header__actions">
+          <button type="button" class="btn btn--outline btn--sm" id="btn-demo-header">Nhận demo</button>
+          <a href="#dang-ky" class="btn btn--primary btn--sm">Đăng ký tư vấn cùng chuyên gia</a>
+        </div>
+      </nav>
+      <button class="header__toggle" id="nav-toggle" aria-label="Mở menu">
+        <i class="bx bx-menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero Banner -->
+    <section class="hero halftone-bg" id="hero">
+      <div class="container hero__grid reveal">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <i class="bx bx-book-reader"></i>
+            LMS cho trường Đại học - Cao đẳng
+          </div>
+          <h1 class="hero__title">Triển khai LMS tùy chỉnh riêng cho trường Đại học - Cao đẳng</h1>
+          <p class="hero__subtitle">Đáp ứng chuẩn yêu cầu quản lý đào tạo theo Thông tư 30/2023/TT của Bộ Giáo dục và Đào tạo</p>
+          <div class="hero__cta">
+            <button type="button" class="btn btn--primary" id="btn-demo-hero">
+              <i class="bx bx-play-circle"></i>
+              Nhận demo
+            </button>
+            <a href="#dang-ky" class="btn btn--outline">
+              <i class="bx bx-phone"></i>
+              Đăng ký tư vấn cùng chuyên gia
+            </a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__img-wrap">
+            <img src="assets/hero_dashboard.png" alt="Dashboard LMS Đại học - Cao đẳng">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 1: Giới thiệu -->
+    <section class="section section--alt" id="gioi-thieu">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Giới thiệu</span>
+          <h2 class="section__title">Triển khai LMS tùy chỉnh riêng cho trường Đại học - Cao đẳng</h2>
+          <p class="section__subtitle section__subtitle--center">Đáp ứng chuẩn yêu cầu quản lý đào tạo theo Thông tư 30/2023/TT của Bộ Giáo dục và Đào tạo</p>
+        </div>
+        <p class="intro__tagline">Đồng hành cùng nhà trường tối ưu quy trình đào tạo</p>
+        <div class="stats__grid">
+          <article class="stats__card">
+            <div class="stats__number"><span data-counter="100">0</span>+</div>
+            <p class="stats__label">khách hàng</p>
+            <p class="stats__desc">Triển khai hệ thống LMS ĐH - CĐ</p>
+          </article>
+          <article class="stats__card">
+            <div class="stats__number"><span data-counter="500000">0</span>+</div>
+            <p class="stats__label">users</p>
+            <p class="stats__desc">Tham gia học tập và phát triển năng lực</p>
+          </article>
+          <article class="stats__card">
+            <div class="stats__number"><span data-counter="95" data-suffix="%">0</span><span>%</span></div>
+            <p class="stats__label">hài lòng</p>
+            <p class="stats__desc">Đánh giá tích cực từ khách hàng thực tế của OES</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 2: Lý do -->
+    <section class="section" id="ly-do">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Lý do</span>
+          <h2 class="section__title">Phá bỏ mọi rào cản và hạn chế từ đào tạo truyền thống</h2>
+        </div>
+
+        <div class="why__comparison">
+          <div class="why__column">
+            <div class="why__col-header">
+              <div class="why__col-badge why__col-badge--old">
+                <i class="bx bx-x"></i>
+                Đào tạo truyền thống
+              </div>
+            </div>
+            <div class="why__items">
+              <div class="why__item why__item--old">
+                <i class="bx bx-x-circle"></i>
+                <span>Quản lý đào tạo phân tán giữa các khoa, bộ môn</span>
+              </div>
+              <div class="why__item why__item--old">
+                <i class="bx bx-x-circle"></i>
+                <span>Khó theo dõi lộ trình và tiến độ học tập của sinh viên</span>
+              </div>
+              <div class="why__item why__item--old">
+                <i class="bx bx-x-circle"></i>
+                <span>Dữ liệu báo cáo chưa được cập nhật kịp thời</span>
+              </div>
+              <div class="why__item why__item--old">
+                <i class="bx bx-x-circle"></i>
+                <span>Phụ thuộc nhiều vào quy trình vận hành thủ công</span>
+              </div>
+              <div class="why__item why__item--old">
+                <i class="bx bx-x-circle"></i>
+                <span>Khó đảm bảo tính đồng bộ và tuân thủ các quy định đào tạo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="why__divider" aria-hidden="true">
+            <div class="why__divider-line"></div>
+            <span class="why__divider-label">So sánh</span>
+            <div class="why__divider-line"></div>
+          </div>
+
+          <div class="why__column">
+            <div class="why__col-header">
+              <div class="why__col-badge why__col-badge--new">
+                <i class="bx bx-check"></i>
+                LMS Đại học - Cao đẳng
+              </div>
+            </div>
+            <div class="why__items">
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Chuẩn hóa và quản lý đào tạo trên một hệ thống tập trung</span>
+              </div>
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Theo dõi lộ trình và tiến độ học tập rõ ràng theo từng sinh viên</span>
+              </div>
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Cập nhật và phân tích dữ liệu đào tạo theo thời gian thực</span>
+              </div>
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Hỗ trợ giảng viên và nhà trường trong việc đánh giá và ra quyết định</span>
+              </div>
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Linh hoạt triển khai nhiều hình thức đào tạo (trực tiếp, trực tuyến, kết hợp)</span>
+              </div>
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Tăng cường tương tác và nâng cao trải nghiệm học tập cho sinh viên</span>
+              </div>
+              <div class="why__item why__item--new">
+                <i class="bx bx-check-circle"></i>
+                <span>Hỗ trợ tuân thủ các nghị định, thông tư và quy định của Bộ Giáo dục trong quản lý và tổ chức đào tạo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 2b: Ecosystem 20+ tính năng -->
+    <section class="section section--alt" id="tinh-nang">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Hệ sinh thái</span>
+          <h2 class="section__title">Hệ sinh thái LMS cho trường Đại học - Cao đẳng với hơn 20+ tính năng</h2>
+        </div>
+
+        <div class="features__segment">
+          <div class="features__segment-btns">
+            <button type="button" class="features__segment-btn is-active" data-role="student">
+              <i class="bx bx-user"></i>
+              Tính năng dành cho Sinh viên
+            </button>
+            <button type="button" class="features__segment-btn" data-role="admin">
+              <i class="bx bx-shield-quarter"></i>
+              Tính năng dành cho Giảng viên/Quản trị viên
+            </button>
+          </div>
+        </div>
+
+        <!-- Sinh viên -->
+        <div class="features__panel is-active" id="panel-student">
+          <div class="features__layout">
+            <div class="features__sidebar">
+              <div class="features__sidebar-title">Tính năng dành cho Sinh viên</div>
+              <div class="features__list" id="student-features-list">
+                <button type="button" class="features__item is-active"
+                  data-img="assets/features/student-dash.png"
+                  data-title="Trang học tập cá nhân hóa"
+                  data-desc="Không gian học tập cá nhân hiển thị lộ trình, tiến độ và nội dung phù hợp với từng sinh viên."
+                  data-bullets="[&quot;Theo dõi tiến độ học tập theo từng học phần và bài giảng.&quot;,&quot;Xem dashboard cá nhân với lịch học, nhiệm vụ và cảnh báo.&quot;,&quot;Hiển thị nhiệm vụ và lịch học rõ ràng&quot;,&quot;Nhận gợi ý nội dung học phù hợp với tiến độ cá nhân.&quot;]"
+                  data-cta="true">
+                  <span>Trang học tập cá nhân hóa</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/library.png"
+                  data-title="Học tập thông minh &amp; linh hoạt"
+                  data-desc="Truy cập học liệu mọi lúc, đa định dạng và có tương tác trong quá trình học."
+                  data-bullets="[&quot;Truy cập bài giảng dưới nhiều định dạng: video, PDF, SCORM, tài liệu số.&quot;,&quot;Học trực tiếp trên hệ thống với chế độ tối ưu (fullscreen, mobile).&quot;,&quot;Lưu tiến trình bài học&quot;,&quot;Xem lại nội dung học bất kỳ lúc nào theo quyền truy cập.&quot;]">
+                  <span>Học tập thông minh &amp; linh hoạt</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/student-courses.png"
+                  data-title="Nhắc nhở học tập &amp; quản lý nhiệm vụ"
+                  data-desc="Sinh viên theo dõi tiến độ và chủ động hoàn thành các yêu cầu học tập đúng hạn."
+                  data-bullets="[&quot;Nhận thông báo nhắc học về bài tập, bài kiểm tra và deadline.&quot;,&quot;Theo dõi danh sách nhiệm vụ học tập cần hoàn thành theo từng học phần.&quot;,&quot;Xem tiến độ học tập và các nội dung còn thiếu.&quot;,&quot;Nhận thông báo qua nhiều kênh: hệ thống, email, ứng dụng di động.&quot;]">
+                  <span>Nhắc nhở học tập &amp; quản lý nhiệm vụ</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/online-exam.png"
+                  data-title="Hỗ trợ thi cử mạnh mẽ"
+                  data-desc="Hỗ trợ kiểm tra trực tuyến với quy trình rõ ràng và minh bạch."
+                  data-bullets="[&quot;Làm bài thi theo thời gian quy định&quot;,&quot;Nhận kết quả và phản hồi sau khi hoàn thành&quot;,&quot;Áp dụng các quy tắc kiểm soát trong quá trình thi&quot;]">
+                  <span>Hỗ trợ thi cử mạnh mẽ</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/forum.png"
+                  data-title="Tương tác &amp; hỗ trợ học tập"
+                  data-desc="Tăng cường kết nối giữa giảng viên và sinh viên, hỗ trợ giải đáp kịp thời và thúc đẩy học tập chủ động."
+                  data-bullets="[&quot;Thảo luận học thuật theo từng học phần thông qua diễn đàn.&quot;,&quot;Helpdesk 1-1 tới giảng viên hoặc bộ phận hỗ trợ khi gặp vấn đề&quot;,&quot;Lưu trữ và tra cứu lại các nội dung hỏi đáp trong kho tri thức học tập&quot;]"
+                  data-cta="true">
+                  <span>Tương tác &amp; hỗ trợ học tập</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/ai-tutor.png"
+                  data-title="Học tập bằng AI hiệu quả"
+                  data-desc="Ứng dụng AI hỗ trợ sinh viên tiếp cận nội dung phù hợp và nâng cao hiệu quả học tập."
+                  data-bullets="[&quot;G@U AI Chatbot hỗ trợ giải đáp, gợi ý lộ trình và nội dung học theo năng lực&quot;,&quot;Tìm kiếm và tiếp cận kiến thức nhanh chóng, linh hoạt&quot;]">
+                  <span>Học tập bằng AI hiệu quả</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/gamification.png"
+                  data-title="Gamification trong học tập"
+                  data-desc="Tích hợp các yếu tố trò chơi nhằm duy trì động lực học tập và tăng mức độ tham gia của sinh viên."
+                  data-bullets="[&quot;Hệ thống điểm thưởng và huy hiệu.&quot;,&quot;Bảng xếp hạng học tập.&quot;,&quot;Theo dõi thành tích cá nhân.&quot;]">
+                  <span>Gamification trong học tập</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/student-results.png"
+                  data-title="Quản lý và theo dõi kết quả học tập"
+                  data-desc="Theo dõi toàn bộ quá trình học tập và kết quả đạt được trong hệ thống."
+                  data-bullets="[&quot;Xem điểm số và kết quả từng khóa học.&quot;,&quot;Theo dõi tỷ lệ hoàn thành.&quot;,&quot;Lưu trữ lịch sử học tập.&quot;]">
+                  <span>Quản lý và theo dõi kết quả học tập</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+              </div>
+              <div class="features__sidebar-footer">
+                <a href="#dang-ky" class="btn btn--outline btn--sm">TÌM HIỂU THÊM</a>
+              </div>
+            </div>
+            <div class="features__preview" id="student-preview">
+              <img class="features__preview-img" src="assets/features/student-dash.png" alt="Trang học tập cá nhân hóa">
+              <div class="features__preview-body">
+                <h3 class="features__preview-title">Trang học tập cá nhân hóa</h3>
+                <p class="features__preview-desc">Không gian học tập cá nhân hiển thị lộ trình, tiến độ và nội dung phù hợp với từng sinh viên.</p>
+                <ul class="feature-bullets"></ul>
+                <div class="features__preview-cta features__preview-actions">
+                  <a href="#dang-ky" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giảng viên/Admin -->
+        <div class="features__panel" id="panel-admin">
+          <div class="features__layout">
+            <div class="features__sidebar">
+              <div class="features__sidebar-title features__sidebar-title--admin">Tính năng dành cho Giảng viên/Quản trị viên (Administrator)</div>
+              <div class="features__list" id="admin-features-list">
+                <button type="button" class="features__item is-active"
+                  data-img="assets/features/dashboard.png"
+                  data-title="Quản trị hệ thống"
+                  data-desc="Vận hành và quản lý hệ thống LMS toàn diện."
+                  data-bullets="[&quot;Thiết lập cấu trúc tổ chức (khoa, bộ môn).&quot;,&quot;Quản lý tài khoản giảng viên, sinh viên, cán bộ.&quot;,&quot;Quản lý kế hoạch đào tạo và thời khóa biểu.&quot;,&quot;Theo dõi trạng thái và hoạt động người dùng&quot;]"
+                  data-cta="true">
+                  <span>Quản trị hệ thống</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/course-builder.png"
+                  data-title="Quản lý học phần &amp; tổ chức giảng dạy"
+                  data-desc="Xây dựng và triển khai chương trình đào tạo linh hoạt theo nhu cầu thực tế."
+                  data-bullets="[&quot;Tạo và quản lý bài giảng theo cấu trúc linh hoạt&quot;,&quot;Đóng gói và triển khai nội dung chuẩn SCORM/xAPI&quot;,&quot;Upload đa định dạng: video, tài liệu, bài giảng e-Learning&quot;,&quot;Thiết lập lộ trình học tập theo nhóm hoặc cá nhân&quot;]">
+                  <span>Quản lý học phần &amp; tổ chức giảng dạy</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/question-bank.png"
+                  data-title="Tổ chức thi cử mạnh mẽ"
+                  data-desc="Kiểm tra, thi trực tuyến với nhiều hình thức đánh giá."
+                  data-bullets="[&quot;Xây dựng và quản lý ngân hàng câu hỏi.&quot;,&quot;Tạo ngân hàng câu hỏi trắc nghiệm/tự luận&quot;,&quot;Trộn đề, random câu hỏi, giới hạn thời gian&quot;,&quot;Thiết lập quy tắc thi để hạn chế gian lận&quot;,&quot;Tự động chấm điểm các bài thi trắc nghiệm hợp lệ&quot;]">
+                  <span>Tổ chức thi cử mạnh mẽ</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+                <button type="button" class="features__item"
+                  data-img="assets/features/learning-reports.png"
+                  data-title="Quản lý Ma trận Tiêu chí chấm điểm (Rubric Management)"
+                  data-desc="Đảm bảo đánh giá kết quả học tập minh bạch và nhất quán giữa các sinh viên và học phần."
+                  data-bullets="[&quot;Thiết lập tiêu chí chấm điểm (rubric) cho từng bài tập hoặc bài thi.&quot;,&quot;Định nghĩa thang điểm và mức độ đạt cho từng tiêu chí.&quot;,&quot;Áp dụng rubric trong quá trình chấm điểm để đảm bảo thống nhất.&quot;,&quot;Cung cấp phản hồi chi tiết theo từng tiêu chí cho sinh viên.&quot;]">
+                  <span>Quản lý Ma trận Tiêu chí chấm điểm</span>
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+              </div>
+              <div class="features__sidebar-footer">
+                <a href="#dang-ky" class="btn btn--outline btn--sm">TÌM HIỂU THÊM</a>
+              </div>
+            </div>
+            <div class="features__preview" id="admin-preview">
+              <img class="features__preview-img" src="assets/features/dashboard.png" alt="Quản trị hệ thống">
+              <div class="features__preview-body">
+                <h3 class="features__preview-title">Quản trị hệ thống</h3>
+                <p class="features__preview-desc">Vận hành và quản lý hệ thống LMS toàn diện.</p>
+                <ul class="feature-bullets"></ul>
+                <div class="features__preview-cta features__preview-actions">
+                  <a href="#dang-ky" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 3: Key Features -->
+    <section class="section" id="key-features">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Key features</span>
+          <h2 class="section__title">Tính năng nổi bật</h2>
+        </div>
+
+        <div class="key-features__grid">
+          <article class="key-features__card">
+            <div class="key-features__icon"><i class="bx bx-video"></i></div>
+            <h3 class="key-features__title">Giảng dạy trực tuyến (Virtual Classroom)</h3>
+            <p class="key-features__desc">Hỗ trợ giảng viên tổ chức lớp học trực tuyến với đầy đủ công cụ tương tác.</p>
+            <ul class="feature-bullets">
+              <li>Tổ chức lớp học trực tuyến với video, âm thanh, bảng viết.</li>
+              <li>Chia nhóm thảo luận (breakout room).</li>
+              <li>Tạo câu hỏi nhanh, khảo sát trong lớp học.</li>
+              <li>Ghi hình buổi giảng để sinh viên xem lại.</li>
+              <li>Theo dõi mức độ tham gia của sinh viên trong lớp học.</li>
+            </ul>
+            <div class="features__preview-actions">
+              <a href="#dang-ky" class="btn btn--outline btn--sm">TÌM HIỂU THÊM</a>
+            </div>
+          </article>
+          <article class="key-features__card">
+            <div class="key-features__icon"><i class="bx bx-line-chart"></i></div>
+            <h3 class="key-features__title">Đánh giá &amp; ra quyết định nhanh</h3>
+            <p class="key-features__desc">Cung cấp báo cáo chi tiết giúp giảng viên theo dõi tiến độ và đưa ra can thiệp kịp thời với sinh viên.</p>
+            <ul class="feature-bullets">
+              <li>Theo dõi tiến độ học tập theo cá nhân và nhóm.</li>
+              <li>Báo cáo kết quả học tập, tỷ lệ hoàn thành bài giảng chi tiết.</li>
+              <li>Phân tích mức độ tham gia và tương tác với bài giảng.</li>
+              <li>Xuất dữ liệu phục vụ đánh giá và ra quyết định nội bộ.</li>
+            </ul>
+          </article>
+          <article class="key-features__card">
+            <div class="key-features__icon"><i class="bx bx-shield-alt-2"></i></div>
+            <h3 class="key-features__title">Bảo mật dữ liệu và an toàn hệ thống</h3>
+            <p class="key-features__desc">Đảm bảo dữ liệu và thông tin người dùng được quản lý an toàn trong suốt quá trình vận hành.</p>
+            <ul class="feature-bullets">
+              <li>Phân quyền truy cập dữ liệu chi tiết</li>
+              <li>Lưu trữ và quản lý dữ liệu tập trung</li>
+              <li>Kiểm soát truy cập và hoạt động hệ thống của người dùng</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3 class="ai-section__title">Tích hợp AI linh hoạt tối ưu quy trình đào tạo của nhà trường</h3>
+        <div class="ai-grid">
+          <article class="ai-grid__card">
+            <div class="ai-grid__icon"><i class="bx bx-bot"></i></div>
+            <h4 class="ai-grid__title">AI G@U Chatbot</h4>
+            <p class="ai-grid__desc">Giải đáp thắc mắc học tập và đào tạo hiệu quả.</p>
+            <div class="features__preview-actions" style="margin-top:12px">
+              <a href="#dang-ky" class="btn btn--outline btn--sm">TÌM HIỂU THÊM</a>
+            </div>
+          </article>
+          <article class="ai-grid__card">
+            <div class="ai-grid__icon"><i class="bx bx-scan"></i></div>
+            <h4 class="ai-grid__title">AI Eye Tracking</h4>
+            <ul class="feature-bullets">
+              <li>AI Eye Tracking chống gian lận thi cử, nhận diện khuôn mặt/ánh mắt của thí sinh.</li>
+              <li>Dashboard giám sát thi, đánh dấu bài thi nghi vấn, danh sách cảnh cáo.</li>
+            </ul>
+          </article>
+          <article class="ai-grid__card">
+            <div class="ai-grid__icon"><i class="bx bx-book-content"></i></div>
+            <h4 class="ai-grid__title">AI tạo bài giảng e-Learning</h4>
+            <ul class="feature-bullets">
+              <li>Tính năng tạo bài giảng e-Learning bằng AI tự động, nhanh chóng</li>
+            </ul>
+          </article>
+          <article class="ai-grid__card">
+            <div class="ai-grid__icon"><i class="bx bx-mobile-alt"></i></div>
+            <h4 class="ai-grid__title">AI chấm điểm thi tự động (Wetest)</h4>
+            <p class="ai-grid__desc">Hệ thống chấm điểm thi tự động nhanh chóng chỉ trong 5 - 10 phút bằng điện thoại thông minh.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 4: Giao diện -->
+    <section class="section showcase section--alt" id="giao-dien">
+      <div class="container reveal">
+        <div class="section__header">
+          <h2 class="section__title">GIAO DIỆN HỆ THỐNG LMS CHO TRƯỜNG ĐẠI HỌC - CAO ĐẲNG</h2>
+          <p class="section__subtitle section__subtitle--center">SHOW HỆ THỐNG - CAP MÀN HÌNH DASHBOARD</p>
+        </div>
+        <div class="showcase__frame">
+          <div class="showcase__browser-bar">
+            <div class="showcase__dots">
+              <span class="showcase__dot showcase__dot--red"></span>
+              <span class="showcase__dot showcase__dot--yellow"></span>
+              <span class="showcase__dot showcase__dot--green"></span>
+            </div>
+            <div class="showcase__url">lms-dhcd.oes.vn/dashboard</div>
+          </div>
+          <div class="showcase__screen">
+            <img src="assets/showcase_dashboard.png" alt="Giao diện Dashboard LMS Đại học - Cao đẳng">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 5: Video HDSD -->
+    <section class="section" id="video">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Video HDSD</span>
+          <h2 class="section__title">Video hướng dẫn sử dụng</h2>
+        </div>
+        <div class="video__wrap">
+          <div class="video__placeholder">
+            <i class="bx bx-play-circle"></i>
+            <p>Video giới thiệu hệ thống LMS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 5: Lợi ích -->
+    <section class="section section--alt" id="loi-ich">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Lợi ích</span>
+          <h2 class="section__title">ĐÁP ỨNG MỌI TIÊU CHUẨN ĐÀO TẠO KHI SỬ DỤNG LMS CHUYÊN BIỆT CHO TRƯỜNG ĐẠI HỌC - CAO ĐẲNG</h2>
+        </div>
+        <p class="benefits__intro">Tối ưu vận hành đào tạo và nâng cao chất lượng giảng dạy trên một nền tảng thống nhất</p>
+        <div class="benefits__grid">
+          <div class="benefits__item">
+            <div class="benefits__icon"><i class="bx bx-check-shield"></i></div>
+            <p class="benefits__text">Đạt điều kiện kiểm định chất lượng và tuân thủ quy định của Thông tư do Bộ Giáo dục và Đào tạo ban hành.</p>
+          </div>
+          <div class="benefits__item">
+            <div class="benefits__icon"><i class="bx bx-timer"></i></div>
+            <p class="benefits__text">Rút ngắn thời gian triển khai và vận hành hệ thống, giảm tải công việc thủ công cho đội ngũ giảng viên.</p>
+          </div>
+          <div class="benefits__item">
+            <div class="benefits__icon"><i class="bx bx-sync"></i></div>
+            <p class="benefits__text">Đồng bộ chương trình giảng dạy giữa các khoa, bộ môn và giảng viên.</p>
+          </div>
+          <div class="benefits__item">
+            <div class="benefits__icon"><i class="bx bx-user-voice"></i></div>
+            <p class="benefits__text">Tăng tính chủ động, tương tác và khả năng tự học trên nền tảng số.</p>
+          </div>
+          <div class="benefits__item">
+            <div class="benefits__icon"><i class="bx bx-brain"></i></div>
+            <p class="benefits__text">Hỗ trợ cá nhân hóa lộ trình học, gợi ý nội dung và tự động hóa đánh giá.</p>
+          </div>
+          <div class="benefits__item">
+            <div class="benefits__icon"><i class="bx bx-bar-chart-alt-2"></i></div>
+            <p class="benefits__text">Cung cấp dữ liệu trực quan giúp nhà trường ra quyết định chính xác hơn.</p>
+          </div>
+          <div class="benefits__item" style="grid-column: 1 / -1; max-width: 600px; margin-inline: auto; width: 100%;">
+            <div class="benefits__icon"><i class="bx bx-expand-horizontal"></i></div>
+            <p class="benefits__text">Dễ dàng tích hợp thêm tính năng, mở rộng cho nhiều ngành và hệ đào tạo khác nhau.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 6: Client -->
+    <section class="section" id="clients">
+      <div class="container reveal">
+        <div class="section__header">
+          <span class="section__tag">Client</span>
+          <h2 class="section__title">Sự lựa chọn của nhiều trường Đại học - Cao đẳng hàng đầu</h2>
+        </div>
+        <div class="clients__grid">
+          <div class="clients__logo"><span>Đại học A</span></div>
+          <div class="clients__logo"><span>Đại học B</span></div>
+          <div class="clients__logo"><span>Cao đẳng C</span></div>
+          <div class="clients__logo"><span>Đại học D</span></div>
+          <div class="clients__logo"><span>Đại học E</span></div>
+          <div class="clients__logo"><span>Cao đẳng F</span></div>
+          <div class="clients__logo"><span>Đại học G</span></div>
+          <div class="clients__logo"><span>Đại học H</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Block 7: Form đăng ký -->
+    <section class="section section--alt" id="dang-ky">
+      <div class="container reveal">
+        <div class="contact__wrapper">
+          <div class="contact__info">
+            <h2 class="contact__title">Nâng cao hiệu quả giảng dạy và quản lý đào tạo với nền tảng LMS riêng biệt từ OES</h2>
+            <div class="contact__features">
+              <div class="contact__feature">
+                <div class="contact__feature-icon"><i class="bx bx-grid-alt"></i></div>
+                <div>
+                  <h4>Nền tảng toàn diện</h4>
+                  <p>20+ phân hệ, tùy chỉnh theo nhu cầu đáp ứng mọi nhu cầu đào tạo của nhà trường.</p>
+                </div>
+              </div>
+              <div class="contact__feature">
+                <div class="contact__feature-icon"><i class="bx bx-award"></i></div>
+                <div>
+                  <h4>Uy tín 10+ năm</h4>
+                  <p>OES là đơn vị tư vấn và triển khai giải pháp đào tạo chuyên nghiệp cho hàng trăm trường Đại học - Cao đẳng hàng đầu</p>
+                </div>
+              </div>
+              <div class="contact__feature">
+                <div class="contact__feature-icon"><i class="bx bx-link"></i></div>
+                <div>
+                  <h4>Đồng bộ đào tạo</h4>
+                  <p>Sẵn sàng mở rộng, tích hợp, kết nối với các ứng dụng khác bên trong và bên ngoài LMS Welearning</p>
+                </div>
+              </div>
+              <div class="contact__feature">
+                <div class="contact__feature-icon"><i class="bx bx-chip"></i></div>
+                <div>
+                  <h4>Cập nhật công nghệ tiên tiến</h4>
+                  <p>Liên tục ứng dụng các công nghệ mới nhằm nâng cao hiệu quả đào tạo.</p>
+                </div>
+              </div>
+              <div class="contact__feature" style="grid-column: 1 / -1;">
+                <div class="contact__feature-icon"><i class="bx bx-check-circle"></i></div>
+                <div>
+                  <h4>Đáp ứng chất lượng</h4>
+                  <p>Hệ thống được xây dựng theo tiêu chuẩn đảm bảo tính ổn định và hiệu quả sử dụng.</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact__partner">
+              <div class="contact__partner-icon"><i class="bx bx-handshake"></i></div>
+              <div>
+                <h4>Đồng hành cùng nhà trường</h4>
+                <p>Luôn lắng nghe, hỗ trợ triển khai và vận hành hệ thống phù hợp với nhu cầu thực tế của từng đơn vị.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__form-card" id="contact-form-card">
+            <div class="contact__form-header">
+              <h3>Đăng ký tư vấn</h3>
+              <p>Điền thông tin để được chuyên gia OES tư vấn giải pháp phù hợp</p>
+            </div>
+            <form id="contact-form">
+              <div class="form__group">
+                <label class="form__label" for="name">Họ và tên</label>
+                <div class="form__input-wrap">
+                  <i class="bx bx-user form__icon"></i>
+                  <input class="form__input" type="text" id="name" name="name" required placeholder="Nhập họ và tên">
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="email">Email</label>
+                  <div class="form__input-wrap">
+                    <i class="bx bx-envelope form__icon"></i>
+                    <input class="form__input" type="email" id="email" name="email" required placeholder="email@truong.edu.vn">
+                  </div>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="phone">Số điện thoại</label>
+                  <div class="form__input-wrap">
+                    <i class="bx bx-phone form__icon"></i>
+                    <input class="form__input" type="tel" id="phone" name="phone" required placeholder="0xxx xxx xxx">
+                  </div>
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="school">Tên trường</label>
+                <div class="form__input-wrap">
+                  <i class="bx bx-buildings form__icon"></i>
+                  <input class="form__input" type="text" id="school" name="school" required placeholder="Tên trường Đại học / Cao đẳng">
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="message">Nội dung</label>
+                <textarea class="form__input form__input--plain form__textarea" id="message" name="message" placeholder="Mô tả nhu cầu triển khai LMS..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" id="submit-form-btn">
+                <i class="bx bx-send"></i>
+                Gửi đăng ký tư vấn
+              </button>
+              <p class="form__note"><i class="bx bx-lock-alt"></i> Thông tin của bạn được bảo mật theo chính sách của OES.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <h4>OES <span>LMS ĐH-CĐ</span></h4>
+          <p>Giải pháp LMS chuyên biệt cho trường Đại học - Cao đẳng. Đáp ứng Thông tư 30/2023/TT của Bộ Giáo dục và Đào tạo.</p>
+        </div>
+        <div class="footer__links">
+          <h5>Liên kết</h5>
+          <a href="#gioi-thieu">Giới thiệu</a>
+          <a href="#tinh-nang">Tính năng</a>
+          <a href="#giao-dien">Giao diện</a>
+          <a href="#dang-ky">Đăng ký tư vấn</a>
+        </div>
+        <div class="footer__links">
+          <h5>Liên hệ</h5>
+          <a href="mailto:contact@oes.vn">contact@oes.vn</a>
+          <span>1800 xxxx</span>
+          <a href="https://oes.vn" target="_blank" rel="noopener">oes.vn</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 OES. All rights reserved.</span>
+        <span>LMS cho trường Đại học - Cao đẳng</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demo Modal -->
+  <div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-label="Nhận demo">
+    <div class="modal__box">
+      <button class="modal__close" id="modal-close" aria-label="Đóng"><i class="bx bx-x"></i></button>
+      <div class="contact__form-header">
+        <h3>Nhận demo</h3>
+        <p>Đăng ký để trải nghiệm hệ thống LMS Đại học - Cao đẳng</p>
+      </div>
+      <div id="modal-form-card">
+        <form id="modal-contact-form">
+          <div class="form__group">
+            <label class="form__label" for="modal-name">Họ và tên</label>
+            <input class="form__input form__input--plain" type="text" id="modal-name" required placeholder="Nhập họ và tên">
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="modal-email">Email</label>
+            <input class="form__input form__input--plain" type="email" id="modal-email" required placeholder="email@truong.edu.vn">
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="modal-phone">Số điện thoại</label>
+            <input class="form__input form__input--plain" type="tel" id="modal-phone" required placeholder="0xxx xxx xxx">
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="modal-submit-btn">
+            <i class="bx bx-play-circle"></i>
+            Nhận demo
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

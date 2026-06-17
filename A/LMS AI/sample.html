@@ -1,0 +1,456 @@
+<!-- wp:html -->
+<style>
+	#gallery {
+	margin: unset;
+	}
+		.modal-content {
+			z-index: 1200;
+		}
+	
+		.modal-backdrop {
+			z-index: unset;
+			background-color: unset;
+			opacity: 0;
+		}
+	
+		#more {
+			display: none;
+		}
+	
+		.page-id-13822 .t3-wrapper {
+			background-color: #f3f6fb;
+		}
+	
+		.oes-container {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 100%;
+			margin-top: -200px;
+			background-color: white;
+		}
+	
+		.oes-holder {
+			display: flex;
+			flex-direction: column;
+			max-width: 100%;
+		}
+	
+		.oes-wrapper.switch.coop {
+			padding: 2rem;
+		}
+	
+		@media only screen and (min-width: 767px) {
+			.oes-holder.switch {
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+			}
+	
+			.oes-wrapper.switch {
+				flex-direction: column;
+			}
+		}
+	
+		.oes-wrapper {
+			display: flex;
+			flex-direction: row;
+			max-width: 100%;
+			align-items: center;
+		}
+	
+		.oes-carousel {
+			display: flex;
+			overflow: hidden;
+		}
+	
+		.oes-carousel-img {
+			width: 100%;
+			transition: transform 0.5s ease;
+		}
+	
+		@media (max-width: 600px) {
+			.oes-carousel-img {
+				flex: 0 0 100%;
+			}
+		}
+	
+		.oes-holder.ooc,
+		.oes-holder.ocd {
+			box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+			width: 48%;
+			border-radius: 18px;
+			background-color: #fff;
+			justify-content: center;
+		}
+	
+		@media only screen and (min-width: 767px) {
+	
+			.oes-holder.ooc,
+			.oes-holder.ocd {
+				padding: 0rem 3rem;
+				margin: 0px 7rem;
+			}
+		}
+	
+		.img-ooc,
+		.img-ocd {
+			padding-left: 11%;
+			padding-right: 11%;
+			margin-left: auto;
+			margin-right: auto;
+			transition: opacity 0.3s ease;
+			display: flex;
+			align-items: center;
+		}
+	
+		.img-ooc img,
+		.img-ocd img {
+			height: 60%;
+		}
+		div#gallary.oes-holder-img img:hover {
+					filter: brightness(50%);
+			}
+		#coop-ooc {
+			opacity: 1;
+			grid-row: 1;
+			grid-column: 1;
+			transition: opacity 0.3s ease;
+			justify-content: space-around;
+		}
+	
+		#coop-ocd {
+			opacity: 0;
+			grid-row: 1;
+			grid-column: 1;
+			transition: opacity 0.3s ease;
+			justify-content: space-around;
+		}
+	
+		.coop-holder {
+			display: grid;
+			margin-top: 2rem;
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+	
+		@media only screen and (min-width: 767px) {
+			.coop-holder {
+				margin-left: 8%;
+				margin-right: 8%;
+			}
+		}
+	
+		.cta-coop {
+			padding-left: 4%;
+			padding-right: 4%;
+			border: 1px solid #fff;
+			border-radius: 200px;
+			background-color: #fff;
+			color: #176936;
+			width: 300px;
+		}
+	
+		.oes-wrapper.coop {
+			justify-content: space-between;
+			align-items: stretch;
+			margin: 2rem;
+		}
+	
+		.coope {
+			background-image: url('https://oes.vn/wp-content/uploads/2024/06/Landscape_G_1200.png');
+			padding: 1rem;
+			border-radius: 20px;
+			background-size: cover;
+		}
+	
+		h3.label-d {
+			color: #fff;
+			font-size: 32px;
+		}
+	
+		@media only screen and (min-width: 767px) {
+			.coope {
+				padding: 2rem 4rem;
+				margin: -2rem;
+			}
+		}
+	
+		.oes-holder.switch.coop {
+			padding-bottom: 1rem;
+			margin: 2rem;
+		}
+	
+		#coop-ooc.oes-holder,
+		#coop-ocd.oes-holder {
+			padding: 10px;
+		}
+	
+		@media only screen and (min-width: 767px) {
+	
+			#coop-ooc.oes-holder,
+			#coop-ocd.oes-holder {
+				flex-direction: row;
+				margin-top: 2rem;
+			}
+	
+			#coop-ooc div.oes-holder-input,
+			#coop-ocd div.oes-holder-input {
+				width: 45%;
+			}
+					.oes-holder-img {
+							width: 45%;
+					}
+					div.swiper {
+			width: 60% !important;
+				}
+		}
+	
+		.oes-holder.ooc::hover {
+			scale: 110%;
+		}
+	
+		.oes-holder-img {
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			padding-top: 3rem;
+			justify-content: center;
+		}
+	
+		.oes-holder-img img {
+			width: 48%;
+			margin: 2px;
+		}
+	
+		.img-ooc:hover,
+		.img-ocd:hover {
+			scale: 110%;
+		}
+	
+		b#myBtn1,
+		b#myBtn2 {
+			color: #87bc3c;
+		}
+	
+		.swiper {
+			width: 60%;
+		}
+	
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	
+		.swiper-slide img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	
+		.swiper-slide {
+			width: 80%;
+		}
+	
+		.swiper-slide:nth-child(2n) {
+			width: 60%;
+		}
+	
+		.swiper-slide:nth-child(3n) {
+			width: 40%;
+		}
+	
+			#exampleModal.oes-holder {
+						background: #00000045;
+		opacity: 1;
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		overflow: hidden;
+		display: none;
+		width: 100%;
+		padding: 10rem; 
+		align-items: center;
+		justify-content: center;            
+			}
+	.oes-holder.in {display: flex !important;}
+	</style>
+	<div class="oes-container">
+		<div class="coope">
+			<div class="oes-holder switch coop">
+				<h3 class="label-d">Đối tác của OES</h3>
+				<a href="https://share.hsforms.com/1ZLy61il6TK-RUTj-S7_VjA51q44">
+					<button class="cta-coop">Trở thành đối tác của OES →</button>
+				</a>
+			</div>
+			<div class="oes-wrapper coop">
+				<div class="oes-holder ooc">
+					<div class="img-ooc">
+						<img src="https://oes.vn/wp-content/uploads/2024/06/2.-OOC-logo.png" alt="OOC Image" />
+					</div>
+				</div>
+				<div class="oes-holder ooc">
+					<div class="img-ocd">
+						<img src="https://oes.vn/wp-content/uploads/2024/06/2.Logo-OCD.png" alt="OCD Image" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="coop-holder switch">
+			<div id="coop-ocd" class="oes-holder">
+				<div class="oes-holder-input">
+					<h2>Công ty Tư vấn Quản lý OCD</h2>
+					<p>Công ty Tư vấn Quản lý OCD (OCD Management Consulting Co.) thành lập năm 2003, là một trong những công ty tư vấn quản lý hàng đầu Việt Nam với tính chuyên nghiệp, thực tiễn và chất lượng cao. <br> Trong hơn 20 năm qua, OCD đã thực hiện thành công nhiều dự án nghiên cứu thị trường, tư vấn chiến lược, tái cơ cấu, xây dựng hệ thống quản lý cho nhiều doanh nghiệp lớn. <span id="dots1">...</span>
+						<span id="more1" style="display:none;"> Ngoài ra, OCD cũng thực hiện hàng trăm chương trình đào tạo quản lý cho nhiều doanh nghiệp tại Việt Nam. OCD là thương hiệu uy tín gắn với nhiều dịch vụ tư vấn như tư vấn tái cơ cấu, tư vấn KPI, khung năng lực, hệ thống lương 3P. Cùng với xu hướng của CMCN 4.0, OCD cũng triển khai Dịch vụ Tư vấn Chuyển đổi số các đối tác công nghệ cung cấp các giải pháp công nghệ cho quản trị doanh nghiệp. <br>
+							<br> Các dự án do OCD triển khai được khách hàng đánh giá cao về tính hệ thống và khả năng triển khai vào thực tế doanh nghiệp. Sự hợp tác của nhiều khách hàng lớn như EVN, VICEM, Đạm Phú Mỹ, Hòa Bình Minh, SOHACO, TAIKISHA, Đại Dũng, Vitto Hoàn Mỹ… qua nhiều năm là minh chứng về tính hiệu quả mà dịch vụ tư vấn của OCD mang lại cho khách hàng. </span>
+						<b onclick="readmore(1)" id="myBtn1" type="button">Read more</b>
+					</p>
+					<a class="btn" href="https://ocd.vn/" style="color: #fff; width: 300px; margin-top: 3rem;">Liên hệ ngay</a>
+				</div>
+				<div class="oes-holder-img" id="gallery2" data-toggle="modal" data-target="#exampleModal2">
+					<img src="https://oes.vn/wp-content/uploads/2024/06/3.-OCD-Picture-1.jpg" alt="OCD Image" data-target="#carouselExample2"/>
+					<img src="https://oes.vn/wp-content/uploads/2024/06/4.-OCD-Picture-2.jpg" alt="OCD Image" data-target="#carouselExample2"/>
+					<img src="https://oes.vn/wp-content/uploads/2024/06/5.-OCD-Picture-3.jpg" alt="OCD Image" data-target="#carouselExample2"/>
+				</div>
+	<div id="exampleModal2" aria-hidden="true" class="oes-holder">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/3.-OCD-Picture-1.png" data-target="#carouselExample" data-slide-to="0" />
+							</div>
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/4.-OCD-Picture-2.jpg" data-target="#carouselExample" data-slide-to="1" />
+							</div>
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/5.-OCD-Picture-3.jpg" data-target="#carouselExample" data-slide-to="2" />
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+			<div id="coop-ooc" class="oes-holder">
+				<div class="oes-holder-input">
+					<h2>Công ty Giải pháp Công nghệ OOC</h2>
+					<p> Công ty Giải pháp Công nghệ OOC chuyên cung cấp Hệ sinh thái phần mềm Quản trị Doanh nghiệp chuyên sâu digiiMS, dựa trên nền tảng hơn 20 năm kinh nghiệm tư vấn hệ thống quản lý cho hàng trăm doanh nghiệp của Công ty Tư vấn Quản lý OCD. OOC luôn không ngừng phân tích, xây dựng và cải tiến hệ thống phần mềm nhằm mang lại những giải pháp phù hợp, thông minh và tiện ích. Giúp doanh nghiệp quản lý một cách chuyên nghiệp, chuẩn nghiệp vụ bám sát mục tiêu sản xuất kinh doanh và vận hành. <span id="dots2">...</span>
+						<span id="more2" style="display:none;">
+							<br> Với đội ngũ chuyên gia dày dặn kinh nghiệm, quan điểm phát triển “Sản phẩm chất lượng, Dịch vụ uy tín và tận tâm”, OOC là lựa chọn đáng tin cậy của nhiều doanh nghiệp trong và ngoài nước thuộc nhiều mô hình và lĩnh vực khác nhau như Nhiệt điện Bà Rịa, Công ty Dịch vụ Kỹ thuật PTSC Thanh Hóa, Trung tâm Mạng lưới Mobifone Miền Bắc, Phương Trang Buslines, Tập đoàn Đất Xanh, Công ty Xổ số Điện toán Việt Nam (Vietlott), Tập đoàn Vitto Hoàn Mỹ, Sato Việt Nam, Lotte Rent-A-Car, Tập đoàn Dekko, Công ty Đầu tư và Xây dựng Xuân Mai (XMC), Tập đoàn CityLand, Tổng công ty Hàng hải Việt Nam (VIMC),.... <br>
+							<br> OOC cung cấp hệ sinh thái phần mềm bao gồm Phần mềm Quản lý KPI digiiTeamW, Phần mềm Quản lý Năng lực digiCAT, Phần mềm Quản trị Tài năng digiiTalent, Phần mềm Quản lý Dự án digiiPM, Phần mềm Quản lý tài liệu digiiDoc, Phần mềm Quản lý Nhân sự digiiHRcore, Phần mềm Chấm công digiTime, Phần mềm Quản lý Đãi ngộ digiiC&B. OOC vẫn liên tục đổi mới không ngừng nhằm hướng tới một hệ sinh thái toàn diện, tiện ích và tối ưu cho khách hàng. </span>
+						<b onclick="readmore(2)" id="myBtn2" type="button">Read more</b>
+					</p>
+					<a class="btn" href="https://ooc.vn/" style="color: #fff; width: 300px; margin-top: 3rem;">Liên hệ ngay</a>
+				</div>
+				<div class="oes-holder-img" id="gallery" data-toggle="modal" data-target="#exampleModal">
+					<img src="https://oes.vn/wp-content/uploads/2024/06/3.-OOC-Picture-1.png" data-target="#carouselExample" data-slide-to="0" />
+					<img src="https://oes.vn/wp-content/uploads/2024/06/4.-OOC-Picture-2.jpg" data-target="#carouselExample" data-slide-to="1" />
+					<img src="https://oes.vn/wp-content/uploads/2024/06/5.-OOC-Picture-3.jpg" data-target="#carouselExample" data-slide-to="2" />
+					<img src="https://oes.vn/wp-content/uploads/2024/06/6.-OOC-Picture-4.jpg" data-target="#carouselExample" data-slide-to="3" />
+				</div>
+				<!-- Modal markup: https://getbootstrap.com/docs/4.4/components/modal/ -->
+				<div id="exampleModal" aria-hidden="true" class="oes-holder">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/3.-OOC-Picture-1.png" data-target="#carouselExample" data-slide-to="0" />
+							</div>
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/4.-OOC-Picture-2.jpg" data-target="#carouselExample" data-slide-to="1" />
+							</div>
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/5.-OOC-Picture-3.jpg" data-target="#carouselExample" data-slide-to="2" />
+							</div>
+							<div class="swiper-slide">
+								<img src="https://oes.vn/wp-content/uploads/2024/06/6.-OOC-Picture-4.jpg" data-target="#carouselExample" data-slide-to="3" />
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		// Add event listeners to the images
+		const imgOoc = document.querySelector('.img-ooc');
+		const imgOcd = document.querySelector('.img-ocd');
+		const coopOoc = document.getElementById('coop-ooc');
+		const coopOcd = document.getElementById('coop-ocd');
+		imgOoc.addEventListener('click', () => {
+			if (coopOoc.style.opacity === '1' && imgOoc.style.filter === 'none') {
+				coopOoc.style.opacity = '0';
+				coopOoc.style.display = 'none'; // Set display to "none"
+				imgOoc.style.filter = 'grayscale(1)';
+			} else {
+				coopOoc.style.opacity = '1';
+				coopOoc.style.display = 'flex'; // Set display back to "block" or "inline-block" as needed
+				imgOoc.style.filter = 'none';
+			}
+			coopOcd.style.opacity = '0';
+			coopOcd.style.display = 'none'; // Set display to "none"
+			imgOcd.style.filter = 'grayscale(1)';
+		});
+		imgOcd.addEventListener('click', () => {
+			if (coopOcd.style.opacity === '1' && imgOcd.style.filter === 'none') {
+				coopOcd.style.opacity = '0';
+				coopOcd.style.display = 'none'; // Set display to "none"
+				imgOcd.style.filter = 'grayscale(1)';
+			} else {
+				coopOcd.style.opacity = '1';
+				coopOcd.style.display = 'flex'; // Set display back to "block" or "inline-block" as needed
+				imgOcd.style.filter = 'none';
+			}
+			coopOoc.style.opacity = '0';
+			coopOoc.style.display = 'none'; // Set display to "none"
+			imgOoc.style.filter = 'grayscale(1)';
+		});
+		coopOcd.style.display = 'none';
+		coopOoc.style.display = 'flex';
+		imgOcd.style.filter = 'grayscale(1)';
+	</script>
+	<script>
+		function readmore(btnId) {
+			var dots = document.querySelector("#dots" + btnId);
+			var moreText = document.querySelector("#more" + btnId);
+			var btnText = document.querySelector("#myBtn" + btnId);
+			if (dots.style.display === "none") {
+				dots.style.display = "inline";
+				btnText.innerHTML = "Read more";
+				moreText.style.display = "none";
+			} else {
+				dots.style.display = "none";
+				btnText.innerHTML = "Read less";
+				moreText.style.display = "inline";
+			}
+		}
+	</script>
+	<!-- Swiper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script>
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 30,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
+	</script>
+<!-- /wp:html -->

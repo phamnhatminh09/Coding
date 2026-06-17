@@ -1,0 +1,3533 @@
+<!-- wp:html -->
+<style>
+
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+.oes-lms-ai-page{
+  
+  --first-color: #00926c;
+  --first-color-light: #00aa54;
+  --first-color-alt: #93be5e;
+  --first-color-dark: #006b4f;
+  --first-color-gradient: linear-gradient(135deg, #93be5e 0%, #00926c 100%);
+
+  
+  --title-color: hsl(168, 49%, 10%);
+  --text-color: hsl(220, 15%, 25%);
+  --text-color-light: hsl(220, 10%, 50%);
+
+  
+  --body-color: hsl(228, 100%, 99%);
+  --container-color: #ffffff;
+  --surface-color: hsl(220, 20%, 97%);
+  --dark-bg: hsl(168, 60%, 8%);
+  --dark-surface: hsl(168, 40%, 12%);
+
+  
+  --accent-purple: #6c63ff;
+  --accent-orange: #ff6b6b;
+
+  
+  --body-font: 'Plus Jakarta Sans', sans-serif;
+  --biggest-font-size: clamp(2.5rem, 5vw, 4rem);
+  --h1-font-size: clamp(2rem, 4vw, 3rem);
+  --h2-font-size: clamp(1.5rem, 3vw, 2.25rem);
+  --h3-font-size: 1.25rem;
+  --h4-font-size: 1rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.75rem;
+
+  
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+  --font-extra-bold: 800;
+
+  
+  --space-1: 0.5rem;   
+  --space-2: 1rem;     
+  --space-3: 1.5rem;   
+  --space-4: 2rem;     
+  --space-5: 2.5rem;   
+  --space-6: 3rem;     
+  --space-8: 4rem;     
+  --space-10: 5rem;    
+  --space-12: 6rem;    
+
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.14);
+  --shadow-green: 0 8px 32px rgba(0, 146, 108, 0.25);
+  --shadow-green-lg: 0 16px 64px rgba(0, 146, 108, 0.35);
+
+  
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.35s ease;
+  --transition-slow: 0.5s ease;
+
+  
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+.oes-lms-ai-page, .oes-lms-ai-page *, .oes-lms-ai-page *::before, .oes-lms-ai-page *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}.oes-lms-ai-page{
+  scroll-behavior: smooth;
+  font-size: 16px;
+}.oes-lms-ai-page{
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}.oes-lms-ai-page h1, .oes-lms-ai-page h2, .oes-lms-ai-page h3, .oes-lms-ai-page h4{
+  color: var(--title-color);
+  line-height: 1.25;
+  font-weight: var(--font-bold);
+}.oes-lms-ai-page a{
+  text-decoration: none;
+  color: inherit;
+}.oes-lms-ai-page ul{
+  list-style: none;
+}.oes-lms-ai-page img{
+  max-width: 100%;
+  display: block;
+}.oes-lms-ai-page input, .oes-lms-ai-page select, .oes-lms-ai-page textarea, .oes-lms-ai-page button{
+  font-family: var(--body-font);
+}
+
+.oes-lms-ai-page .oes-lms-ai-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}.oes-lms-ai-page .section{
+  padding: var(--space-12) 0;
+}.oes-lms-ai-page .section__header{
+  text-align: center;
+  margin-bottom: var(--space-8);
+}.oes-lms-ai-page .section__tag{
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(0,146,108,0.12), rgba(147,190,94,0.12));
+  color: var(--first-color);
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0,146,108,0.2);
+  margin-bottom: var(--space-2);
+}.oes-lms-ai-page .section__title{
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-extra-bold);
+  color: var(--title-color);
+  margin-bottom: var(--space-2);
+}.oes-lms-ai-page .section__subtitle{
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.oes-lms-ai-page .section__header--light .section__title, .oes-lms-ai-page .section__title--light{
+  color: #ffffff;
+}.oes-lms-ai-page .section__subtitle--light{
+  color: rgba(255,255,255,0.75);
+}.oes-lms-ai-page .section__tag--light{
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+}
+
+.oes-lms-ai-page .btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-base);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}.oes-lms-ai-page .btn::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: var(--transition-fast);
+}.oes-lms-ai-page .btn:hover::after{
+  background: rgba(255,255,255,0.1);
+}.oes-lms-ai-page .btn--primary{
+  background: var(--first-color-gradient);
+  color: #ffffff;
+  box-shadow: var(--shadow-green);
+}.oes-lms-ai-page .btn--primary:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green-lg);
+}.oes-lms-ai-page .btn--primary:active{
+  transform: translateY(0);
+}.oes-lms-ai-page .btn--outline{
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
+}.oes-lms-ai-page .btn--outline:hover{
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+  transform: translateY(-2px);
+}.oes-lms-ai-page .btn--sm{
+  padding: 10px 20px;
+  font-size: var(--small-font-size);
+}.oes-lms-ai-page .btn--full{
+  width: 100%;
+  justify-content: center;
+  padding: 16px 28px;
+  font-size: 1.05rem;
+}
+
+.oes-lms-ai-page .hero{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 0 var(--space-12);
+}.oes-lms-ai-page .hero__bg{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00311f 0%, #00521e 35%, #006b3b 60%, #00926c 85%, #93be5e 100%);
+  z-index: -2;
+}.oes-lms-ai-page .hero__bg::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 70% at 80% 20%, rgba(147,190,94,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(0,170,84,0.2) 0%, transparent 60%);
+}.oes-lms-ai-page .hero__particles{
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}.oes-lms-ai-page .hero__particle{
+  position: absolute;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}.oes-lms-ai-page .hero__content{
+  text-align: center;
+  max-width: 900px;
+  z-index: 1;
+  animation: hero-fade-in 0.8s ease both;
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}.oes-lms-ai-page .hero__badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.95);
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}.oes-lms-ai-page .hero__badge i{
+  color: #ffd700;
+  font-size: 1rem;
+}.oes-lms-ai-page .hero__title{
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-extra-bold);
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+}.oes-lms-ai-page .hero__title-gradient{
+  background: linear-gradient(135deg, #a8e063, #56ab2f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}.oes-lms-ai-page .hero__subtitle{
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 650px;
+  margin: 0 auto var(--space-5);
+  line-height: 1.7;
+}.oes-lms-ai-page .hero__cta{
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}.oes-lms-ai-page .hero__stats{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-6);
+  flex-wrap: wrap;
+}.oes-lms-ai-page .hero__stat{
+  text-align: center;
+}.oes-lms-ai-page .hero__stat-number{
+  font-size: 2rem;
+  font-weight: var(--font-extra-bold);
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}.oes-lms-ai-page .hero__stat-plus{
+  font-size: 1.5rem;
+  font-weight: var(--font-bold);
+  color: var(--first-color-alt);
+}.oes-lms-ai-page .hero__stat-label{
+  font-size: var(--smaller-font-size);
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+  margin-top: 4px;
+}.oes-lms-ai-page .hero__stat-divider{
+  width: 1px;
+  height: 60px;
+  background: rgba(255,255,255,0.2);
+}.oes-lms-ai-page .hero__scroll{
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+}.oes-lms-ai-page .hero__scroll-line{
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  animation: scroll-line 2s ease infinite;
+  margin: 0 auto;
+}
+
+@keyframes scroll-line {
+  0%, 100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  50% { opacity: 0.4; transform: scaleY(0.5); }
+}
+
+.oes-lms-ai-page .intro{
+  background: var(--container-color);
+}.oes-lms-ai-page .intro__showcase{
+  display: grid;
+  grid-template-columns: 1fr 0.55fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.oes-lms-ai-page .intro__mockup{
+  position: relative;
+}.oes-lms-ai-page .mockup__browser{
+  background: #1e1e2e;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,0.08);
+  animation: float-mockup 6s ease-in-out infinite;
+}
+
+@keyframes float-mockup {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}.oes-lms-ai-page .mockup__bar{
+  background: #2a2a3e;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}.oes-lms-ai-page .dot{
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}.oes-lms-ai-page .dot--red{ background: #ff5f57; }.oes-lms-ai-page .dot--yellow{ background: #febc2e; }.oes-lms-ai-page .dot--green{ background: #28c840; }.oes-lms-ai-page .mockup__url{
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 5px 12px;
+  color: rgba(255,255,255,0.5);
+  font-size: var(--smaller-font-size);
+  text-align: center;
+}.oes-lms-ai-page .mockup__screen{
+  padding: 0;
+}.oes-lms-ai-page .mockup__dashboard{
+  display: flex;
+  height: 380px;
+  overflow: hidden;
+}.oes-lms-ai-page .dash__sidebar{
+  width: 56px;
+  background: #141421;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 8px;
+}.oes-lms-ai-page .dash__logo-sm{
+  color: var(--first-color-light);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}.oes-lms-ai-page .dash__nav-items{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 0 8px;
+}.oes-lms-ai-page .dash__nav-item{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}.oes-lms-ai-page .dash__nav-item.active{
+  background: var(--first-color);
+  color: #fff;
+}.oes-lms-ai-page .dash__main{
+  flex: 1;
+  background: #f8fffe;
+  padding: 16px;
+  overflow: hidden;
+}.oes-lms-ai-page .dash__header-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}.oes-lms-ai-page .dash__greeting{
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--title-color);
+}.oes-lms-ai-page .dash__avatar{
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--first-color-gradient);
+}.oes-lms-ai-page .dash__stats-row{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}.oes-lms-ai-page .dash__stat-card{
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}.oes-lms-ai-page .dash__stat-icon{
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #fff;
+  flex-shrink: 0;
+}.oes-lms-ai-page .dash__stat-icon--green{ background: linear-gradient(135deg, #00926c, #93be5e); }.oes-lms-ai-page .dash__stat-icon--blue{ background: linear-gradient(135deg, #6c63ff, #4a42d4); }.oes-lms-ai-page .dash__stat-icon--purple{ background: linear-gradient(135deg, #ff9a44, #fc6076); }.oes-lms-ai-page .dash__stat-val{
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--title-color);
+}.oes-lms-ai-page .dash__stat-lbl{
+  font-size: 9px;
+  color: var(--text-color-light);
+  line-height: 1.2;
+}.oes-lms-ai-page .dash__progress-section{
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}.oes-lms-ai-page .dash__progress-title{
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--title-color);
+  margin-bottom: 10px;
+}.oes-lms-ai-page .dash__course-item{
+  margin-bottom: 10px;
+}.oes-lms-ai-page .dash__course-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}.oes-lms-ai-page .dash__course-pct{
+  font-weight: 700;
+  color: var(--first-color);
+}.oes-lms-ai-page .dash__progress-bar{
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+  overflow: hidden;
+}.oes-lms-ai-page .dash__progress-fill{
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1s ease;
+}.oes-lms-ai-page .mockup__glow{
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(0,146,108,0.35), transparent);
+  filter: blur(20px);
+}
+.oes-lms-ai-page .intro__image-frame {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-lg);
+  max-height: 430px;
+}
+.oes-lms-ai-page .intro__placeholder-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 14 / 9;
+  max-height: 430px;
+  object-fit: cover;
+  object-position: center top;
+}
+.oes-lms-ai-page .intro__info{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}.oes-lms-ai-page .intro__feature-card{
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--body-color);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: var(--transition-base);
+}.oes-lms-ai-page .intro__feature-card:hover{
+  transform: translateX(8px);
+  border-color: rgba(0,146,108,0.2);
+  background: rgba(0,146,108,0.03);
+  box-shadow: var(--shadow-sm);
+}.oes-lms-ai-page .intro__feature-icon{
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(0,146,108,0.15), rgba(147,190,94,0.15));
+  color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}.oes-lms-ai-page .intro__feature-icon--2{ background: linear-gradient(135deg, rgba(108,99,255,0.15), rgba(74,66,212,0.1)); color: var(--accent-purple); }.oes-lms-ai-page .intro__feature-icon--3{ background: linear-gradient(135deg, rgba(0,170,84,0.15), rgba(0,146,108,0.1)); color: var(--first-color-light); }.oes-lms-ai-page .intro__feature-icon--4{ background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(238,90,36,0.1)); color: var(--accent-orange); }.oes-lms-ai-page .intro__feature-card h3{
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 2px;
+}.oes-lms-ai-page .intro__feature-card p{
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  line-height: 1.5;
+}
+
+.oes-lms-ai-page .why{
+  background: var(--surface-color);
+}.oes-lms-ai-page .why__comparison{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}.oes-lms-ai-page .why__col-header{
+  margin-bottom: var(--space-3);
+}.oes-lms-ai-page .why__col-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semi-bold);
+  font-size: var(--small-font-size);
+}.oes-lms-ai-page .why__col-badge--old{
+  background: rgba(255,100,100,0.08);
+  color: #e53e3e;
+  border: 1px solid rgba(255,100,100,0.2);
+}.oes-lms-ai-page .why__col-badge--new{
+  background: rgba(0,146,108,0.08);
+  color: var(--first-color);
+  border: 1px solid rgba(0,146,108,0.2);
+}.oes-lms-ai-page .why__items{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}.oes-lms-ai-page .why__item{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
+  font-size: var(--small-font-size);
+}.oes-lms-ai-page .why__item--old{
+  background: #fff;
+  border: 1px solid rgba(255,100,100,0.1);
+  color: var(--text-color);
+}.oes-lms-ai-page .why__item--old i{
+  color: #fc8181;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}.oes-lms-ai-page .why__item--new{
+  background: linear-gradient(135deg, rgba(0,146,108,0.04), rgba(147,190,94,0.06));
+  border: 1px solid rgba(0,146,108,0.12);
+  color: var(--text-color);
+}.oes-lms-ai-page .why__item--new i{
+  color: var(--first-color);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}.oes-lms-ai-page .why__item:hover{
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}.oes-lms-ai-page .why__vs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}.oes-lms-ai-page .why__vs-circle{
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--first-color-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-extra-bold);
+  font-size: var(--small-font-size);
+  box-shadow: var(--shadow-green);
+  z-index: 1;
+}.oes-lms-ai-page .why__vs-line{
+  width: 2px;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent, rgba(0,146,108,0.2), transparent);
+  position: absolute;
+}
+
+.oes-lms-ai-page .features{
+  background: var(--container-color);
+}.oes-lms-ai-page .features__tabs{
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-6);
+  background: var(--surface-color);
+  padding: 6px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}.oes-lms-ai-page .features__tab{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--text-color-light);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: var(--transition-base);
+}.oes-lms-ai-page .features__tab.active{
+  background: var(--first-color-gradient);
+  color: #fff;
+  box-shadow: var(--shadow-green);
+}.oes-lms-ai-page .features__panel{
+  display: none;
+}.oes-lms-ai-page .features__panel.active{
+  display: block;
+  animation: fade-in-up 0.4s ease;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}.oes-lms-ai-page .features__layout{
+  display: grid;
+  grid-template-columns: 0.45fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}.oes-lms-ai-page .features__list{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}.oes-lms-ai-page .features__item{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-base);
+  border: 1px solid transparent;
+}.oes-lms-ai-page .features__item:hover{
+  background: var(--surface-color);
+  border-color: rgba(0,146,108,0.1);
+}.oes-lms-ai-page .features__item.active{
+  background: linear-gradient(135deg, rgba(0,146,108,0.06), rgba(147,190,94,0.06));
+  border-color: rgba(0,146,108,0.2);
+  box-shadow: var(--shadow-sm);
+}.oes-lms-ai-page .features__item-icon{
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(0,146,108,0.1), rgba(147,190,94,0.1));
+  color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}.oes-lms-ai-page .features__item.active .features__item-icon{
+  background: var(--first-color-gradient);
+  color: #fff;
+}.oes-lms-ai-page .features__item-text h4{
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  margin-bottom: 2px;
+}.oes-lms-ai-page .features__item-text p{
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}.oes-lms-ai-page .features__item-arrow{
+  margin-left: auto;
+  color: var(--text-color-light);
+  font-size: 1rem;
+  transition: var(--transition-fast);
+}.oes-lms-ai-page .features__item.active .features__item-arrow{
+  color: var(--first-color);
+  transform: translateX(4px);
+}.oes-lms-ai-page .features__detail{
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 500px;
+}.oes-lms-ai-page .features__detail-panels{
+  height: 100%;
+}.oes-lms-ai-page .features__detail-panel{
+  display: none;
+  height: 100%;
+}.oes-lms-ai-page .features__detail-panel.active{
+  display: flex;
+  flex-direction: column;
+  animation: fade-in-up 0.3s ease;
+}.oes-lms-ai-page .features__detail-screen{
+  background: linear-gradient(135deg, #0d1f17 0%, #1a3a28 100%);
+  padding: var(--space-3);
+  min-height: 260px;
+  position: relative;
+  overflow: hidden;
+}.oes-lms-ai-page .features__detail-screen::before{
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(ellipse, rgba(0,170,84,0.2), transparent);
+  pointer-events: none;
+}
+
+.oes-lms-ai-page .detail__mock-dashboard{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  height: 100%;
+}.oes-lms-ai-page .detail__mock-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}.oes-lms-ai-page .detail__timer{
+  background: rgba(255,200,0,0.15);
+  color: #ffd700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}.oes-lms-ai-page .detail__mock-welcome{
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+}.oes-lms-ai-page .detail__mock-date{
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+}.oes-lms-ai-page .detail__path-label, .oes-lms-ai-page .detail__suggest-label{
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}.oes-lms-ai-page .detail__suggest-label{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffd700;
+}.oes-lms-ai-page .detail__path-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+}.oes-lms-ai-page .detail__progress-bar{
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}.oes-lms-ai-page .detail__progress-bar > div{
+  height: 100%;
+  background: var(--first-color-gradient);
+  border-radius: 2px;
+}.oes-lms-ai-page .detail__pct{
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--first-color-alt);
+  min-width: 24px;
+}.oes-lms-ai-page .detail__mock-suggest{
+  margin-top: 12px;
+}.oes-lms-ai-page .detail__suggest-card{
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 6px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.oes-lms-ai-page .detail__mock-devices{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}.oes-lms-ai-page .detail__device-grid{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}.oes-lms-ai-page .detail__device{
+  text-align: center;
+}.oes-lms-ai-page .detail__device-screen{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}.oes-lms-ai-page .detail__device--desktop .detail__device-screen{ width: 100px; height: 65px; }.oes-lms-ai-page .detail__device--tablet .detail__device-screen{ width: 70px; height: 50px; }.oes-lms-ai-page .detail__device--mobile .detail__device-screen{ width: 42px; height: 70px; border-radius: 8px; }.oes-lms-ai-page .detail__mini-course{
+  font-size: 8px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}.oes-lms-ai-page .detail__device-label{
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 6px;
+}.oes-lms-ai-page .detail__sync-badge{
+  background: rgba(0,170,84,0.2);
+  border: 1px solid rgba(0,170,84,0.3);
+  color: var(--first-color-alt);
+  font-size: 10px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.oes-lms-ai-page .detail__content-tabs{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}.oes-lms-ai-page .detail__content-tabs span{
+  font-size: 9px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}.oes-lms-ai-page .detail__content-tabs span.active{
+  background: var(--first-color);
+  color: #fff;
+  border-color: var(--first-color);
+}.oes-lms-ai-page .detail__video-mock{
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  position: relative;
+}.oes-lms-ai-page .detail__play-btn{
+  color: rgba(255,255,255,0.8);
+  font-size: 2rem;
+}.oes-lms-ai-page .detail__video-progress{
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}.oes-lms-ai-page .detail__video-progress > div{
+  height: 100%;
+  background: var(--first-color-gradient);
+}.oes-lms-ai-page .detail__nav-mock{
+  display: flex;
+  gap: 8px;
+}.oes-lms-ai-page .detail__nav-mock button{
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-size: 9px;
+  cursor: pointer;
+}.oes-lms-ai-page .detail__nav-mock button.active{
+  background: var(--first-color);
+  color: #fff;
+  border-color: var(--first-color);
+}
+
+.oes-lms-ai-page .detail__quiz-question{
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+}.oes-lms-ai-page .detail__q-num{
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}.oes-lms-ai-page .detail__q-text{
+  font-size: 10px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}.oes-lms-ai-page .detail__q-options{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}.oes-lms-ai-page .detail__q-opt{
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}.oes-lms-ai-page .detail__q-opt.active{
+  background: rgba(0,146,108,0.2);
+  border-color: rgba(0,146,108,0.4);
+  color: var(--first-color-alt);
+}
+
+.oes-lms-ai-page .detail__notification-list{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}.oes-lms-ai-page .detail__notif{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+}.oes-lms-ai-page .detail__notif--urgent{
+  border-color: rgba(255,200,0,0.2);
+  background: rgba(255,200,0,0.05);
+}.oes-lms-ai-page .detail__notif--urgent i{ color: #ffd700; }.oes-lms-ai-page .detail__notif--info i{ color: var(--first-color-light); }.oes-lms-ai-page .detail__notif i{
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: rgba(255,255,255,0.4);
+}.oes-lms-ai-page .detail__notif-time{
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 2px;
+}
+
+.oes-lms-ai-page .detail__mock-ai{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}.oes-lms-ai-page .detail__ai-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}.oes-lms-ai-page .detail__ai-avatar{
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--first-color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+}.oes-lms-ai-page .detail__ai-name{
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+}.oes-lms-ai-page .detail__ai-status{
+  font-size: 9px;
+  color: #4ade80;
+}.oes-lms-ai-page .detail__chat-messages{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}.oes-lms-ai-page .detail__chat-msg{
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  max-width: 85%;
+}.oes-lms-ai-page .detail__chat-msg--user{
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  align-self: flex-end;
+  border-radius: 10px 10px 2px 10px;
+}.oes-lms-ai-page .detail__chat-msg--ai{
+  background: linear-gradient(135deg, rgba(0,146,108,0.25), rgba(147,190,94,0.15));
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,146,108,0.2);
+  align-self: flex-start;
+  border-radius: 10px 10px 10px 2px;
+}.oes-lms-ai-page .detail__chat-input{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  padding: 8px 14px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+}
+
+.oes-lms-ai-page .detail__leaderboard{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}.oes-lms-ai-page .detail__lb-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  font-size: 10px;
+  color: rgba(255,255,255,0.75);
+}.oes-lms-ai-page .detail__lb-item--gold{ background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.15); }.oes-lms-ai-page .detail__lb-item--silver{ background: rgba(192,192,192,0.06); }.oes-lms-ai-page .detail__lb-item--bronze{ background: rgba(205,127,50,0.06); }.oes-lms-ai-page .detail__lb-item--me{ background: rgba(0,146,108,0.1); border: 1px solid rgba(0,146,108,0.2); }.oes-lms-ai-page .detail__lb-rank{ width: 20px; text-align: center; }.oes-lms-ai-page .detail__lb-name{ flex: 1; }.oes-lms-ai-page .detail__lb-pts{ font-weight: 700; color: var(--first-color-alt); }.oes-lms-ai-page .detail__badges{
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}.oes-lms-ai-page .detail__badge{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  font-size: 9px;
+  color: rgba(255,255,255,0.7);
+}
+
+.oes-lms-ai-page .detail__chart-area{
+  margin-top: 8px;
+}.oes-lms-ai-page .detail__bar-chart{
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 70px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 4px;
+}.oes-lms-ai-page .detail__bar{
+  flex: 1;
+  background: rgba(0,146,108,0.2);
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.4);
+  transition: var(--transition-base);
+}.oes-lms-ai-page .detail__bar--active{
+  background: var(--first-color-gradient);
+  color: rgba(255,255,255,0.9);
+}.oes-lms-ai-page .detail__result-row{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+}.oes-lms-ai-page .detail__result-val{
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--first-color-alt);
+  text-align: center;
+}.oes-lms-ai-page .detail__result-lbl{
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+.oes-lms-ai-page .detail__user-table{
+  font-size: 9px;
+}.oes-lms-ai-page .detail__table-header{
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+  gap: 6px;
+  padding: 6px 8px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 6px;
+}.oes-lms-ai-page .detail__table-row{
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+  gap: 6px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.03);
+  margin-bottom: 4px;
+  align-items: center;
+  color: rgba(255,255,255,0.7);
+}.oes-lms-ai-page .detail__role{
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 8px;
+}.oes-lms-ai-page .detail__role--admin{ background: rgba(255,107,107,0.2); color: #fc8181; }.oes-lms-ai-page .detail__role--trainer{ background: rgba(108,99,255,0.2); color: #a78bfa; }.oes-lms-ai-page .detail__role--learner{ background: rgba(0,146,108,0.2); color: var(--first-color-alt); }.oes-lms-ai-page .detail__status{
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}.oes-lms-ai-page .detail__status--active{ background: rgba(0,170,84,0.2); color: #4ade80; }.oes-lms-ai-page .detail__status--inactive{ background: rgba(255,200,0,0.15); color: #fbbf24; }
+
+.oes-lms-ai-page .detail__course-builder{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}.oes-lms-ai-page .detail__course-card{
+  display: flex;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+}.oes-lms-ai-page .detail__course-thumb{
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  background: var(--first-color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}.oes-lms-ai-page .detail__course-info-sm{
+  flex: 1;
+}.oes-lms-ai-page .detail__course-title{
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 2px;
+}.oes-lms-ai-page .detail__course-meta{
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}.oes-lms-ai-page .detail__course-actions{
+  display: flex;
+  gap: 6px;
+}.oes-lms-ai-page .detail__course-actions button{
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,146,108,0.3);
+  background: transparent;
+  color: var(--first-color-alt);
+  font-size: 9px;
+  cursor: pointer;
+}.oes-lms-ai-page .detail__upload-zone{
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.3);
+  font-size: 9px;
+  text-align: center;
+}.oes-lms-ai-page .detail__upload-zone i{ font-size: 1.2rem; color: rgba(255,255,255,0.2); }
+
+.oes-lms-ai-page .detail__exam-stat{
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}.oes-lms-ai-page .detail__exam-settings{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}.oes-lms-ai-page .detail__setting-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.03);
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.05);
+}.oes-lms-ai-page .detail__setting-item i{ color: var(--first-color-light); }
+
+.oes-lms-ai-page .detail__analytics{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}.oes-lms-ai-page .detail__ana-metrics{
+  display: flex;
+  gap: 10px;
+}.oes-lms-ai-page .detail__ana-metric{
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}.oes-lms-ai-page .detail__ana-val{
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--first-color-alt);
+}.oes-lms-ai-page .detail__ana-lbl{
+  display: block;
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}.oes-lms-ai-page .detail__ana-chart{
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 12px;
+}.oes-lms-ai-page .detail__line-chart{
+  height: 40px;
+  position: relative;
+  margin-bottom: 6px;
+}.oes-lms-ai-page .detail__line{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--first-color), var(--first-color-alt), var(--first-color-light));
+  border-radius: 1px;
+}.oes-lms-ai-page .detail__chart-label{
+  font-size: 9px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+}
+
+.oes-lms-ai-page .detail__security{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}.oes-lms-ai-page .detail__security-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.65);
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+}.oes-lms-ai-page .detail__security-item i{ color: var(--first-color-alt); font-size: 1rem; }.oes-lms-ai-page .detail__security-badge{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0,146,108,0.15);
+  border: 1px solid rgba(0,146,108,0.25);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--first-color-alt);
+  margin-top: 4px;
+}
+
+.oes-lms-ai-page .features__detail-content{
+  padding: var(--space-3);
+}.oes-lms-ai-page .features__detail-content h3{
+  font-size: var(--h3-font-size);
+  margin-bottom: 8px;
+  color: var(--title-color);
+}.oes-lms-ai-page .features__detail-content > p{
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}.oes-lms-ai-page .features__detail-list{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-3);
+}.oes-lms-ai-page .features__detail-list li{
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}.oes-lms-ai-page .features__detail-list li i{
+  color: var(--first-color);
+  font-size: 1rem;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.oes-lms-ai-page .features__ai-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: var(--space-3);
+}.oes-lms-ai-page .features__ai-card{
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}.oes-lms-ai-page .features__ai-card::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--first-color-gradient);
+  opacity: 0;
+  transition: var(--transition-base);
+}.oes-lms-ai-page .features__ai-card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0,146,108,0.15);
+}.oes-lms-ai-page .features__ai-card:hover::before{
+  opacity: 1;
+}.oes-lms-ai-page .features__ai-card--main{
+  background: linear-gradient(135deg, var(--dark-bg), var(--dark-surface));
+  color: #fff;
+  border-color: rgba(0,146,108,0.2);
+}.oes-lms-ai-page .features__ai-card--main h3, .oes-lms-ai-page .features__ai-card--main p{
+  color: rgba(255,255,255,0.9);
+}.oes-lms-ai-page .features__ai-card--main p{
+  color: rgba(255,255,255,0.7) !important;
+}.oes-lms-ai-page .features__ai-icon{
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--first-color-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+}.oes-lms-ai-page .features__ai-badge{
+  display: inline-block;
+  background: var(--first-color-gradient);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+}.oes-lms-ai-page .features__ai-card h3{
+  font-size: var(--h4-font-size);
+  margin-bottom: 8px;
+  color: var(--title-color);
+}.oes-lms-ai-page .features__ai-card p{
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-2);
+}
+
+.oes-lms-ai-page .showcase{
+  background: var(--surface-color);
+}.oes-lms-ai-page .showcase__container{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}.oes-lms-ai-page .showcase__main-screen{
+  background: #fff;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0,0,0,0.06);
+}.oes-lms-ai-page .showcase__browser-bar{
+  background: #f0f0f0;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}.oes-lms-ai-page .showcase__dots{
+  display: flex;
+  gap: 6px;
+}.oes-lms-ai-page .showcase__dots span{
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+}.oes-lms-ai-page .showcase__dots span:nth-child(1){ background: #ff5f57; }.oes-lms-ai-page .showcase__dots span:nth-child(2){ background: #febc2e; }.oes-lms-ai-page .showcase__dots span:nth-child(3){ background: #28c840; }.oes-lms-ai-page .showcase__url-bar{
+  flex: 1;
+  background: #fff;
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 400px;
+  margin: 0 auto;
+}.oes-lms-ai-page .showcase__url-bar i{
+  color: var(--first-color);
+  font-size: 0.9rem;
+}.oes-lms-ai-page .showcase__screen-content{
+  overflow: hidden;
+}.oes-lms-ai-page .showcase__dashboard-full{
+  display: flex;
+  height: 480px;
+}.oes-lms-ai-page .showcase__sidebar{
+  width: 200px;
+  background: var(--dark-bg);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}.oes-lms-ai-page .showcase__logo{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: var(--space-4);
+}.oes-lms-ai-page .showcase__logo i{
+  color: var(--first-color-alt);
+  font-size: 1.2rem;
+}.oes-lms-ai-page .showcase__sidenav{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}.oes-lms-ai-page .showcase__sidenav-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: rgba(255,255,255,0.5);
+  font-size: var(--smaller-font-size);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}.oes-lms-ai-page .showcase__sidenav-item.active{
+  background: var(--first-color);
+  color: #fff;
+}.oes-lms-ai-page .showcase__sidenav-item:hover:not(.active){
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.8);
+}.oes-lms-ai-page .showcase__content-area{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}.oes-lms-ai-page .showcase__topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+}.oes-lms-ai-page .showcase__search{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-color);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  width: 280px;
+}.oes-lms-ai-page .showcase__topbar-right{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}.oes-lms-ai-page .showcase__notif{
+  position: relative;
+  color: var(--text-color-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+}.oes-lms-ai-page .showcase__notif-dot{
+  position: absolute;
+  top: 0; right: 0;
+  width: 8px; height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}.oes-lms-ai-page .showcase__user-info{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+}.oes-lms-ai-page .showcase__user-avatar{
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--first-color-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}.oes-lms-ai-page .showcase__main-content{
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: var(--surface-color);
+}.oes-lms-ai-page .showcase__welcome{
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 16px;
+}.oes-lms-ai-page .showcase__stats-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}.oes-lms-ai-page .showcase__stat-card{
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}.oes-lms-ai-page .showcase__stat-icon{
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}.oes-lms-ai-page .showcase__stat-num{
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--title-color);
+}.oes-lms-ai-page .showcase__stat-txt{
+  font-size: 10px;
+  color: var(--text-color-light);
+}.oes-lms-ai-page .showcase__courses-title{
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 12px;
+}.oes-lms-ai-page .showcase__course-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}.oes-lms-ai-page .showcase__course-item{
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+}.oes-lms-ai-page .showcase__course-icon{
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}.oes-lms-ai-page .showcase__course-details{
+  flex: 1;
+  overflow: hidden;
+}.oes-lms-ai-page .showcase__course-name{
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 6px;
+}.oes-lms-ai-page .showcase__course-progress-bar{
+  height: 5px;
+  background: var(--surface-color);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}.oes-lms-ai-page .showcase__course-progress-bar > div{
+  height: 100%;
+  border-radius: 3px;
+}.oes-lms-ai-page .showcase__course-meta-sm{
+  font-size: 10px;
+  color: var(--text-color-light);
+}.oes-lms-ai-page .showcase__course-action{
+  font-size: var(--smaller-font-size);
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  white-space: nowrap;
+  cursor: pointer;
+}.oes-lms-ai-page .showcase__thumbnails{
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+}.oes-lms-ai-page .showcase__thumbnail{
+  appearance: none;
+  flex: 1;
+  max-width: 200px;
+  background: var(--container-color);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  line-height: 1.4;
+  pointer-events: auto;
+}.oes-lms-ai-page .showcase__thumbnail.active{
+  border-color: var(--first-color);
+  background: rgba(0,146,108,0.04);
+}.oes-lms-ai-page .showcase__thumbnail:focus-visible{
+  outline: 3px solid rgba(0,146,108,0.25);
+  outline-offset: 3px;
+}.oes-lms-ai-page .showcase__thumb-label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color-light);
+}.oes-lms-ai-page .showcase__thumbnail.active .showcase__thumb-label{
+  color: var(--first-color);
+}
+
+.oes-lms-ai-page .showcase__container--image {
+  align-items: center;
+  gap: var(--space-3);
+}
+.oes-lms-ai-page .showcase__image-frame {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-lg);
+  width: min(100%, 1120px);
+  max-height: 470px;
+}
+.oes-lms-ai-page .showcase__placeholder-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  max-height: 470px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.oes-lms-ai-page .video-section{
+  background: var(--container-color);
+}.oes-lms-ai-page .video-section__player{
+  display: grid;
+  grid-template-columns: 1fr 0.45fr;
+  gap: var(--space-4);
+  align-items: start;
+}.oes-lms-ai-page .video-section__thumbnail{
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00311f, #00521e, #006b3b);
+}.oes-lms-ai-page .video-section__overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}.oes-lms-ai-page .video-section__preview{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}.oes-lms-ai-page .video-preview__content{
+  text-align: center;
+}.oes-lms-ai-page .video-preview__logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--first-color-alt);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}.oes-lms-ai-page .video-preview__logo i{ font-size: 1.5rem; }.oes-lms-ai-page .video-preview__title{
+  color: rgba(255,255,255,0.9);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}.oes-lms-ai-page .video-preview__duration{
+  color: rgba(255,255,255,0.5);
+  font-size: var(--small-font-size);
+}.oes-lms-ai-page .video-section__play-btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: var(--transition-base);
+  z-index: 2;
+}.oes-lms-ai-page .video-section__play-btn:hover{
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--first-color);
+  border-color: var(--first-color);
+}.oes-lms-ai-page .video-section__chapters{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}.oes-lms-ai-page .video-section__chapter{
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0,0,0,0.06);
+  background: var(--surface-color);
+  cursor: pointer;
+  transition: var(--transition-base);
+}.oes-lms-ai-page .video-section__chapter.active{
+  background: linear-gradient(135deg, rgba(0,146,108,0.06), rgba(147,190,94,0.06));
+  border-color: rgba(0,146,108,0.2);
+}.oes-lms-ai-page .video-section__chapter:hover{
+  transform: translateX(4px);
+  border-color: rgba(0,146,108,0.2);
+}.oes-lms-ai-page .video-chapter__time{
+  font-size: var(--smaller-font-size);
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  min-width: 32px;
+  margin-top: 2px;
+}.oes-lms-ai-page .video-chapter__title{
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 2px;
+}.oes-lms-ai-page .video-chapter__desc{
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
+
+.oes-lms-ai-page .benefits{
+  position: relative;
+  overflow: hidden;
+}.oes-lms-ai-page .benefits__bg{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00311f 0%, #00521e 40%, #006b3b 70%, #00926c 100%);
+  z-index: -1;
+}.oes-lms-ai-page .benefits__bg::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 85% 15%, rgba(147,190,94,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 85%, rgba(0,170,84,0.15) 0%, transparent 60%);
+}.oes-lms-ai-page .benefits__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}.oes-lms-ai-page .benefits__card{
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  backdrop-filter: blur(10px);
+  transition: var(--transition-base);
+}.oes-lms-ai-page .benefits__card:hover{
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border-color: rgba(255,255,255,0.2);
+}.oes-lms-ai-page .benefits__icon{
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.1);
+  color: var(--first-color-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+  border: 1px solid rgba(255,255,255,0.15);
+}.oes-lms-ai-page .benefits__card h3{
+  font-size: var(--h4-font-size);
+  color: #fff;
+  margin-bottom: 8px;
+}.oes-lms-ai-page .benefits__card p{
+  font-size: var(--small-font-size);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: var(--space-2);
+}.oes-lms-ai-page .benefits__metric{
+  font-size: 1.1rem;
+  font-weight: var(--font-extra-bold);
+  color: var(--first-color-alt);
+}.oes-lms-ai-page .benefits__metric span{
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-regular);
+  color: rgba(255,255,255,0.5);
+}
+
+.oes-lms-ai-page .clients{
+  background: var(--container-color);
+}.oes-lms-ai-page .clients__marquee-wrap{
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
+}.oes-lms-ai-page .clients__marquee{
+  overflow: hidden;
+  width: 100%;
+}.oes-lms-ai-page .clients__track{
+  display: flex;
+  gap: var(--space-3);
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}.oes-lms-ai-page .clients__track:hover{
+  animation-play-state: paused;
+}.oes-lms-ai-page .clients__logo-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 72px;
+  background: var(--surface-color);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+  flex-shrink: 0;
+}.oes-lms-ai-page .clients__logo-item:hover{
+  border-color: rgba(0,146,108,0.2);
+  background: rgba(0,146,108,0.04);
+  transform: translateY(-2px);
+}.oes-lms-ai-page .clients__logo-item span{
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color-light);
+}.oes-lms-ai-page .clients__industries{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  justify-content: center;
+}.oes-lms-ai-page .clients__industry-tag{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--surface-color);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-full);
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  transition: var(--transition-fast);
+}.oes-lms-ai-page .clients__industry-tag:hover{
+  border-color: rgba(0,146,108,0.2);
+  color: var(--first-color);
+  background: rgba(0,146,108,0.04);
+}.oes-lms-ai-page .clients__industry-tag i{
+  color: var(--first-color);
+}
+
+.oes-lms-ai-page .back-to-top{
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--first-color-gradient);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow-green);
+  transition: var(--transition-base);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  z-index: var(--z-fixed);
+}.oes-lms-ai-page .back-to-top.visible{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}.oes-lms-ai-page .back-to-top:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-green-lg);
+}
+
+.oes-lms-ai-page .reveal{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}.oes-lms-ai-page .reveal.visible{
+  opacity: 1;
+  transform: translateY(0);
+}.oes-lms-ai-page .reveal-left{
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}.oes-lms-ai-page .reveal-left.visible{
+  opacity: 1;
+  transform: translateX(0);
+}.oes-lms-ai-page .reveal-right{
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}.oes-lms-ai-page .reveal-right.visible{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 1024px) {
+  .oes-lms-ai-page .features__ai-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .oes-lms-ai-page .features__layout {
+    grid-template-columns: 1fr;
+  }
+  .oes-lms-ai-page .features__detail {
+    order: -1;
+  }
+  .oes-lms-ai-page .intro__showcase {
+    grid-template-columns: 1fr;
+  }
+  .oes-lms-ai-page .footer__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {.oes-lms-ai-page{
+    --space-12: 4rem;
+    --space-10: 3.5rem;
+    --space-8: 3rem;
+  }.oes-lms-ai-page .nav__menu{
+    position: fixed;
+    top: 0; right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--dark-bg);
+    padding: 80px 24px 24px;
+    transition: right var(--transition-base);
+    z-index: var(--z-modal);
+    display: flex;
+    flex-direction: column;
+  }.oes-lms-ai-page .nav__menu.open{
+    right: 0;
+  }.oes-lms-ai-page .nav__list{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }.oes-lms-ai-page .nav__link{
+    color: rgba(255,255,255,0.7);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+  }.oes-lms-ai-page .nav__toggle{
+    display: flex;
+  }.oes-lms-ai-page .hero__stats{
+    flex-direction: column;
+    gap: var(--space-3);
+  }.oes-lms-ai-page .hero__stat-divider{
+    width: 60px;
+    height: 1px;
+  }.oes-lms-ai-page .why__comparison{
+    grid-template-columns: 1fr;
+  }.oes-lms-ai-page .why__vs{
+    display: none;
+  }.oes-lms-ai-page .features__tabs{
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }.oes-lms-ai-page .features__ai-grid{
+    grid-template-columns: 1fr;
+  }.oes-lms-ai-page .showcase__dashboard-full{
+    height: auto;
+    flex-direction: column;
+  }.oes-lms-ai-page .showcase__sidebar{
+    width: 100%;
+    flex-direction: row;
+    padding: var(--space-2);
+    justify-content: space-between;
+  }.oes-lms-ai-page .showcase__sidenav{
+    flex-direction: row;
+    overflow-x: auto;
+  }.oes-lms-ai-page .video-section__player{
+    grid-template-columns: 1fr;
+  }.oes-lms-ai-page .benefits__grid{
+    grid-template-columns: 1fr 1fr;
+  }.oes-lms-ai-page .footer__content{
+    grid-template-columns: 1fr;
+  }.oes-lms-ai-page .footer__bottom{
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {.oes-lms-ai-page .hero__cta{
+    flex-direction: column;
+    align-items: center;
+  }.oes-lms-ai-page .benefits__grid{
+    grid-template-columns: 1fr;
+  }.oes-lms-ai-page .form__row{
+    grid-template-columns: 1fr;
+  }.oes-lms-ai-page .showcase__stats-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+body.page-id-18729 #main-content {
+  float: none;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.page-id-18729 #wrapper > .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.page-id-18729 #content,
+body.page-id-18729 .entry-content {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.page-id-18729,
+body.page-id-18729 .t3-wrapper,
+body.page-id-18729 #wrapper {
+  overflow-x: hidden !important;
+}
+
+.oes-lms-ai-page {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden !important;
+}
+
+.oes-lms-ai-page .oes-lms-ai-container {
+  width: min(100%, 1200px);
+}
+</style>
+
+<div class="oes-lms-ai-page" id="oes-lms-ai-page">
+
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__particles" id="particles"></div>
+    <div class="oes-lms-ai-container hero__content">
+      <div class="hero__badge">
+        <i class="bx bxs-zap"></i>
+        <span>AI-Powered Learning Management System</span>
+      </div>
+      <h1 class="hero__title">
+        Hệ thống LMS <span class="hero__title-gradient">ứng dụng AI</span><br>
+        linh hoạt cho mọi mô hình đào tạo
+      </h1>
+      <p class="hero__subtitle">
+        Giúp doanh nghiệp và tổ chức đào tạo triển khai chương trình học linh hoạt, 
+        tự động hóa một số quy trình và theo dõi tiến độ học tập hiệu quả.
+      </p>
+      <div class="hero__cta">
+        <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--primary" id="hero-demo-btn">
+          <i class="bx bx-play-circle"></i>
+          Nhận demo
+        </a>
+        <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--outline" id="hero-consult-btn">
+          <i class="bx bx-phone"></i>
+          Đăng ký tư vấn cùng chuyên gia
+        </a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-target="100">0</span>
+          <span class="hero__stat-plus">+</span>
+          <p class="hero__stat-label">Khách hàng<br>Triển khai hệ thống LMS AI</p>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-target="100000">0</span>
+          <span class="hero__stat-plus">+</span>
+          <p class="hero__stat-label">Users<br>Tham gia học tập và phát triển năng lực</p>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-target="95">0</span>
+          <span class="hero__stat-plus">%</span>
+          <p class="hero__stat-label">Hài lòng<br>Đánh giá tích cực từ khách hàng thực tế</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  
+  <section class="intro section" id="intro">
+    <div class="oes-lms-ai-container">
+      <div class="section__header">
+        <span class="section__tag">Về chúng tôi</span>
+        <h2 class="section__title">
+          Đồng hành cùng doanh nghiệp<br>tối ưu quy trình đào tạo
+        </h2>
+        <p class="section__subtitle">
+          OES WeLearning AI – Nền tảng LMS tiên tiến được thiết kế dành riêng cho doanh nghiệp 
+          Việt Nam, tích hợp AI để tối ưu hóa từng khâu trong quy trình đào tạo.
+        </p>
+      </div>
+      <div class="intro__showcase">
+        <div class="intro__mockup intro__mockup--image">
+          <figure class="intro__image-frame">
+            <img
+              class="intro__placeholder-image"
+              src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221600%22%20height%3D%22900%22%20viewBox%3D%220%200%201600%20900%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f4fbf8%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23edf6f1%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bar%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2300926c%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2393be5e%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%221600%22%20height%3D%22900%22%20rx%3D%2240%22%20fill%3D%22url%28%23bg%29%22%2F%3E%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22110%22%20width%3D%221360%22%20height%3D%22680%22%20rx%3D%2228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22110%22%20width%3D%221360%22%20height%3D%2284%22%20rx%3D%2228%22%20fill%3D%22%2310251f%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22175%22%20cy%3D%22152%22%20r%3D%2214%22%20fill%3D%22%23ff5f57%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22215%22%20cy%3D%22152%22%20r%3D%2214%22%20fill%3D%22%23febc2e%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22255%22%20cy%3D%22152%22%20r%3D%2214%22%20fill%3D%22%2328c840%22%2F%3E%0A%20%20%3Crect%20x%3D%22330%22%20y%3D%22132%22%20width%3D%22700%22%20height%3D%2240%22%20rx%3D%2220%22%20fill%3D%22%23243b34%22%2F%3E%0A%20%20%3Crect%20x%3D%22180%22%20y%3D%22250%22%20width%3D%22260%22%20height%3D%22450%22%20rx%3D%2222%22%20fill%3D%22%230c2b22%22%2F%3E%0A%20%20%3Crect%20x%3D%22500%22%20y%3D%22250%22%20width%3D%22900%22%20height%3D%2280%22%20rx%3D%2218%22%20fill%3D%22%23eef8f3%22%2F%3E%0A%20%20%3Crect%20x%3D%22500%22%20y%3D%22370%22%20width%3D%22260%22%20height%3D%22120%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%22820%22%20y%3D%22370%22%20width%3D%22260%22%20height%3D%22120%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%221140%22%20y%3D%22370%22%20width%3D%22260%22%20height%3D%22120%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%22500%22%20y%3D%22540%22%20width%3D%22900%22%20height%3D%22130%22%20rx%3D%2222%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%22545%22%20y%3D%22600%22%20width%3D%22760%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23e7eee9%22%2F%3E%0A%20%20%3Crect%20x%3D%22545%22%20y%3D%22600%22%20width%3D%22520%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22url%28%23bar%29%22%2F%3E%0A%20%20%3Ctext%20x%3D%22800%22%20y%3D%22735%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2246%22%20font-weight%3D%22700%22%20fill%3D%22%2312332a%22%3ELMS%20Dashboard%20Image%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22800%22%20y%3D%22785%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2224%22%20fill%3D%22%23597167%22%3EReplace%20with%20real%20product%20screenshot%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
+              alt="Placeholder screenshot of the LMS dashboard interface"
+              loading="lazy"
+            >
+          </figure>
+          <div class="mockup__glow"></div>
+        </div>
+        <div class="intro__info">
+          <div class="intro__feature-card">
+            <div class="intro__feature-icon"><i class="bx bx-brain"></i></div>
+            <div>
+              <h3>AI-Powered Learning</h3>
+              <p>Cá nhân hóa lộ trình học tập và hỗ trợ đào tạo thông minh với AI</p>
+            </div>
+          </div>
+          <div class="intro__feature-card">
+            <div class="intro__feature-icon intro__feature-icon--2"><i class="bx bx-line-chart"></i></div>
+            <div>
+              <h3>Real-time Analytics</h3>
+              <p>Phân tích dữ liệu học tập theo thời gian thực, hỗ trợ ra quyết định</p>
+            </div>
+          </div>
+          <div class="intro__feature-card">
+            <div class="intro__feature-icon intro__feature-icon--3"><i class="bx bx-devices"></i></div>
+            <div>
+              <h3>Multi-Platform</h3>
+              <p>Học tập linh hoạt trên desktop, tablet và mobile mọi lúc mọi nơi</p>
+            </div>
+          </div>
+          <div class="intro__feature-card">
+            <div class="intro__feature-icon intro__feature-icon--4"><i class="bx bx-shield-alt-2"></i></div>
+            <div>
+              <h3>Enterprise Security</h3>
+              <p>Bảo mật cấp doanh nghiệp với phân quyền truy cập chi tiết</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="why section" id="why">
+    <div class="oes-lms-ai-container">
+      <div class="section__header">
+        <span class="section__tag">Lý do chọn OES</span>
+        <h2 class="section__title">
+          LMS AI phá bỏ mọi rào cản và hạn chế<br>từ đào tạo truyền thống
+        </h2>
+      </div>
+      <div class="why__comparison">
+        <div class="why__column why__column--old">
+          <div class="why__col-header">
+            <div class="why__col-badge why__col-badge--old">
+              <i class="bx bx-x"></i>
+              Đào tạo truyền thống
+            </div>
+          </div>
+          <div class="why__items">
+            <div class="why__item why__item--old">
+              <i class="bx bx-x-circle"></i>
+              <span>Quản lý nội dung thủ công, mất nhiều thời gian</span>
+            </div>
+            <div class="why__item why__item--old">
+              <i class="bx bx-x-circle"></i>
+              <span>Lộ trình học tập cố định, thiếu linh hoạt</span>
+            </div>
+            <div class="why__item why__item--old">
+              <i class="bx bx-x-circle"></i>
+              <span>Báo cáo cơ bản, khó theo dõi hiệu quả</span>
+            </div>
+            <div class="why__item why__item--old">
+              <i class="bx bx-x-circle"></i>
+              <span>Vận hành thủ công, tốn nhân lực</span>
+            </div>
+            <div class="why__item why__item--old">
+              <i class="bx bx-x-circle"></i>
+              <span>Không cá nhân hóa trải nghiệm học tập</span>
+            </div>
+            <div class="why__item why__item--old">
+              <i class="bx bx-x-circle"></i>
+              <span>Khó mở rộng quy mô khi tổ chức phát triển</span>
+            </div>
+          </div>
+        </div>
+        <div class="why__vs">
+          <div class="why__vs-circle">
+            <span>VS</span>
+          </div>
+          <div class="why__vs-line"></div>
+        </div>
+        <div class="why__column why__column--new">
+          <div class="why__col-header">
+            <div class="why__col-badge why__col-badge--new">
+              <i class="bx bx-check"></i>
+              OES LMS AI
+            </div>
+          </div>
+          <div class="why__items">
+            <div class="why__item why__item--new">
+              <i class="bx bx-check-circle"></i>
+              <span>Hỗ trợ xây dựng nội dung bằng AI nhanh chóng</span>
+            </div>
+            <div class="why__item why__item--new">
+              <i class="bx bx-check-circle"></i>
+              <span>Cá nhân hóa lộ trình học tập theo từng người</span>
+            </div>
+            <div class="why__item why__item--new">
+              <i class="bx bx-check-circle"></i>
+              <span>Tự động hóa toàn bộ quy trình đào tạo</span>
+            </div>
+            <div class="why__item why__item--new">
+              <i class="bx bx-check-circle"></i>
+              <span>Phân tích dữ liệu theo thời gian thực</span>
+            </div>
+            <div class="why__item why__item--new">
+              <i class="bx bx-check-circle"></i>
+              <span>Hỗ trợ ra quyết định đào tạo dựa trên dữ liệu</span>
+            </div>
+            <div class="why__item why__item--new">
+              <i class="bx bx-check-circle"></i>
+              <span>Mở rộng vai trò và hiệu quả của LMS không giới hạn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="features section" id="features">
+    <div class="oes-lms-ai-container">
+      <div class="section__header">
+        <span class="section__tag">Tính năng nổi bật</span>
+        <h2 class="section__title">Hệ sinh thái LMS AI với hơn 50+ tính năng</h2>
+        <p class="section__subtitle">Giải pháp toàn diện phục vụ mọi nhu cầu đào tạo của doanh nghiệp</p>
+      </div>
+
+      
+      <div class="features__tabs">
+        <button class="features__tab active" data-tab="learner" id="tab-learner">
+          <i class="bx bx-user"></i>
+          Dành cho Học viên
+        </button>
+        <button class="features__tab" data-tab="admin" id="tab-admin">
+          <i class="bx bx-cog"></i>
+          Dành cho Quản trị viên
+        </button>
+        <button class="features__tab" data-tab="ai" id="tab-ai">
+          <i class="bx bx-brain"></i>
+          Tính năng AI
+        </button>
+      </div>
+
+      
+      <div class="features__panel active" id="panel-learner">
+        <div class="features__layout">
+          <div class="features__list">
+            <div class="features__item active" data-feature="0" id="feat-learner-0">
+              <div class="features__item-icon"><i class="bx bx-user-circle"></i></div>
+              <div class="features__item-text">
+                <h4>Trang học tập cá nhân hóa</h4>
+                <p>Dashboard theo dõi tiến độ theo cá nhân</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="1" id="feat-learner-1">
+              <div class="features__item-icon"><i class="bx bx-devices"></i></div>
+              <div class="features__item-text">
+                <h4>Học tập linh hoạt</h4>
+                <p>Đa thiết bị, mọi lúc mọi nơi</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="2" id="feat-learner-2">
+              <div class="features__item-icon"><i class="bx bx-desktop"></i></div>
+              <div class="features__item-text">
+                <h4>Giao diện học tập thông minh</h4>
+                <p>Trực quan, dễ điều hướng, đa định dạng</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="3" id="feat-learner-3">
+              <div class="features__item-icon"><i class="bx bx-edit"></i></div>
+              <div class="features__item-text">
+                <h4>Hỗ trợ thi cử mạnh mẽ</h4>
+                <p>Kiểm tra trực tuyến rõ ràng, minh bạch</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="4" id="feat-learner-4">
+              <div class="features__item-icon"><i class="bx bx-bell"></i></div>
+              <div class="features__item-text">
+                <h4>Môi trường học tập chủ động</h4>
+                <p>Thông báo, nhắc học, quản lý nhiệm vụ</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="5" id="feat-learner-5">
+              <div class="features__item-icon"><i class="bx bx-bot"></i></div>
+              <div class="features__item-text">
+                <h4>Tính năng AI hỗ trợ học tập</h4>
+                <p>Chatbot AI, gợi ý lộ trình thông minh</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="6" id="feat-learner-6">
+              <div class="features__item-icon"><i class="bx bx-trophy"></i></div>
+              <div class="features__item-text">
+                <h4>Gamification trong học tập</h4>
+                <p>Điểm thưởng, huy hiệu, bảng xếp hạng</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="7" id="feat-learner-7">
+              <div class="features__item-icon"><i class="bx bx-chart"></i></div>
+              <div class="features__item-text">
+                <h4>Quản lý & theo dõi kết quả</h4>
+                <p>Điểm số, tỷ lệ hoàn thành, lịch sử học tập</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+          </div>
+          <div class="features__detail">
+            <div class="features__detail-panels">
+
+              <div class="features__detail-panel active" id="detail-learner-0">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header">
+                      <span>🏠 Trang chủ học tập</span>
+                      <span class="detail__mock-date">11/06/2026</span>
+                    </div>
+                    <div class="detail__mock-welcome">Xin chào, Minh Anh! Hôm nay bạn sẽ học gì? 🎯</div>
+                    <div class="detail__mock-path">
+                      <div class="detail__path-label">Lộ trình hiện tại</div>
+                      <div class="detail__path-item">
+                        <span>Leadership Excellence</span>
+                        <div class="detail__progress-bar"><div style="width:72%"></div></div>
+                        <span class="detail__pct">72%</span>
+                      </div>
+                      <div class="detail__path-item">
+                        <span>Sales Mastery 2024</span>
+                        <div class="detail__progress-bar"><div style="width:91%; background: #93be5e"></div></div>
+                        <span class="detail__pct">91%</span>
+                      </div>
+                    </div>
+                    <div class="detail__mock-suggest">
+                      <div class="detail__suggest-label"><i class="bx bx-bulb"></i> AI gợi ý cho bạn</div>
+                      <div class="detail__suggest-card">📚 Kỹ năng thuyết trình nâng cao</div>
+                      <div class="detail__suggest-card">🔥 Quản trị thay đổi trong tổ chức</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Trang học tập cá nhân hóa</h3>
+                  <p>Không gian học tập cá nhân hiển thị lộ trình, tiến độ và nội dung phù hợp với từng người học.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Dashboard theo dõi tiến độ học tập</li>
+                    <li><i class="bx bx-check"></i> Gợi ý khóa học theo năng lực cá nhân</li>
+                    <li><i class="bx bx-check"></i> Hiển thị nhiệm vụ và lịch học rõ ràng</li>
+                  </ul>
+                  <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-1">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard detail__mock-devices">
+                    <div class="detail__device-grid">
+                      <div class="detail__device detail__device--desktop">
+                        <div class="detail__device-screen">
+                          <div class="detail__mini-course"><i class="bx bx-play-circle"></i> Bài học 5/12</div>
+                        </div>
+                        <div class="detail__device-label">Desktop</div>
+                      </div>
+                      <div class="detail__device detail__device--tablet">
+                        <div class="detail__device-screen">
+                          <div class="detail__mini-course"><i class="bx bx-book"></i> Tài liệu</div>
+                        </div>
+                        <div class="detail__device-label">Tablet</div>
+                      </div>
+                      <div class="detail__device detail__device--mobile">
+                        <div class="detail__device-screen">
+                          <div class="detail__mini-course"><i class="bx bx-mobile"></i> Quiz</div>
+                        </div>
+                        <div class="detail__device-label">Mobile</div>
+                      </div>
+                    </div>
+                    <div class="detail__sync-badge"><i class="bx bx-sync"></i> Đồng bộ tự động</div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Học tập linh hoạt</h3>
+                  <p>Học tập linh hoạt mọi lúc, trên nhiều thiết bị, dễ dàng chủ động thời gian.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Học trên desktop, tablet, mobile</li>
+                    <li><i class="bx bx-check"></i> Lưu tiến trình bài học tự động</li>
+                    <li><i class="bx bx-check"></i> Truy cập nội dung mọi lúc, mọi nơi</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-2">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>📖 Bài giảng: Kỹ năng lãnh đạo</span></div>
+                    <div class="detail__content-tabs">
+                      <span class="active">Video</span><span>Tài liệu</span><span>SCORM</span>
+                    </div>
+                    <div class="detail__video-mock">
+                      <div class="detail__play-btn"><i class="bx bx-play-circle"></i></div>
+                      <div class="detail__video-progress">
+                        <div style="width: 40%"></div>
+                      </div>
+                    </div>
+                    <div class="detail__nav-mock">
+                      <button>← Bài trước</button>
+                      <button class="active">Bài tiếp →</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Giao diện học tập thông minh</h3>
+                  <p>Giao diện trực quan giúp theo dõi nội dung, tương tác và hoàn thành bài học dễ dàng.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Hiển thị nội dung theo từng bài học rõ ràng</li>
+                    <li><i class="bx bx-check"></i> Điều hướng đơn giản, dễ sử dụng</li>
+                    <li><i class="bx bx-check"></i> Hỗ trợ đa dạng định dạng (video, tài liệu, SCORM)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-3">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>📝 Bài thi: Kiểm tra cuối khóa</span><span class="detail__timer">⏱ 45:23</span></div>
+                    <div class="detail__quiz-question">
+                      <div class="detail__q-num">Câu 12/30</div>
+                      <div class="detail__q-text">Phương pháp quản lý theo mục tiêu (MBO) bao gồm những bước nào?</div>
+                      <div class="detail__q-options">
+                        <div class="detail__q-opt active">A. Xác định mục tiêu → Lập kế hoạch → Thực hiện → Đánh giá</div>
+                        <div class="detail__q-opt">B. Phân tích → Thiết kế → Triển khai</div>
+                        <div class="detail__q-opt">C. Lên kế hoạch → Kiểm tra → Hành động</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Hỗ trợ thi cử mạnh mẽ</h3>
+                  <p>Hỗ trợ kiểm tra trực tuyến với quy trình rõ ràng và minh bạch.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Làm bài thi theo thời gian quy định</li>
+                    <li><i class="bx bx-check"></i> Nhận kết quả và phản hồi sau khi hoàn thành</li>
+                    <li><i class="bx bx-check"></i> Áp dụng các quy tắc kiểm soát trong quá trình thi</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-4">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>🔔 Thông báo & Nhiệm vụ</span></div>
+                    <div class="detail__notification-list">
+                      <div class="detail__notif detail__notif--urgent">
+                        <i class="bx bx-alarm"></i>
+                        <div>
+                          <div>Deadline: Bài kiểm tra Tuần 3</div>
+                          <div class="detail__notif-time">Còn 2 ngày</div>
+                        </div>
+                      </div>
+                      <div class="detail__notif detail__notif--info">
+                        <i class="bx bx-book-open"></i>
+                        <div>
+                          <div>Khóa học mới: AI trong doanh nghiệp</div>
+                          <div class="detail__notif-time">Hôm nay 09:00</div>
+                        </div>
+                      </div>
+                      <div class="detail__notif">
+                        <i class="bx bx-check-circle"></i>
+                        <div>
+                          <div>Hoàn thành: Module Leadership 2</div>
+                          <div class="detail__notif-time">Hôm qua</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Môi trường học tập chủ động</h3>
+                  <p>Khuyến khích người học tự theo dõi tiến độ và chủ động hoàn thành lộ trình học tập.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Theo dõi tiến độ cá nhân theo từng khóa học</li>
+                    <li><i class="bx bx-check"></i> Nhận thông báo nhắc học và deadline qua email, app</li>
+                    <li><i class="bx bx-check"></i> Quản lý nhiệm vụ học tập cá nhân</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-5">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard detail__mock-ai">
+                    <div class="detail__ai-header">
+                      <div class="detail__ai-avatar"><i class="bx bx-bot"></i></div>
+                      <div>
+                        <div class="detail__ai-name">G@U AI Chatbot</div>
+                        <div class="detail__ai-status">● Đang hoạt động</div>
+                      </div>
+                    </div>
+                    <div class="detail__chat-messages">
+                      <div class="detail__chat-msg detail__chat-msg--user">Tôi muốn học về kỹ năng lãnh đạo</div>
+                      <div class="detail__chat-msg detail__chat-msg--ai">
+                        Dựa trên hồ sơ năng lực của bạn, tôi gợi ý lộ trình: <strong>Leadership Foundation → Advanced Leadership → Strategic Management</strong>
+                      </div>
+                    </div>
+                    <div class="detail__chat-input">💬 Hỏi G@U AI...</div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Tính năng AI hỗ trợ học tập</h3>
+                  <p>Ứng dụng AI hỗ trợ người học tiếp cận nội dung phù hợp và nâng cao hiệu quả học tập.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> G@U AI Chatbot hỗ trợ giải đáp, gợi ý lộ trình</li>
+                    <li><i class="bx bx-check"></i> Gợi ý nội dung học theo năng lực cá nhân</li>
+                    <li><i class="bx bx-check"></i> Tìm kiếm và tiếp cận kiến thức nhanh chóng, linh hoạt</li>
+                  </ul>
+                  <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-6">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>🏆 Thành tích & Xếp hạng</span></div>
+                    <div class="detail__leaderboard">
+                      <div class="detail__lb-item detail__lb-item--gold">
+                        <span class="detail__lb-rank">🥇</span>
+                        <span class="detail__lb-name">Nguyễn Văn A</span>
+                        <span class="detail__lb-pts">4,850 pts</span>
+                      </div>
+                      <div class="detail__lb-item detail__lb-item--silver">
+                        <span class="detail__lb-rank">🥈</span>
+                        <span class="detail__lb-name">Trần Thị B</span>
+                        <span class="detail__lb-pts">4,210 pts</span>
+                      </div>
+                      <div class="detail__lb-item detail__lb-item--bronze">
+                        <span class="detail__lb-rank">🥉</span>
+                        <span class="detail__lb-name">Lê Minh C</span>
+                        <span class="detail__lb-pts">3,920 pts</span>
+                      </div>
+                      <div class="detail__lb-item detail__lb-item--me">
+                        <span class="detail__lb-rank">4</span>
+                        <span class="detail__lb-name">Bạn (Minh Anh)</span>
+                        <span class="detail__lb-pts">3,650 pts</span>
+                      </div>
+                    </div>
+                    <div class="detail__badges">
+                      <span class="detail__badge">🎯 Hoàn thành sớm</span>
+                      <span class="detail__badge">⭐ Học viên xuất sắc</span>
+                      <span class="detail__badge">🔥 Streak 30 ngày</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Gamification trong học tập</h3>
+                  <p>Tích hợp các yếu tố trò chơi nhằm duy trì động lực học tập và tăng mức độ tham gia.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Hệ thống điểm thưởng và huy hiệu</li>
+                    <li><i class="bx bx-check"></i> Bảng xếp hạng học tập cạnh tranh lành mạnh</li>
+                    <li><i class="bx bx-check"></i> Theo dõi thành tích cá nhân theo thời gian</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-learner-7">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>📊 Báo cáo học tập của bạn</span></div>
+                    <div class="detail__chart-area">
+                      <div class="detail__bar-chart">
+                        <div class="detail__bar" style="height: 60%"><span>T1</span></div>
+                        <div class="detail__bar" style="height: 75%"><span>T2</span></div>
+                        <div class="detail__bar" style="height: 45%"><span>T3</span></div>
+                        <div class="detail__bar" style="height: 90%"><span>T4</span></div>
+                        <div class="detail__bar" style="height: 70%"><span>T5</span></div>
+                        <div class="detail__bar detail__bar--active" style="height: 85%"><span>T6</span></div>
+                      </div>
+                    </div>
+                    <div class="detail__result-row">
+                      <div class="detail__result-item">
+                        <div class="detail__result-val">8.5</div>
+                        <div class="detail__result-lbl">Điểm TB</div>
+                      </div>
+                      <div class="detail__result-item">
+                        <div class="detail__result-val">87%</div>
+                        <div class="detail__result-lbl">Hoàn thành</div>
+                      </div>
+                      <div class="detail__result-item">
+                        <div class="detail__result-val">120h</div>
+                        <div class="detail__result-lbl">Giờ học</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Quản lý & theo dõi kết quả học tập</h3>
+                  <p>Theo dõi toàn bộ quá trình học tập và kết quả đạt được trong hệ thống.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Xem điểm số và kết quả từng khóa học</li>
+                    <li><i class="bx bx-check"></i> Theo dõi tỷ lệ hoàn thành chi tiết</li>
+                    <li><i class="bx bx-check"></i> Lưu trữ lịch sử học tập đầy đủ</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="features__panel" id="panel-admin">
+        <div class="features__layout">
+          <div class="features__list">
+            <div class="features__item active" data-feature="0" id="feat-admin-0">
+              <div class="features__item-icon"><i class="bx bx-group"></i></div>
+              <div class="features__item-text">
+                <h4>Quản lý người dùng</h4>
+                <p>Phân quyền theo vai trò, nhóm, phòng ban</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="1" id="feat-admin-1">
+              <div class="features__item-icon"><i class="bx bx-book-content"></i></div>
+              <div class="features__item-text">
+                <h4>Quản lý nội dung đào tạo</h4>
+                <p>Tạo khóa học, upload đa định dạng, SCORM/xAPI</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="2" id="feat-admin-2">
+              <div class="features__item-icon"><i class="bx bx-task"></i></div>
+              <div class="features__item-text">
+                <h4>Tổ chức thi cử mạnh mẽ</h4>
+                <p>Ngân hàng câu hỏi, random đề, chống gian lận</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="3" id="feat-admin-3">
+              <div class="features__item-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
+              <div class="features__item-text">
+                <h4>Đánh giá & ra quyết định nhanh</h4>
+                <p>Báo cáo chi tiết, analytics thời gian thực</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+            <div class="features__item" data-feature="4" id="feat-admin-4">
+              <div class="features__item-icon"><i class="bx bx-shield-quarter"></i></div>
+              <div class="features__item-text">
+                <h4>Bảo mật dữ liệu & an toàn hệ thống</h4>
+                <p>Phân quyền truy cập, kiểm soát hoạt động</p>
+              </div>
+              <i class="bx bx-chevron-right features__item-arrow"></i>
+            </div>
+          </div>
+          <div class="features__detail">
+            <div class="features__detail-panels">
+              <div class="features__detail-panel active" id="detail-admin-0">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>👥 Quản lý người dùng</span></div>
+                    <div class="detail__user-table">
+                      <div class="detail__table-header">
+                        <span>Họ tên</span><span>Vai trò</span><span>Phòng ban</span><span>Trạng thái</span>
+                      </div>
+                      <div class="detail__table-row">
+                        <span>Nguyễn Minh A.</span><span class="detail__role detail__role--admin">Admin</span><span>IT</span><span class="detail__status detail__status--active">Hoạt động</span>
+                      </div>
+                      <div class="detail__table-row">
+                        <span>Trần Thu B.</span><span class="detail__role detail__role--trainer">Giảng viên</span><span>HR</span><span class="detail__status detail__status--active">Hoạt động</span>
+                      </div>
+                      <div class="detail__table-row">
+                        <span>Lê Văn C.</span><span class="detail__role detail__role--learner">Học viên</span><span>Sales</span><span class="detail__status detail__status--active">Hoạt động</span>
+                      </div>
+                      <div class="detail__table-row">
+                        <span>Phạm Thị D.</span><span class="detail__role detail__role--learner">Học viên</span><span>Marketing</span><span class="detail__status detail__status--inactive">Chờ kích hoạt</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Quản lý người dùng</h3>
+                  <p>Quản lý người dùng tập trung với phân quyền linh hoạt theo vai trò và tổ chức.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Phân quyền theo vai trò (admin, giảng viên, học viên…)</li>
+                    <li><i class="bx bx-check"></i> Quản lý theo nhóm, đơn vị, phòng ban</li>
+                    <li><i class="bx bx-check"></i> Theo dõi trạng thái và hoạt động người dùng</li>
+                  </ul>
+                  <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-admin-1">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>📚 Quản lý khóa học</span></div>
+                    <div class="detail__course-builder">
+                      <div class="detail__course-card">
+                        <div class="detail__course-thumb"><i class="bx bx-video"></i></div>
+                        <div class="detail__course-info-sm">
+                          <div class="detail__course-title">Kỹ năng lãnh đạo 2024</div>
+                          <div class="detail__course-meta">8 module · 24 bài học · SCORM</div>
+                          <div class="detail__course-actions">
+                            <button>Chỉnh sửa</button>
+                            <button>Xuất bản</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="detail__upload-zone">
+                        <i class="bx bx-upload"></i>
+                        <span>Upload nội dung (video, PDF, SCORM, xAPI)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Quản lý nội dung đào tạo</h3>
+                  <p>Xây dựng và triển khai chương trình đào tạo linh hoạt theo nhu cầu thực tế.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Tạo và quản lý khóa học theo cấu trúc linh hoạt</li>
+                    <li><i class="bx bx-check"></i> Đóng gói và triển khai nội dung chuẩn SCORM/xAPI</li>
+                    <li><i class="bx bx-check"></i> Upload đa định dạng: video, tài liệu, bài giảng e-Learning</li>
+                    <li><i class="bx bx-check"></i> Thiết lập lộ trình học tập theo nhóm hoặc cá nhân</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-admin-2">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>📝 Quản lý thi cử</span></div>
+                    <div class="detail__exam-builder">
+                      <div class="detail__exam-stat">
+                        <span>Ngân hàng câu hỏi: <strong>2,450 câu</strong></span>
+                      </div>
+                      <div class="detail__exam-settings">
+                        <div class="detail__setting-item">
+                          <i class="bx bx-shuffle"></i> Trộn đề ngẫu nhiên
+                        </div>
+                        <div class="detail__setting-item">
+                          <i class="bx bx-timer"></i> Giới hạn thời gian: 60 phút
+                        </div>
+                        <div class="detail__setting-item">
+                          <i class="bx bx-camera"></i> Bật camera giám sát
+                        </div>
+                        <div class="detail__setting-item">
+                          <i class="bx bx-check-shield"></i> Tự động chấm điểm
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Tổ chức thi cử mạnh mẽ</h3>
+                  <p>Xây dựng hệ thống đánh giá toàn diện, đảm bảo công bằng và minh bạch.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Tạo ngân hàng câu hỏi trắc nghiệm/tự luận</li>
+                    <li><i class="bx bx-check"></i> Trộn đề, random câu hỏi, giới hạn thời gian</li>
+                    <li><i class="bx bx-check"></i> Thiết lập quy tắc thi để hạn chế gian lận</li>
+                    <li><i class="bx bx-check"></i> Tự động chấm điểm bài thi trắc nghiệm</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-admin-3">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>📈 Analytics Dashboard</span></div>
+                    <div class="detail__analytics">
+                      <div class="detail__ana-metrics">
+                        <div class="detail__ana-metric">
+                          <span class="detail__ana-val">94%</span>
+                          <span class="detail__ana-lbl">Tỷ lệ hoàn thành</span>
+                        </div>
+                        <div class="detail__ana-metric">
+                          <span class="detail__ana-val">8.2</span>
+                          <span class="detail__ana-lbl">Điểm TB toàn công ty</span>
+                        </div>
+                      </div>
+                      <div class="detail__ana-chart">
+                        <div class="detail__line-chart">
+                          <div class="detail__line"></div>
+                        </div>
+                        <div class="detail__chart-label">Tiến độ học tập theo tháng</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Đánh giá & ra quyết định nhanh</h3>
+                  <p>Cung cấp báo cáo chi tiết giúp theo dõi hiệu quả đào tạo theo thời gian thực.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Theo dõi tiến độ học tập theo cá nhân và nhóm</li>
+                    <li><i class="bx bx-check"></i> Báo cáo kết quả học tập chi tiết</li>
+                    <li><i class="bx bx-check"></i> Phân tích mức độ tham gia và tương tác</li>
+                    <li><i class="bx bx-check"></i> Xuất dữ liệu phục vụ đánh giá nội bộ</li>
+                  </ul>
+                  <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+                </div>
+              </div>
+
+              <div class="features__detail-panel" id="detail-admin-4">
+                <div class="features__detail-screen">
+                  <div class="detail__mock-dashboard">
+                    <div class="detail__mock-header"><span>🔒 Bảo mật hệ thống</span></div>
+                    <div class="detail__security">
+                      <div class="detail__security-item">
+                        <i class="bx bx-check-shield"></i>
+                        <span>Phân quyền truy cập dữ liệu chi tiết theo role</span>
+                      </div>
+                      <div class="detail__security-item">
+                        <i class="bx bx-server"></i>
+                        <span>Lưu trữ và quản lý dữ liệu tập trung, an toàn</span>
+                      </div>
+                      <div class="detail__security-item">
+                        <i class="bx bx-log-in-circle"></i>
+                        <span>Kiểm soát truy cập và audit log đầy đủ</span>
+                      </div>
+                      <div class="detail__security-badge">
+                        <i class="bx bx-shield-alt-2"></i>
+                        Enterprise Grade Security
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="features__detail-content">
+                  <h3>Bảo mật dữ liệu & an toàn hệ thống</h3>
+                  <p>Đảm bảo dữ liệu và thông tin người dùng được quản lý an toàn trong suốt quá trình vận hành.</p>
+                  <ul class="features__detail-list">
+                    <li><i class="bx bx-check"></i> Phân quyền truy cập dữ liệu chi tiết</li>
+                    <li><i class="bx bx-check"></i> Lưu trữ và quản lý dữ liệu tập trung</li>
+                    <li><i class="bx bx-check"></i> Kiểm soát truy cập và hoạt động hệ thống</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="features__panel" id="panel-ai">
+        <div class="features__ai-grid">
+          <div class="features__ai-card features__ai-card--main">
+            <div class="features__ai-icon"><i class="bx bx-bot"></i></div>
+            <div class="features__ai-badge">AI</div>
+            <h3>AI G@U Chatbot</h3>
+            <p>Giải đáp thắc mắc học tập và đào tạo hiệu quả. Chatbot thông minh hỗ trợ người học 24/7, gợi ý lộ trình và nội dung học tập cá nhân hóa.</p>
+            <a href="https://oes.vn/dang-ky-tu-van/" class="btn btn--primary btn--sm">TÌM HIỂU THÊM</a>
+          </div>
+          <div class="features__ai-card">
+            <div class="features__ai-icon"><i class="bx bx-camera"></i></div>
+            <div class="features__ai-badge">AI</div>
+            <h3>AI Eye Tracking</h3>
+            <p>AI Eye Tracking chống gian lận thi cử, nhận diện khuôn mặt/ánh mắt của thí sinh. Dashboard giám sát thi, đánh dấu bài thi nghi vấn, danh sách cảnh cáo.</p>
+          </div>
+          <div class="features__ai-card">
+            <div class="features__ai-icon"><i class="bx bx-file"></i></div>
+            <div class="features__ai-badge">AI</div>
+            <h3>AI Tạo bài giảng e-Learning</h3>
+            <p>Tính năng tạo bài giảng e-Learning bằng AI tự động, nhanh chóng. Giảm 80% thời gian sản xuất nội dung đào tạo chuyên nghiệp.</p>
+          </div>
+          <div class="features__ai-card">
+            <div class="features__ai-icon"><i class="bx bx-scan"></i></div>
+            <div class="features__ai-badge">AI</div>
+            <h3>AI Chấm điểm tự động (Wetest)</h3>
+            <p>Hệ thống chấm điểm thi tự động nhanh chóng chỉ trong 5–10 phút bằng điện thoại thông minh. Chính xác, minh bạch và tiết kiệm nguồn lực.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section class="showcase section" id="showcase">
+    <div class="oes-lms-ai-container">
+      <div class="section__header">
+        <span class="section__tag">Giao diện hệ thống</span>
+        <h2 class="section__title">Giao diện hệ thống LMS WeLearning AI</h2>
+        <p class="section__subtitle">Trải nghiệm giao diện hiện đại, trực quan và chuyên nghiệp</p>
+      </div>
+      <div class="showcase__container showcase__container--image">
+        <figure class="showcase__image-frame">
+          <img
+            class="showcase__placeholder-image"
+            src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221600%22%20height%3D%22900%22%20viewBox%3D%220%200%201600%20900%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f4fbf8%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23edf6f1%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bar%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2300926c%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2393be5e%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%221600%22%20height%3D%22900%22%20rx%3D%2240%22%20fill%3D%22url%28%23bg%29%22%2F%3E%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22110%22%20width%3D%221360%22%20height%3D%22680%22%20rx%3D%2228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22110%22%20width%3D%221360%22%20height%3D%2284%22%20rx%3D%2228%22%20fill%3D%22%2310251f%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22175%22%20cy%3D%22152%22%20r%3D%2214%22%20fill%3D%22%23ff5f57%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22215%22%20cy%3D%22152%22%20r%3D%2214%22%20fill%3D%22%23febc2e%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22255%22%20cy%3D%22152%22%20r%3D%2214%22%20fill%3D%22%2328c840%22%2F%3E%0A%20%20%3Crect%20x%3D%22330%22%20y%3D%22132%22%20width%3D%22700%22%20height%3D%2240%22%20rx%3D%2220%22%20fill%3D%22%23243b34%22%2F%3E%0A%20%20%3Crect%20x%3D%22180%22%20y%3D%22250%22%20width%3D%22260%22%20height%3D%22450%22%20rx%3D%2222%22%20fill%3D%22%230c2b22%22%2F%3E%0A%20%20%3Crect%20x%3D%22500%22%20y%3D%22250%22%20width%3D%22900%22%20height%3D%2280%22%20rx%3D%2218%22%20fill%3D%22%23eef8f3%22%2F%3E%0A%20%20%3Crect%20x%3D%22500%22%20y%3D%22370%22%20width%3D%22260%22%20height%3D%22120%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%22820%22%20y%3D%22370%22%20width%3D%22260%22%20height%3D%22120%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%221140%22%20y%3D%22370%22%20width%3D%22260%22%20height%3D%22120%22%20rx%3D%2220%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%22500%22%20y%3D%22540%22%20width%3D%22900%22%20height%3D%22130%22%20rx%3D%2222%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23d8e9df%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Crect%20x%3D%22545%22%20y%3D%22600%22%20width%3D%22760%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%23e7eee9%22%2F%3E%0A%20%20%3Crect%20x%3D%22545%22%20y%3D%22600%22%20width%3D%22520%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22url%28%23bar%29%22%2F%3E%0A%20%20%3Ctext%20x%3D%22800%22%20y%3D%22735%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2246%22%20font-weight%3D%22700%22%20fill%3D%22%2312332a%22%3ELMS%20Interface%20Image%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22800%22%20y%3D%22785%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2224%22%20fill%3D%22%23597167%22%3EReplace%20with%20real%20product%20screenshot%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
+            alt="Placeholder screenshot of LMS WeLearning AI interface"
+            loading="lazy"
+          >
+        </figure>
+        <div class="showcase__thumbnails" aria-label="LMS interface views">
+          <button type="button" class="showcase__thumbnail active" data-showcase-view="Dashboard" aria-pressed="true">
+            <div class="showcase__thumb-label"><i class="bx bxs-dashboard"></i> Dashboard</div>
+          </button>
+          <button type="button" class="showcase__thumbnail" data-showcase-view="Analytics" aria-pressed="false">
+            <div class="showcase__thumb-label"><i class="bx bx-bar-chart"></i> Analytics</div>
+          </button>
+          <button type="button" class="showcase__thumbnail" data-showcase-view="AI Chat" aria-pressed="false">
+            <div class="showcase__thumb-label"><i class="bx bx-bot"></i> AI Chat</div>
+          </button>
+          <button type="button" class="showcase__thumbnail" data-showcase-view="Bài thi" aria-pressed="false">
+            <div class="showcase__thumb-label"><i class="bx bx-edit"></i> Bài thi</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="video-section section" id="video">
+    <div class="oes-lms-ai-container">
+      <div class="section__header">
+        <span class="section__tag">Khám phá hệ thống</span>
+        <h2 class="section__title">Xem hệ thống LMS AI hoạt động</h2>
+        <p class="section__subtitle">Video giới thiệu đầy đủ về hệ thống LMS WeLearning AI và các tính năng nổi bật</p>
+      </div>
+      <div class="video-section__player">
+        <div class="video-section__thumbnail">
+          <div class="video-section__play-btn" id="video-play-btn">
+            <i class="bx bx-play"></i>
+          </div>
+          <div class="video-section__overlay">
+            <div class="video-section__preview">
+              
+              <div class="video-preview__content">
+                <div class="video-preview__logo"><i class="bx bxs-brain"></i> WeLearning AI</div>
+                <div class="video-preview__title">Giới thiệu hệ thống LMS AI</div>
+                <div class="video-preview__duration">⏱ 3 phút 45 giây</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="video-section__chapters">
+          <div class="video-section__chapter active">
+            <span class="video-chapter__time">0:00</span>
+            <div class="video-chapter__info">
+              <div class="video-chapter__title">Giới thiệu OES WeLearning AI</div>
+              <div class="video-chapter__desc">Tổng quan về nền tảng</div>
+            </div>
+          </div>
+          <div class="video-section__chapter">
+            <span class="video-chapter__time">0:45</span>
+            <div class="video-chapter__info">
+              <div class="video-chapter__title">Demo Dashboard học viên</div>
+              <div class="video-chapter__desc">Trải nghiệm người dùng</div>
+            </div>
+          </div>
+          <div class="video-section__chapter">
+            <span class="video-chapter__time">1:30</span>
+            <div class="video-chapter__info">
+              <div class="video-chapter__title">Tính năng AI nổi bật</div>
+              <div class="video-chapter__desc">G@U Chatbot, Eye Tracking</div>
+            </div>
+          </div>
+          <div class="video-section__chapter">
+            <span class="video-chapter__time">2:45</span>
+            <div class="video-chapter__info">
+              <div class="video-chapter__title">Analytics & Báo cáo</div>
+              <div class="video-chapter__desc">Ra quyết định dựa trên data</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="benefits section" id="benefits">
+    <div class="benefits__bg"></div>
+    <div class="oes-lms-ai-container">
+      <div class="section__header section__header--light">
+        <span class="section__tag section__tag--light">Lợi ích</span>
+        <h2 class="section__title section__title--light">
+          Khách hàng nhận được gì khi sử dụng<br>hệ thống LMS WeLearning AI?
+        </h2>
+        <p class="section__subtitle section__subtitle--light">
+          Giảm 30% thời gian, tăng 25% hiệu quả đào tạo với LMS AI
+        </p>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefits__card">
+          <div class="benefits__icon">
+            <i class="bx bx-time-five"></i>
+          </div>
+          <h3>Tối ưu thời gian triển khai và vận hành</h3>
+          <p>Tự động hóa quy trình, giảm thiểu tác vụ thủ công, tiết kiệm tối đa nguồn lực cho đội ngũ đào tạo.</p>
+          <div class="benefits__metric">-30% <span>thời gian vận hành</span></div>
+        </div>
+        <div class="benefits__card">
+          <div class="benefits__icon">
+            <i class="bx bx-certification"></i>
+          </div>
+          <h3>Chuẩn hóa nội dung và quy trình đào tạo</h3>
+          <p>Xây dựng chương trình đào tạo nhất quán, chuẩn mực với hệ thống quản lý nội dung tập trung.</p>
+          <div class="benefits__metric">100% <span>chuẩn hóa nội dung</span></div>
+        </div>
+        <div class="benefits__card">
+          <div class="benefits__icon">
+            <i class="bx bx-smile"></i>
+          </div>
+          <h3>Nâng cao trải nghiệm học tập</h3>
+          <p>Giao diện trực quan, gamification và AI cá nhân hóa tạo môi trường học tập hấp dẫn và hiệu quả.</p>
+          <div class="benefits__metric">+25% <span>hiệu quả học tập</span></div>
+        </div>
+        <div class="benefits__card">
+          <div class="benefits__icon">
+            <i class="bx bx-brain"></i>
+          </div>
+          <h3>Ứng dụng AI trong đào tạo</h3>
+          <p>Tích hợp các công nghệ AI tiên tiến: chatbot, eye tracking, tạo nội dung tự động và chấm điểm thông minh.</p>
+          <div class="benefits__metric">4 <span>tính năng AI tích hợp</span></div>
+        </div>
+        <div class="benefits__card">
+          <div class="benefits__icon">
+            <i class="bx bx-line-chart"></i>
+          </div>
+          <h3>Theo dõi và đánh giá hiệu quả rõ ràng</h3>
+          <p>Dashboard analytics thời gian thực giúp lãnh đạo nắm bắt toàn bộ hiệu quả đào tạo và ra quyết định nhanh chóng.</p>
+          <div class="benefits__metric">Real-time <span>analytics</span></div>
+        </div>
+        <div class="benefits__card">
+          <div class="benefits__icon">
+            <i class="bx bx-expand"></i>
+          </div>
+          <h3>Linh hoạt mở rộng theo nhu cầu</h3>
+          <p>Hệ thống được thiết kế theo kiến trúc modular, dễ dàng mở rộng và tích hợp với các ứng dụng hiện có.</p>
+          <div class="benefits__metric">20+ <span>phân hệ tùy chỉnh</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="clients section" id="clients">
+    <div class="oes-lms-ai-container">
+      <div class="section__header">
+        <span class="section__tag">Khách hàng tiêu biểu</span>
+        <h2 class="section__title">Sự lựa chọn của hơn 100+ doanh nghiệp hàng đầu</h2>
+      </div>
+      <div class="clients__marquee-wrap">
+        <div class="clients__marquee">
+          <div class="clients__track" id="clients-track">
+            <div class="clients__logo-item"><span>Vietcombank</span></div>
+            <div class="clients__logo-item"><span>Techcombank</span></div>
+            <div class="clients__logo-item"><span>MB Bank</span></div>
+            <div class="clients__logo-item"><span>Bảo Việt</span></div>
+            <div class="clients__logo-item"><span>VinGroup</span></div>
+            <div class="clients__logo-item"><span>PNJ</span></div>
+            <div class="clients__logo-item"><span>Masan Group</span></div>
+            <div class="clients__logo-item"><span>Sacombank</span></div>
+            <div class="clients__logo-item"><span>FPT Software</span></div>
+            <div class="clients__logo-item"><span>Vietnam Airlines</span></div>
+            <div class="clients__logo-item"><span>EVN</span></div>
+            <div class="clients__logo-item"><span>AIA Vietnam</span></div>
+            
+            <div class="clients__logo-item"><span>Vietcombank</span></div>
+            <div class="clients__logo-item"><span>Techcombank</span></div>
+            <div class="clients__logo-item"><span>MB Bank</span></div>
+            <div class="clients__logo-item"><span>Bảo Việt</span></div>
+            <div class="clients__logo-item"><span>VinGroup</span></div>
+            <div class="clients__logo-item"><span>PNJ</span></div>
+            <div class="clients__logo-item"><span>Masan Group</span></div>
+            <div class="clients__logo-item"><span>Sacombank</span></div>
+            <div class="clients__logo-item"><span>FPT Software</span></div>
+            <div class="clients__logo-item"><span>Vietnam Airlines</span></div>
+            <div class="clients__logo-item"><span>EVN</span></div>
+            <div class="clients__logo-item"><span>AIA Vietnam</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="clients__industries">
+        <div class="clients__industry-tag"><i class="bx bx-building"></i> Ngân hàng & Tài chính</div>
+        <div class="clients__industry-tag"><i class="bx bx-shield"></i> Bảo hiểm</div>
+        <div class="clients__industry-tag"><i class="bx bx-factory"></i> Sản xuất</div>
+        <div class="clients__industry-tag"><i class="bx bx-store"></i> Bán lẻ</div>
+        <div class="clients__industry-tag"><i class="bx bx-laptop"></i> Công nghệ</div>
+        <div class="clients__industry-tag"><i class="bx bx-plane"></i> Hàng không</div>
+      </div>
+    </div>
+  </section>
+
+  
+  <button class="back-to-top" id="back-to-top" title="Back to top">
+  <i class="bx bx-chevron-up"></i>
+  </button>
+</div>
+
+<script>
+
+(function () {
+  'use strict';
+
+  const root = document.querySelector('.oes-lms-ai-page');
+  if (!root) return;
+  const $ = (id) => root.querySelector('[id="' + id + '"]');
+
+  
+  const particlesContainer = $('particles');
+  if (particlesContainer) {
+    const count = 20;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      const size = Math.random() * 60 + 10;
+      p.classList.add('hero__particle');
+      p.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 20 + 15}s;
+        animation-delay: ${Math.random() * -20}s;
+        opacity: ${Math.random() * 0.06 + 0.02};
+        filter: blur(${Math.random() * 2}px);
+      `;
+      particlesContainer.appendChild(p);
+    }
+  }
+
+  
+  const animateCounter = (el, target, duration = 2000) => {
+    const start = performance.now();
+    const isLarge = target >= 10000;
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp) => {
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const value = Math.floor(easeOut(progress) * target);
+      if (isLarge) {
+        el.textContent = (value >= 1000)
+          ? (value / 1000).toFixed(0) + ',000'
+          : value.toLocaleString();
+      } else {
+        el.textContent = value.toLocaleString();
+      }
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = isLarge
+        ? target.toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        : target;
+    };
+    requestAnimationFrame(step);
+  };
+
+  
+  const observers = [];
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  root.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    revealObserver.observe(el);
+  });
+  observers.push(revealObserver);
+
+  let countersStarted = false;
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !countersStarted) {
+        countersStarted = true;
+        root.querySelectorAll('.hero__stat-number').forEach(el => {
+          const target = parseInt(el.dataset.target, 10);
+          animateCounter(el, target);
+        });
+        counterObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const heroStats = root.querySelector('.hero__stats');
+  if (heroStats) counterObserver.observe(heroStats);
+  observers.push(counterObserver);
+
+  const addRevealToChildren = (selector, childClass, animClass) => {
+    const parent = root.querySelector(selector);
+    if (!parent) return;
+    const children = parent.querySelectorAll(childClass);
+    children.forEach((child, i) => {
+      child.classList.add(animClass);
+      child.style.transitionDelay = `${i * 0.1}s`;
+      revealObserver.observe(child);
+    });
+  };
+
+  addRevealToChildren('.benefits__grid', '.benefits__card', 'reveal');
+  addRevealToChildren('.features__ai-grid', '.features__ai-card', 'reveal');
+  addRevealToChildren('.clients__industries', '.clients__industry-tag', 'reveal');
+
+  root.querySelectorAll('.section__header').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  root.querySelectorAll('.intro__feature-card').forEach((el, i) => {
+    el.classList.add('reveal-right');
+    el.style.transitionDelay = `${i * 0.1}s`;
+    revealObserver.observe(el);
+  });
+
+  
+  const tabs = root.querySelectorAll('.features__tab');
+  const panels = root.querySelectorAll('.features__panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.dataset.tab;
+
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const targetPanel = $(`panel-${targetId}`);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      const firstItem = targetPanel?.querySelector('.features__item');
+      if (firstItem) {
+        targetPanel.querySelectorAll('.features__item').forEach(i => i.classList.remove('active'));
+        targetPanel.querySelectorAll('.features__detail-panel').forEach(p => p.classList.remove('active'));
+        firstItem.classList.add('active');
+        const featureIdx = firstItem.dataset.feature;
+        const panelId = `detail-${targetId}-${featureIdx}`;
+        const detailPanel = $(panelId);
+        if (detailPanel) detailPanel.classList.add('active');
+      }
+    });
+  });
+
+  
+  root.querySelectorAll('.features__panel').forEach(panel => {
+    const tabId = panel.id.replace('panel-', '');
+    const items = panel.querySelectorAll('.features__item');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        items.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        const featureIdx = item.dataset.feature;
+        const allPanels = panel.querySelectorAll('.features__detail-panel');
+        allPanels.forEach(p => p.classList.remove('active'));
+
+        const targetDetailPanel = $(`detail-${tabId}-${featureIdx}`);
+        if (targetDetailPanel) targetDetailPanel.classList.add('active');
+      });
+    });
+  });
+
+  
+  const chapters = root.querySelectorAll('.video-section__chapter');
+  chapters.forEach(chapter => {
+    chapter.addEventListener('click', () => {
+      chapters.forEach(c => c.classList.remove('active'));
+      chapter.classList.add('active');
+    });
+  });
+
+  const playBtn = $('video-play-btn');
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+
+      const overlay = playBtn.closest('.video-section__thumbnail').querySelector('.video-section__overlay');
+      playBtn.innerHTML = "<i class='bx bx-pause'></i>";
+      if (overlay) {
+        overlay.style.opacity = '0.3';
+      }
+
+      playBtn.style.transform = 'translate(-50%, -50%) scale(0.9)';
+      setTimeout(() => {
+        playBtn.style.transform = 'translate(-50%, -50%) scale(1)';
+      }, 200);
+    });
+  }
+
+  const showcaseThumbs = root.querySelectorAll('.showcase__thumbnail');
+  const showcaseImage = root.querySelector('.showcase__placeholder-image');
+  showcaseThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      showcaseThumbs.forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      thumb.classList.add('active');
+      thumb.setAttribute('aria-pressed', 'true');
+      if (showcaseImage && thumb.dataset.showcaseView) {
+        showcaseImage.alt = `Placeholder screenshot of LMS WeLearning AI ${thumb.dataset.showcaseView} interface`;
+      }
+    });
+  });
+
+  
+  const backToTop = $('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bars = entry.target.querySelectorAll('.dash__progress-fill');
+        bars.forEach(bar => {
+          const targetWidth = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => {
+            bar.style.transition = 'width 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+            bar.style.width = targetWidth;
+          }, 200);
+        });
+        progressObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  root.querySelectorAll('.intro__mockup').forEach(el => {
+    progressObserver.observe(el);
+  });
+  observers.push(progressObserver);
+
+  
+  root.querySelectorAll('.benefits__card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-6px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.5s ease';
+    });
+  });
+
+  const heroBadge = root.querySelector('.hero__badge');
+  if (heroBadge) {
+    setInterval(() => {
+      heroBadge.style.boxShadow = '0 0 0 6px rgba(147,190,94,0.1)';
+      setTimeout(() => {
+        heroBadge.style.boxShadow = '';
+      }, 600);
+    }, 3000);
+  }
+
+  
+  const whyItemObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.why__item');
+        items.forEach((item, i) => {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+          }, i * 80);
+        });
+        whyItemObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  root.querySelectorAll('.why__column').forEach(col => {
+    const items = col.querySelectorAll('.why__item');
+    items.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = col.classList.contains('why__column--old')
+        ? 'translateX(-20px)'
+        : 'translateX(20px)';
+      item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+    whyItemObserver.observe(col);
+  });
+  observers.push(whyItemObserver);
+
+  
+  const introObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.querySelectorAll('.intro__feature-card');
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateX(0)';
+          }, i * 100);
+        });
+        introObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const introInfo = root.querySelector('.intro__info');
+  if (introInfo) {
+    const cards = introInfo.querySelectorAll('.intro__feature-card');
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateX(30px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    introObserver.observe(introInfo);
+  }
+  observers.push(introObserver);
+
+  
+  function formatNumber(num) {
+    if (num >= 100000) return (num / 1000).toFixed(0) + ',000';
+    return num.toLocaleString('vi-VN');
+  }
+
+  const firstStatEl = root.querySelector('.hero__stat-number');
+  if (firstStatEl) {
+    const rect = heroStats?.getBoundingClientRect();
+    if (rect && rect.top < window.innerHeight) {
+      countersStarted = true;
+      root.querySelectorAll('.hero__stat-number').forEach(el => {
+        animateCounter(el, parseInt(el.dataset.target, 10));
+      });
+    }
+  }
+
+  console.log('%c OES WeLearning AI ', 'background: #00926c; color: #fff; padding: 4px 12px; border-radius: 4px; font-weight: bold;');
+  console.log('%c Design System 2.0 — Powered by OES Marketing\'s Media Lab ', 'color: #93be5e;');
+
+})();
+</script>
+<!-- /wp:html -->

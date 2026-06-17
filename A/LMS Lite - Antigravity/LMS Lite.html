@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS Lite - Hệ thống LMS FULL Tính năng Cơ bản</title>
+  <meta name="description" content="Trải nghiệm hệ thống LMS FULL tính năng cơ bản chỉ 3.000.000 VNĐ/3 tháng. Giải pháp tối ưu, triển khai nhanh chóng và tiết kiệm chi phí cho các mô hình đào tạo vừa và nhỏ.">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        LMS <span class="highlight-green">Lite</span>
+      </a>
+      
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu">
+          <li><a href="#gioi-thieu" class="nav-link">Giới thiệu</a></li>
+          <li><a href="#loi-the" class="nav-link">Lợi thế vượt trội</a></li>
+          <li><a href="#tinh-nang" class="nav-link">Tính năng</a></li>
+          <li><a href="#giao-dien" class="nav-link">Giao diện</a></li>
+          <li><a href="#quy-trinh" class="nav-link">Quy trình</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#dang-ky" class="btn btn-secondary nav-btn-sec">Đăng ký tư vấn</a>
+        <a href="#" class="btn btn-primary trigger-modal">Nhận demo</a>
+      </div>
+
+      <button class="hamburger" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Banner / Hero Banner -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge">Hệ thống LMS thông minh</div>
+          <h1 class="highlight-gradient">Bắt đầu với LMS mà không cần đầu tư ngân sách lớn</h1>
+          <p>Trải nghiệm hệ thống LMS FULL tính năng cơ bản chỉ 3.000.000 VNĐ/3 tháng</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn btn-primary trigger-modal"><i class="fas fa-play-circle"></i> Nhận demo</a>
+            <a href="#dang-ky" class="btn btn-secondary"><i class="fas fa-user-tie"></i> Đăng ký tư vấn cùng chuyên gia</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="mockup-wrapper">
+            <img src="assets/hero_dashboard.png" alt="LMS Lite Dashboard Mockup" class="mockup-img">
+          </div>
+          <!-- Floating UI Badges for Premium Vibe -->
+          <div class="floating-card floating-card-1">
+            <div class="floating-icon"><i class="fas fa-user-graduates"></i></div>
+            <div class="floating-text">
+              <span>Đang online</span>
+              <strong>1,250+ học viên</strong>
+            </div>
+          </div>
+          <div class="floating-card floating-card-2">
+            <div class="floating-icon"><i class="fas fa-award"></i></div>
+            <div class="floating-text">
+              <span>Đã cấp</span>
+              <strong>320+ Chứng chỉ</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 1: Giới thiệu (Target Audience) -->
+  <section id="gioi-thieu" class="section section-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>LMS Lite phù hợp với nhóm khách hàng nào?</h2>
+        <p>Mở ra cách tiếp cận LMS đơn giản cho nhiều mô hình đào tạo khác nhau</p>
+      </div>
+
+      <!-- Grid layout for the target segments -->
+      <div class="target-grid">
+        <div class="target-card">
+          <div class="target-icon"><i class="fas fa-building"></i></div>
+          <h3>Doanh nghiệp SMEs</h3>
+          <p>Đào tạo nội bộ nhanh, dễ quản lý nhân sự.</p>
+        </div>
+        
+        <div class="target-card">
+          <div class="target-icon"><i class="fas fa-laptop-house"></i></div>
+          <h3>Trung tâm đào tạo nhỏ</h3>
+          <p>Quản lý lớp học và học viên gọn nhẹ, không phức tạp.</p>
+        </div>
+
+        <div class="target-card">
+          <div class="target-icon"><i class="fas fa-university"></i></div>
+          <h3>Trường học (Đại học - Cao đẳng)</h3>
+          <p>Phù hợp triển khai từng phần hoặc giai đoạn chuyển đổi số ban đầu.</p>
+        </div>
+      </div>
+
+      <div class="target-grid-2">
+        <div class="target-card">
+          <div class="target-icon"><i class="fas fa-users"></i></div>
+          <h3>Đội/nhóm đơn lẻ</h3>
+          <p>Tổ chức training nhanh, chia sẻ tài liệu dễ dàng.</p>
+        </div>
+
+        <div class="target-card">
+          <div class="target-icon"><i class="fas fa-user-circle"></i></div>
+          <h3>Cá nhân/đơn vị đào tạo online</h3>
+          <p>Tạo và vận hành khóa học đơn giản, không cần kỹ thuật phức tạp.</p>
+        </div>
+      </div>
+
+      <div class="cta-wrapper">
+        <a href="#dang-ky" class="btn btn-primary">Liên hệ tư vấn! <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 2: USP (Lợi thế vượt trội) -->
+  <section id="loi-the" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Lợi thế vượt trội khi dùng thử hệ thống LMS Lite</h2>
+      </div>
+
+      <div class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-num">01</div>
+          <h3>Trải nghiệm hệ thống thực tế, không phải bản demo</h3>
+          <p>Sử dụng trực tiếp nền tảng LMS với đầy đủ luồng vận hành, không chỉ dừng ở mức giới thiệu.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-num">02</div>
+          <h3>Triển khai nhanh, sẵn sàng sử dụng</h3>
+          <p>Bắt đầu đào tạo trong thời gian ngắn mà không cần thiết lập phức tạp.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-num">03</div>
+          <h3>Tiết kiệm đến 70% so với chi phí triển khai ngay từ đầu</h3>
+          <p>Mức đầu tư thấp, phù hợp để thử nghiệm và đánh giá trước khi triển khai dài hạn.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-num">04</div>
+          <h3>Dễ dàng nâng cấp khi cần mở rộng</h3>
+          <p>Chuyển đổi lên hệ thống LMS đầy đủ một cách liền mạch khi nhu cầu phát triển.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 3: Key Features (Tính năng) -->
+  <section id="tinh-nang" class="section section-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Trải nghiệm 20+ phân hệ đáp ứng nhu cầu đào tạo cơ bản</h2>
+      </div>
+
+      <!-- Segment selector between Admin and Student roles -->
+      <div class="features-segment">
+        <div class="segment-btn-group">
+          <button class="segment-btn active" data-role="admin">
+            <i class="fas fa-user-shield"></i> Tính năng dành Administrator
+          </button>
+          <button class="segment-btn" data-role="student">
+            <i class="fas fa-user-graduate"></i> Tính năng dành cho Học viên
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive tab display -->
+      <div class="features-interactive">
+        
+        <!-- Left lists -->
+        <div class="features-list-wrapper">
+          
+          <!-- Administrator List -->
+          <div class="features-list" id="admin-features-list">
+            <button class="feature-item active" data-feature-key="admin-dashboard">
+              <span class="feature-item-content">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard tổng quan đào tạo</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+            
+            <button class="feature-item" data-feature-key="admin-users">
+              <span class="feature-item-content">
+                <i class="fas fa-users-cog"></i>
+                <span>Quản lý người dùng</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+            
+            <button class="feature-item" data-feature-key="admin-roles">
+              <span class="feature-item-content">
+                <i class="fas fa-shield-alt"></i>
+                <span>Phân quyền và thiết lập vai trò linh hoạt</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-enrollment">
+              <span class="feature-item-content">
+                <i class="fas fa-user-plus"></i>
+                <span>Ghi danh thủ công/tự động</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-repository">
+              <span class="feature-item-content">
+                <i class="fas fa-folder-open"></i>
+                <span>Quản lý học liệu tập trung</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-courses">
+              <span class="feature-item-content">
+                <i class="fas fa-book-open"></i>
+                <span>Tạo & quản lý khóa học</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-questions">
+              <span class="feature-item-content">
+                <i class="fas fa-question-circle"></i>
+                <span>Ngân hàng câu hỏi, đề thi</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-gamification">
+              <span class="feature-item-content">
+                <i class="fas fa-gamepad"></i>
+                <span>Gamification</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-custom">
+              <span class="feature-item-content">
+                <i class="fas fa-paint-brush"></i>
+                <span>Tùy chỉnh giao diện website</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-reports">
+              <span class="feature-item-content">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Tạo báo cáo học tập</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="admin-emails">
+              <span class="feature-item-content">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>Gửi và quản lý email thông báo</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+          </div>
+
+          <!-- Student List (Hidden initially) -->
+          <div class="features-list" id="student-features-list" style="display: none;">
+            <button class="feature-item" data-feature-key="student-dashboard">
+              <span class="feature-item-content">
+                <i class="fas fa-desktop"></i>
+                <span>Dashboard cá nhân</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+            
+            <button class="feature-item" data-feature-key="student-courses">
+              <span class="feature-item-content">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Quản lý các khóa học</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+            
+            <button class="feature-item" data-feature-key="student-exams">
+              <span class="feature-item-content">
+                <i class="fas fa-file-alt"></i>
+                <span>Tham gia thi cử dễ dàng</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="student-certificates">
+              <span class="feature-item-content">
+                <i class="fas fa-certificate"></i>
+                <span>Nhận chứng chỉ sau khóa học</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="student-reports">
+              <span class="feature-item-content">
+                <i class="fas fa-chart-bar"></i>
+                <span>Báo cáo kết quả học tập</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="student-library">
+              <span class="feature-item-content">
+                <i class="fas fa-photo-video"></i>
+                <span>Truy cập thư viện tài liệu</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="student-leaderboard">
+              <span class="feature-item-content">
+                <i class="fas fa-trophy"></i>
+                <span>Đua top xếp hạng thành tích</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="student-ai">
+              <span class="feature-item-content">
+                <i class="fas fa-robot"></i>
+                <span>Tương tác với trợ giảng AI</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+
+            <button class="feature-item" data-feature-key="student-forums">
+              <span class="feature-item-content">
+                <i class="fas fa-comments"></i>
+                <span>Diễn đàn và thảo luận chung</span>
+              </span>
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Preview Card -->
+        <div class="feature-display-card" id="feature-display-card">
+          <div class="feature-pane active">
+            <div class="feature-img-box">
+              <img src="assets/hero_dashboard.png" alt="Dashboard" class="feature-display-img">
+            </div>
+            <div class="feature-desc-box">
+              <h3 class="feature-display-title">Dashboard tổng quan đào tạo</h3>
+              <p class="feature-display-desc">Cung cấp cái nhìn toàn diện về hoạt động đào tạo, biểu đồ thống kê trực quan về số lượng học viên, tiến độ hoàn thành khóa học và các chỉ số đo lường hiệu quả tức thời.</p>
+              <a href="#dang-ky" class="btn btn-primary">TÌM HIỂU THÊM <i class="fas fa-info-circle"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 4: FT (Giao diện hệ thống) -->
+  <section id="giao-dien" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>GIAO DIỆN HỆ THỐNG LMS LITE</h2>
+        <p>SHOW HỆ THỐNG - CAP MÀN HÌNH DASHBOARD</p>
+      </div>
+
+      <div class="ft-mockup-container">
+        <div class="browser-frame">
+          <div class="browser-header">
+            <div class="browser-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="browser-address">lms-lite.oes.vn/dashboard</div>
+          </div>
+          <div class="browser-content">
+            <img src="assets/hero_dashboard.png" alt="LMS Lite System Screen Screenshot" class="browser-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 5: Lợi ích (Quy trình triển khai) -->
+  <section id="quy-trinh" class="section section-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Quy trình triển khai hệ thống LMS Lite</h2>
+        <p>Bắt đầu sử dụng LMS Lite nhanh chóng với quy trình đơn giản và dễ triển khai</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-step-num">01</div>
+          <h3>Bước 1</h3>
+          <p>Điền form đăng ký và gửi yêu cầu sử dụng hệ thống</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">02</div>
+          <h3>Bước 2</h3>
+          <p>OES xác nhận thông tin khách hàng và điều kiện đăng ký</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">03</div>
+          <h3>Bước 3</h3>
+          <p>Hoàn tất thanh toán gói LMS Lite</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">04</div>
+          <h3>Bước 4</h3>
+          <p>Tư vấn triển khai phù hợp với nhu cầu đào tạo</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">05</div>
+          <h3>Bước 5</h3>
+          <p>OES bàn giao hệ thống và hướng dẫn sử dụng</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">06</div>
+          <h3>Bước 6</h3>
+          <p>Bắt đầu triển khai đào tạo trên nền tảng</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">07</div>
+          <h3>Bước 7</h3>
+          <p>OES luôn đồng hành & hỗ trợ khách hàng trong suốt quá trình sử dụng</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-step-num">08</div>
+          <h3>Bước 8</h3>
+          <p>Theo dõi, tối ưu và đánh giá hiệu quả đào tạo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 6: Client (Khách hàng) -->
+  <section class="client-section">
+    <div class="container">
+      <h3>Khởi đầu phù hợp cho hơn 50+ cá nhân/đơn vị vừa & nhỏ</h3>
+      
+      <!-- Scrolling logo track using inline grayscale SVGs -->
+      <div class="logo-slider">
+        <div class="logo-track">
+          <!-- Logo 1: TechEdu -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="800" font-size="22" letter-spacing="-1">TechEdu</text>
+              <circle cx="120" cy="22" r="6" />
+            </svg>
+          </div>
+          <!-- Logo 2: GlobalCorp -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="700" font-size="20" letter-spacing="0">GlobalCorp</text>
+            </svg>
+          </div>
+          <!-- Logo 3: FinanceHub -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="600" font-size="21" letter-spacing="-0.5">FinanceHub</text>
+            </svg>
+          </div>
+          <!-- Logo 4: SkillShare -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="800" font-size="23" letter-spacing="-0.5">SkillShare</text>
+            </svg>
+          </div>
+          <!-- Logo 5: FutureLearn -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="500" font-size="20" letter-spacing="1">FutureLearn</text>
+            </svg>
+          </div>
+          <!-- Logo 6: BrightMinds -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.8">BrightMinds</text>
+            </svg>
+          </div>
+          
+          <!-- Duplicate for infinite looping -->
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="800" font-size="22" letter-spacing="-1">TechEdu</text>
+              <circle cx="120" cy="22" r="6" />
+            </svg>
+          </div>
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="700" font-size="20" letter-spacing="0">GlobalCorp</text>
+            </svg>
+          </div>
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="600" font-size="21" letter-spacing="-0.5">FinanceHub</text>
+            </svg>
+          </div>
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="800" font-size="23" letter-spacing="-0.5">SkillShare</text>
+            </svg>
+          </div>
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="500" font-size="20" letter-spacing="1">FutureLearn</text>
+            </svg>
+          </div>
+          <div class="slide-logo">
+            <svg viewBox="0 0 160 40">
+              <text x="10" y="28" font-family="'SVN-Gilroy', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.8">BrightMinds</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Block 7: Form đăng ký -->
+  <section id="dang-ky" class="section">
+    <div class="container">
+      <div class="registration-grid">
+        
+        <!-- Core values info on left -->
+        <div class="registration-info">
+          <h2 class="highlight-gradient">Bắt đầu tối ưu với mô hình đào tạo toàn diện với LMS Lite ngay hôm nay!</h2>
+          
+          <div class="commit-grid">
+            <div class="commit-item">
+              <div class="commit-icon"><i class="fas fa-cubes"></i></div>
+              <h4>Nền tảng toàn diện</h4>
+              <p>20+ phân hệ, tùy chỉnh theo nhu cầu đáp ứng mọi nhu cầu đào tạo của khách hàng.</p>
+            </div>
+
+            <div class="commit-item">
+              <div class="commit-icon"><i class="fas fa-medal"></i></div>
+              <h4>Uy tín 10+ năm</h4>
+              <p>OES là đơn vị tư vấn và triển khai giải pháp đào tạo chuyên nghiệp cho hàng trăm doanh nghiệp hàng đầu trong nhiều lĩnh vực ngân hàng, bảo hiểm, sản xuất...</p>
+            </div>
+
+            <div class="commit-item">
+              <div class="commit-icon"><i class="fas fa-sync-alt"></i></div>
+              <h4>Đồng bộ đào tạo</h4>
+              <p>Sẵn sàng mở rộng, tích hợp, kết nối với các ứng dụng khác bên trong và bên ngoài LMS Welearning</p>
+            </div>
+
+            <div class="commit-item">
+              <div class="commit-icon"><i class="fas fa-microchip"></i></div>
+              <h4>Cập nhật công nghệ tiên tiến</h4>
+              <p>Liên tục ứng dụng các công nghệ mới nhằm nâng cao hiệu quả đào tạo.</p>
+            </div>
+
+            <div class="commit-item">
+              <div class="commit-icon"><i class="fas fa-check-circle"></i></div>
+              <h4>Đáp ứng chất lượng</h4>
+              <p>Hệ thống được xây dựng theo tiêu chuẩn đảm bảo tính ổn định và hiệu quả sử dụng.</p>
+            </div>
+
+            <div class="commit-item">
+              <div class="commit-icon"><i class="fas fa-hands-helping"></i></div>
+              <h4>Đồng hành cùng khách hàng</h4>
+              <p>Luôn lắng nghe, hỗ trợ triển khai và vận hành hệ thống phù hợp với nhu cầu thực tế của từng đơn vị.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Card on right -->
+        <div class="registration-card">
+          <h3>Đăng ký tư vấn miễn phí</h3>
+          <p class="form-subtitle">Điền thông tin bên dưới để được chuyên gia OES tư vấn giải pháp LMS Lite phù hợp.</p>
+          
+          <form id="main-contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="fullname">Họ và tên *</label>
+              <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nguyễn Văn A" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Số điện thoại *</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="0901234567" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email doanh nghiệp/cá nhân *</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Tên tổ chức / doanh nghiệp *</label>
+              <input type="text" id="company" name="company" class="form-control" placeholder="Công ty ABC" required>
+            </div>
+
+            <div class="form-group">
+              <label for="requirements">Nhu cầu cần tư vấn</label>
+              <textarea id="requirements" name="requirements" class="form-control" placeholder="Mô tả nhu cầu đào tạo, số lượng học viên dự kiến..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Đăng ký nhận tư vấn ngay</button>
+          </form>
+
+          <!-- Success State -->
+          <div id="main-form-success" class="form-success">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h4>Gửi đăng ký thành công!</h4>
+            <p>Cảm ơn bạn đã quan tâm đến LMS Lite. Chuyên gia tư vấn từ OES sẽ liên hệ lại với bạn qua số điện thoại hoặc email trong vòng 24 giờ làm việc.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Consultation Form -->
+  <div class="modal-overlay" id="consultation-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="close-modal"><i class="fas fa-times"></i></button>
+      <h3>Đăng ký dùng thử LMS Lite</h3>
+      <p class="form-subtitle">Điền thông tin và chúng tôi sẽ khởi tạo bản dùng thử LMS Lite cho tổ chức của bạn.</p>
+      
+      <form id="modal-contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="m-fullname">Họ và tên *</label>
+          <input type="text" id="m-fullname" name="fullname" class="form-control" placeholder="Nguyễn Văn A" required>
+        </div>
+
+        <div class="form-group">
+          <label for="m-phone">Số điện thoại *</label>
+          <input type="tel" id="m-phone" name="phone" class="form-control" placeholder="0901234567" required>
+        </div>
+
+        <div class="form-group">
+          <label for="m-email">Email doanh nghiệp/cá nhân *</label>
+          <input type="email" id="m-email" name="email" class="form-control" placeholder="name@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="m-company">Tên tổ chức / doanh nghiệp *</label>
+          <input type="text" id="m-company" name="company" class="form-control" placeholder="Công ty ABC" required>
+        </div>
+
+        <div class="form-group">
+          <label for="m-requirements">Lời nhắn gửi OES</label>
+          <textarea id="m-requirements" name="requirements" class="form-control" placeholder="Ví dụ: Tôi muốn trải nghiệm trực tiếp đầy đủ luồng vận hành..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-rocket"></i> Đăng ký trải nghiệm ngay</button>
+      </form>
+
+      <!-- Success State -->
+      <div id="modal-form-success" class="form-success">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h4>Yêu cầu đã được ghi nhận!</h4>
+        <p>Hệ thống đang xử lý thông tin đăng ký dùng thử. Đại diện OES sẽ gửi email kèm thông tin tài khoản truy cập hệ thống thực tế cho bạn trong thời gian sớm nhất.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>LMS <span>Lite</span></h4>
+          <p>Giải pháp tối ưu hóa ngân sách và đẩy nhanh tốc độ triển khai hệ thống đào tạo nội bộ cho tổ chức và doanh nghiệp vừa & nhỏ.</p>
+        </div>
+
+        <div class="footer-links">
+          <h5>Liên kết nhanh</h5>
+          <ul>
+            <li><a href="#gioi-thieu">Giới thiệu</a></li>
+            <li><a href="#loi-the">Lợi thế vượt trội</a></li>
+            <li><a href="#tinh-nang">Phân hệ tính năng</a></li>
+            <li><a href="#giao-dien">Màn hình hệ thống</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>Giải pháp OES</h5>
+          <ul>
+            <li><a href="https://oes.vn" target="_blank" rel="noopener">OES - E-learning chuyên nghiệp</a></li>
+            <li><a href="https://welearning.vn" target="_blank" rel="noopener">LMS Welearning</a></li>
+            <li><a href="#">LMS AI Integration</a></li>
+            <li><a href="#dang-ky">Đăng ký tư vấn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 OES. Bảo lưu mọi quyền. Phát triển cho giải pháp LMS Lite.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
