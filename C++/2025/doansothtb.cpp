@@ -41,27 +41,29 @@ ll check(ll y) {
 }
 
 void Solve() {
-	ll x = 1;
+	ll ans = 1;
 	
-	for (ll x : pr) {
-		ll p = x;
+	for (ll prime : pr) {
+		ll p = prime;
 		while (true) {
 			ll gcd = check(p);
 			if (gcd % p != 0) break;
-			p *= x;
+			p *= prime;
 		}
 		
-		p /= x;
-		if (p >= x) x *= p;
+		p /= prime;
+		if (p >= prime) ans *= p;
 	}
 	
-	cout << "traloi " << x;
+	cout << "traloi " << ans;
 }
 
 int main() {
 	//read
 	//write
     faster
+
+    sieve();
     
     Solve();
     
