@@ -293,6 +293,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const setCart = (items) => {
         localStorage.setItem(CART_KEY, JSON.stringify(items));
     };
+    const getSafeCartImage = (image) => {
+        const candidate = String(image || "").trim();
+        return /^[A-Za-z0-9_-]+\.(?:avif|jpe?g|png|webp)$/i.test(candidate) ? candidate : "mod3.png";
+    };
     injectLanguageToggle();
     applyLanguage(currentLanguage.value);
     const header = document.querySelector("header");
@@ -622,29 +626,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const renderPaymentCart = () => {
             if (!cart.length) {
-                paymentCartItems.innerHTML = `<p class="payment-empty">${getTranslation("No vehicles selected yet.", currentLanguage.value)}</p>`;
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "payment-empty";
+                emptyMessage.textContent = getTranslation("No vehicles selected yet.", currentLanguage.value);
+                paymentCartItems.replaceChildren(emptyMessage);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
+                const fragment = document.createDocumentFragment();
+                cart.forEach((item, index) => {
                     const qty = Math.max(1, Number(item.quantity) || 1);
                     const unitPrice = parsePrice(item.price);
                     const lineTotal = unitPrice * qty;
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join("");
+                    const model = String(item.model || "Model");
+                    const article = document.createElement("article");
+                    article.className = "payment-cart-item";
+
+                    const image = document.createElement("img");
+                    image.src = getSafeCartImage(item.image);
+                    image.alt = model;
+                    article.appendChild(image);
+
+                    const details = document.createElement("div");
+                    const heading = document.createElement("h3");
+                    heading.textContent = model;
+                    const trim = document.createElement("p");
+                    trim.textContent = String(item.trim || "Base");
+
+                    const qtyRow = document.createElement("div");
+                    qtyRow.className = "payment-qty-row";
+                    const decButton = document.createElement("button");
+                    decButton.type = "button";
+                    decButton.className = "qty-btn";
+                    decButton.dataset.cartIdx = String(index);
+                    decButton.dataset.qtyAction = "dec";
+                    decButton.textContent = "-";
+                    const qtyValue = document.createElement("span");
+                    qtyValue.className = "qty-value";
+                    qtyValue.textContent = String(qty);
+                    const incButton = document.createElement("button");
+                    incButton.type = "button";
+                    incButton.className = "qty-btn";
+                    incButton.dataset.cartIdx = String(index);
+                    incButton.dataset.qtyAction = "inc";
+                    incButton.textContent = "+";
+                    qtyRow.append(decButton, qtyValue, incButton);
+
+                    const unit = document.createElement("small");
+                    unit.textContent = `${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}`;
+                    const total = document.createElement("strong");
+                    total.textContent = formatPrice(lineTotal);
+
+                    details.append(heading, trim, qtyRow, unit, total);
+                    article.appendChild(details);
+                    fragment.appendChild(article);
+                });
+                paymentCartItems.replaceChildren(fragment);
             }
 
             const subtotal = getCartSubtotal();

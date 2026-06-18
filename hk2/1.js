@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const setCart = (items) => {
         localStorage.setItem(CART_KEY, JSON.stringify(items)); // Ghi lại toàn bộ giỏ hàng vào localStorage.
     };
+    const getSafeCartImage = (image) => {
+        const candidate = String(image || "").trim(); // Chỉ cho phép tên file ảnh nội bộ, không nhận HTML/URL tùy ý.
+        return /^[A-Za-z0-9_-]+\.(?:avif|jpe?g|png|webp)$/i.test(candidate) ? candidate : "mod3.png";
+    };
     const header = document.querySelector("header"); // Tham chiếu phần header cố định trên cùng.
     if (header) { // Chỉ gắn listener nếu có header trên trang.
         window.addEventListener("scroll", () => { // Mỗi lần cuộn trang.
@@ -356,29 +360,60 @@ document.addEventListener("DOMContentLoaded", () => {
         // Render lại UI giỏ hàng và tính lại tổng tiền mỗi khi số lượng/item thay đổi.
         const renderPaymentCart = () => {
             if (!cart.length) {
-                paymentCartItems.innerHTML = '<p class="payment-empty">No vehicles selected yet.</p>'; // Giỏ trống.
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "payment-empty";
+                emptyMessage.textContent = "No vehicles selected yet."; // Giỏ trống.
+                paymentCartItems.replaceChildren(emptyMessage);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
+                const fragment = document.createDocumentFragment();
+                cart.forEach((item, index) => {
                     const qty = Math.max(1, Number(item.quantity) || 1); // Số lượng tối thiểu 1.
                     const unitPrice = parsePrice(item.price); // Giá một chiếc (số).
                     const lineTotal = unitPrice * qty; // Thành tiền dòng.
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>Unit: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join(""); // Nối các đoạn HTML thành một chuỗi.
+                    const model = String(item.model || "Model");
+                    const article = document.createElement("article");
+                    article.className = "payment-cart-item";
+
+                    const image = document.createElement("img");
+                    image.src = getSafeCartImage(item.image);
+                    image.alt = model;
+                    article.appendChild(image);
+
+                    const details = document.createElement("div");
+                    const heading = document.createElement("h3");
+                    heading.textContent = model;
+                    const trim = document.createElement("p");
+                    trim.textContent = String(item.trim || "Base");
+
+                    const qtyRow = document.createElement("div");
+                    qtyRow.className = "payment-qty-row";
+                    const decButton = document.createElement("button");
+                    decButton.type = "button";
+                    decButton.className = "qty-btn";
+                    decButton.dataset.cartIdx = String(index);
+                    decButton.dataset.qtyAction = "dec";
+                    decButton.textContent = "-";
+                    const qtyValue = document.createElement("span");
+                    qtyValue.className = "qty-value";
+                    qtyValue.textContent = String(qty);
+                    const incButton = document.createElement("button");
+                    incButton.type = "button";
+                    incButton.className = "qty-btn";
+                    incButton.dataset.cartIdx = String(index);
+                    incButton.dataset.qtyAction = "inc";
+                    incButton.textContent = "+";
+                    qtyRow.append(decButton, qtyValue, incButton);
+
+                    const unit = document.createElement("small");
+                    unit.textContent = `Unit: ${formatPrice(unitPrice)}`;
+                    const total = document.createElement("strong");
+                    total.textContent = formatPrice(lineTotal);
+
+                    details.append(heading, trim, qtyRow, unit, total);
+                    article.appendChild(details);
+                    fragment.appendChild(article);
+                });
+                paymentCartItems.replaceChildren(fragment);
             }
 
             const subtotal = getCartSubtotal();
