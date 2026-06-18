@@ -10,7 +10,7 @@ typedef long long ll;
 const ll N = 1e7 + 11;
 
 long long isp[N];
-map<int, int> m;
+map<ll, int> m;
 vector<int> prime;
 
 void sieve(int n){
@@ -29,14 +29,14 @@ void sieve(int n){
 }
 
 void Solve() {
-	int n;
+	ll n;
     cin >> n;
     if(n <= 3e7){
         int cnt = 0;
-        n *= n;
-        for(int i = 1; i <= (int)(sqrt(n)); ++i){
-            if(n % i == 0){
-                int rem = n / i;
+        ll square = n * n;
+        for(ll i = 1; i * i <= square; ++i){
+            if(square % i == 0){
+                ll rem = square / i;
                 if((i + rem) % 2 == 0 && i != rem) cnt++;
             }
         }

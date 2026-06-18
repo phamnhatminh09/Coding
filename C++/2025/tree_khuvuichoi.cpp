@@ -49,6 +49,64 @@ void Solve() {
 	
 	dfs(0, -1);
 	
+	int start_node = -1;
+	for (int i = 0; i < n; ++i) {
+		if (check[i]) {
+			start_node = i;
+			break;
+		}
+	}
+	
+	if (start_node == -1) {
+		cout << 0;
+		return;
+	}
+	
+	vector<int> dist(n, -1);
+	queue<int> q;
+	q.push(start_node);
+	dist[start_node] = 0;
+	int farthest_node = start_node;
+	int max_dist = 0;
+	
+	while (!q.empty()) {
+		int u = q.front();
+		q.pop();
+		
+		for (int v : adj[u]) {
+			if (dist[v] != -1) continue;
+			
+			dist[v] = dist[u] + 1;
+			q.push(v);
+			if (check[v] && dist[v] > max_dist) {
+				max_dist = dist[v];
+				farthest_node = v;
+			}
+		}
+	}
+	
+	fill(dist.begin(), dist.end(), -1);
+	q.push(farthest_node);
+	dist[farthest_node] = 0;
+	max_dist = 0;
+	
+	while (!q.empty()) {
+		int u = q.front();
+		q.pop();
+		
+		for (int v : adj[u]) {
+			if (dist[v] != -1) continue;
+			
+			dist[v] = dist[u] + 1;
+			q.push(v);
+			if (check[v] && dist[v] > max_dist) {
+				max_dist = dist[v];
+			}
+		}
+	}
+	
+	res -= max_dist;
+	cout << res;
 	
 }
 
