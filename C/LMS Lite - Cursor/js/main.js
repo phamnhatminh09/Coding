@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   navMenu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       navMenu?.classList.remove('is-open');
-      navToggle?.querySelector('i').className = 'bx bx-menu';
+      const icon = navToggle?.querySelector('i');
+      if (icon) icon.className = 'bx bx-menu';
     });
   });
 
