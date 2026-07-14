@@ -20,7 +20,9 @@ def studentList():
             check = input("Thêm sinh viên? (y/n): ")
             if check.lower() != 'y':
                 break
-        except Exception as e:
+        except EOFError:
+            break
+        except ValueError:
             print(f"Thử lại")
 
     print("\n\n Danh sách học sinh có điểm trên 8.0")
