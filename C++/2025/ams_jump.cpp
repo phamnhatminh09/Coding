@@ -16,49 +16,44 @@ const int dx[] = {-1, 1, 0, 0};
 const int dy[] = {0, 0, -1, 1};
 
 
-vector<int> prep(int n, const vector<int>& a) {
-	vector<int> res(n, -1);
-	stack<int> st;
-	
-	for(int i = n; i >= 0; --i) {
-		while (!st.empty() && st.top() <= a[i]) st.pop();
-		
-		if (!st.empty()) res[i] = st.top();
-		st.push(a[i]);
-	}
-	
-	return res;
-}
-
 void Solve() {
 	int n;
 	cin >> n;
 	
-	vector<int> h(n), j(n);
-	for (int i = 0; i < n; ++i) cin >> h[i];
-	for (int i = 0; i < n; ++i) cin >> j[i];
-	
-	h[n] = *max_element(h.begin(), h.end()) + 1;
-	vector<int> cnt = prep(n, h);
-	
-	for (int i = 0; i < n; ++i) {
-		if (cnt[i] == h[n]) cnt[i] = n;
-		else {
-			auto it = find(h.begin(), h.end(), cnt[i]);
-			if (it != h.end()) cnt[i] = distance(h.begin(), it);
+	vector<int> h(n + 2), nxt(n + 2, n + 1);
+	vector<long long> j(n + 1);
+	for (int i = 1; i <= n; ++i) cin >> h[i];
+	for (int i = 1; i <= n; ++i) cin >> j[i];
+
+	stack<int> st;
+	for (int i = n; i >= 1; --i) {
+		while (!st.empty() && h[st.top()] <= h[i]) st.pop();
+		nxt[i] = st.empty() ? n + 1 : st.top();
+		st.push(i);
+	}
+
+	long long maxJump = *max_element(j.begin() + 1, j.end());
+	int lg = 1;
+	while ((1LL << lg) <= max(maxJump, static_cast<long long>(n + 1))) ++lg;
+
+	vector<vector<int>> up(lg, vector<int>(n + 2, n + 1));
+	for (int i = 1; i <= n; ++i) up[0][i] = nxt[i];
+	for (int k = 1; k < lg; ++k) {
+		for (int i = 1; i <= n + 1; ++i) {
+			up[k][i] = up[k - 1][up[k - 1][i]];
 		}
 	}
-	
-	for (int i = 0; i < n; ++i) {
-		int x;
-		if (i + j[i] < n) x = cnt[i + j[i] - 1];
-		else x = n;
-		
-		if (h[x] == h[n]) cout << -1 << ' ';
-		else {
-			if (cnt[i] == cnt[i + 1]) cout << h[x + 1] << ' ';
-			else cout << h[x] << ' ';
+
+	for (int i = 1; i <= n; ++i) {
+		int cur = i;
+		long long steps = j[i];
+		for (int k = lg - 1; k >= 0 && cur != n + 1; --k) {
+			if (steps >= (1LL << k)) {
+				steps -= (1LL << k);
+				cur = up[k][cur];
+			}
 		}
+		cout << (cur == n + 1 ? -1 : h[cur]) << ' ';
 	}
 }
 
