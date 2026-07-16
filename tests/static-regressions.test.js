@@ -32,8 +32,11 @@ assert(
   "hk2/order-cybertruck.html"
 ].forEach((relativePath) => {
   const html = read(relativePath);
-  const paidTiles = html.matchAll(/<article class="config-tile[^"]*"([^>]*)>[\s\S]*?<span>\$[\d,]+<\/span>/g);
-  for (const [, attributes] of paidTiles) {
+  const tiles = html.matchAll(/<article class="config-tile[^"]*"([^>]*)>[\s\S]*?<\/article>/g);
+  for (const [tileHtml, attributes] of tiles) {
+    if (!/<span>\$[\d,]+<\/span>/.test(tileHtml)) {
+      continue;
+    }
     assert(
       attributes.includes("data-order-price") || attributes.includes("data-order-price-delta"),
       `${relativePath} has a priced configurator tile without order metadata`
