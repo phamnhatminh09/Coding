@@ -293,6 +293,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const setCart = (items) => {
         localStorage.setItem(CART_KEY, JSON.stringify(items));
     };
+    const getActiveConfiguratorTiles = (scope) =>
+        scope ? Array.from(scope.querySelectorAll(".config-tiles .config-tile.active")) : [];
+    const applyConfiguratorSelections = (payload, scope) => {
+        let configuredPrice = parsePrice(payload.price);
+        getActiveConfiguratorTiles(scope).forEach((tile) => {
+            const absoluteTrim = tile.getAttribute("data-order-trim");
+            const absolutePrice = tile.getAttribute("data-order-price");
+            const priceDelta = tile.getAttribute("data-order-price-delta");
+            const label = tile.getAttribute("data-order-label");
+            const image = tile.getAttribute("data-order-image");
+
+            if (absoluteTrim) {
+                payload.trim = absoluteTrim;
+            }
+            if (absolutePrice) {
+                configuredPrice = parsePrice(absolutePrice);
+                payload.price = formatPrice(configuredPrice);
+            }
+            if (priceDelta) {
+                configuredPrice += parsePrice(priceDelta);
+                payload.price = formatPrice(configuredPrice);
+            }
+            if (label && !payload.trim.includes(label)) {
+                payload.trim = `${payload.trim} + ${label}`;
+            }
+            if (image) {
+                payload.image = image;
+            }
+        });
+    };
+    const updateConfiguratorPrice = (scope) => {
+        if (!scope) {
+            return;
+        }
+        const cta = scope.querySelector("[data-order-model]");
+        const priceText = scope.querySelector(".order-config-price strong");
+        if (!cta || !priceText) {
+            return;
+        }
+        const payload = {
+            trim: cta.getAttribute("data-order-trim") || "Base",
+            price: cta.getAttribute("data-order-price") || "$0",
+            image: cta.getAttribute("data-order-image") || ""
+        };
+        applyConfiguratorSelections(payload, scope);
+        priceText.textContent = payload.price;
+    };
     injectLanguageToggle();
     applyLanguage(currentLanguage.value);
     const header = document.querySelector("header");
@@ -372,6 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
                 const parentScope = button.closest(".inventory-card, .order-config-panel");
                 const homeChargerCheckbox = parentScope ? parentScope.querySelector("[data-home-charger]") : null;
+                applyConfiguratorSelections(payload, parentScope);
                 if (homeChargerCheckbox && homeChargerCheckbox.checked) {
                     const upgradedPrice = parsePrice(payload.price) + 450;
                     payload.price = formatPrice(upgradedPrice);
@@ -574,8 +622,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 const siblings = group.querySelectorAll(".config-tile");
                 siblings.forEach((item) => item.classList.toggle("active", item === tile));
+                updateConfiguratorPrice(tile.closest(".order-config-panel"));
             });
         });
+        document.querySelectorAll(".order-config-panel").forEach((panel) => updateConfiguratorPrice(panel));
     }
 
     const paymentCartItems = document.getElementById("payment-cart-items");
@@ -621,30 +671,63 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const renderPaymentCart = () => {
+            paymentCartItems.replaceChildren();
             if (!cart.length) {
-                paymentCartItems.innerHTML = `<p class="payment-empty">${getTranslation("No vehicles selected yet.", currentLanguage.value)}</p>`;
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "payment-empty";
+                emptyMessage.textContent = getTranslation("No vehicles selected yet.", currentLanguage.value);
+                paymentCartItems.appendChild(emptyMessage);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
+                cart.forEach((item, index) => {
                     const qty = Math.max(1, Number(item.quantity) || 1);
                     const unitPrice = parsePrice(item.price);
                     const lineTotal = unitPrice * qty;
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join("");
+
+                    const article = document.createElement("article");
+                    article.className = "payment-cart-item";
+
+                    const image = document.createElement("img");
+                    image.src = item.image || "mod3.png";
+                    image.alt = item.model || "Model";
+                    article.appendChild(image);
+
+                    const details = document.createElement("div");
+                    const title = document.createElement("h3");
+                    title.textContent = item.model || "Model";
+                    const trim = document.createElement("p");
+                    trim.textContent = item.trim || "Base";
+                    const qtyRow = document.createElement("div");
+                    qtyRow.className = "payment-qty-row";
+
+                    const decrementButton = document.createElement("button");
+                    decrementButton.type = "button";
+                    decrementButton.className = "qty-btn";
+                    decrementButton.dataset.cartIdx = String(index);
+                    decrementButton.dataset.qtyAction = "dec";
+                    decrementButton.textContent = "-";
+
+                    const qtyValue = document.createElement("span");
+                    qtyValue.className = "qty-value";
+                    qtyValue.textContent = String(qty);
+
+                    const incrementButton = document.createElement("button");
+                    incrementButton.type = "button";
+                    incrementButton.className = "qty-btn";
+                    incrementButton.dataset.cartIdx = String(index);
+                    incrementButton.dataset.qtyAction = "inc";
+                    incrementButton.textContent = "+";
+
+                    qtyRow.append(decrementButton, qtyValue, incrementButton);
+
+                    const unit = document.createElement("small");
+                    unit.textContent = `${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}`;
+                    const total = document.createElement("strong");
+                    total.textContent = formatPrice(lineTotal);
+
+                    details.append(title, trim, qtyRow, unit, total);
+                    article.appendChild(details);
+                    paymentCartItems.appendChild(article);
+                });
             }
 
             const subtotal = getCartSubtotal();
