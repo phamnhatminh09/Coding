@@ -14,13 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
   navToggle?.addEventListener('click', () => {
     navMenu?.classList.toggle('is-open');
     const icon = navToggle.querySelector('i');
-    icon.className = navMenu?.classList.contains('is-open') ? 'bx bx-x' : 'bx bx-menu';
+    if (icon) {
+      icon.className = navMenu?.classList.contains('is-open') ? 'bx bx-x' : 'bx bx-menu';
+    }
   });
 
   navMenu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       navMenu?.classList.remove('is-open');
-      navToggle?.querySelector('i').className = 'bx bx-menu';
+      const icon = navToggle?.querySelector('i');
+      if (icon) {
+        icon.className = 'bx bx-menu';
+      }
     });
   });
 

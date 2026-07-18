@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  }[char]));
 
   /* ==================== 1. SCROLL HEADER EFFECT ==================== */
   const navbar = document.querySelector('.navbar');
@@ -285,6 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
       const school = document.getElementById('school').value.trim();
+      const escapedFullname = escapeHtml(fullname);
+      const escapedPhone = escapeHtml(phone);
+      const escapedEmail = escapeHtml(email);
       
       if (!fullname || !phone || !email || !school) {
         alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
@@ -315,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="success-icon"><i class="bx bx-check"></i></div>
           <h4>Đăng ký thành công!</h4>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
+            Cảm ơn <strong>${escapedFullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${escapedPhone}</strong> hoặc gửi thư đến email <strong>${escapedEmail}</strong> sớm nhất trong vòng 24h làm việc.
           </p>
           <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
             <i class="bx bx-refresh"></i> Quay lại form
