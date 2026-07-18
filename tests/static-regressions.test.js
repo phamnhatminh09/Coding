@@ -19,6 +19,7 @@ test('recent LMS JavaScript files parse successfully', () => {
   const files = [
     path.join('C', 'LMS Lite - Cursor', 'js', 'main.js'),
     path.join('A', 'LMS \u0110H-C\u0110 - Antigravity', 'script.js'),
+    path.join('hk2', 'script.js'),
   ];
 
   for (const file of files) {
@@ -40,6 +41,15 @@ test('consultation form does not interpolate raw submitted fields into innerHTML
   assert.match(script, /<strong>\$\{escapedFullname\}<\/strong>/);
   assert.match(script, /<strong>\$\{escapedPhone\}<\/strong>/);
   assert.match(script, /<strong>\$\{escapedEmail\}<\/strong>/);
+});
+
+test('payment cart rows render localStorage data with DOM text nodes', () => {
+  const script = fs.readFileSync(path.join(repoRoot, 'hk2', 'script.js'), 'utf8');
+
+  assert.doesNotMatch(script, /paymentCartItems\.innerHTML\s*=\s*cart\.map/);
+  assert.match(script, /paymentCartItems\.replaceChildren\(\)/);
+  assert.match(script, /title\.textContent = item\.model/);
+  assert.match(script, /trim\.textContent = item\.trim/);
 });
 
 test('ams_jump samples run without sanitizer failures', () => {
