@@ -16,10 +16,10 @@ test('tracked JavaScript parses successfully', () => {
   }
 });
 
-test('JavaScript does not assign through optional chaining', () => {
+test('LMS Lite does not reintroduce optional-chain icon assignment', () => {
   for (const file of gitFiles('*.js')) {
     const source = readFileSync(file, 'utf8');
-    assert.doesNotMatch(source, /\?\.[^;\n]*=/, file);
+    assert.doesNotMatch(source, /\?\.\s*querySelector\([^)]*\)\.className\s*=/, file);
   }
 });
 

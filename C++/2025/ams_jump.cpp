@@ -52,7 +52,8 @@ void Solve() {
 				cur = up[bit][cur];
 			}
 		}
-		cout << (cur == n ? -1 : h[cur]) << ' ';
+		if (i) cout << ' ';
+		cout << (cur == n ? -1 : h[cur]);
 	}
 }
 
