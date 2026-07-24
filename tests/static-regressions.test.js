@@ -67,3 +67,12 @@ test('inline HTML scripts parse successfully', () => {
     }
   }
 });
+
+test('Antigravity LMS DH-CD form success uses text nodes for submitted values', () => {
+  const script = fs.readFileSync(
+    path.resolve(__dirname, '..', 'A/LMS ĐH-CĐ - Antigravity/script.js'),
+    'utf8',
+  );
+
+  assert.doesNotMatch(script, /formSuccessBlock\.innerHTML\s*=/);
+});
