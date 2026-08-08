@@ -35,3 +35,13 @@ test('Model S configurator submits Model S checkout metadata', () => {
   assert.match(html, /data-order-price="\$62,990"/);
   assert.match(html, /data-order-image="models\.jpg"/);
 });
+
+test('consultation success message renders submitted values as text', () => {
+  const script = readFileSync('A/LMS ĐH-CĐ - Antigravity/script.js', 'utf8');
+
+  assert.doesNotMatch(script, /formSuccessBlock\.innerHTML/);
+  assert.match(script, /formSuccessBlock\.replaceChildren/);
+  assert.match(script, /textContent: fullname/);
+  assert.match(script, /textContent: phone/);
+  assert.match(script, /textContent: email/);
+});
