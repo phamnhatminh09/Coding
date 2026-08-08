@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const { execFileSync, spawnSync } = require('node:child_process');
+const { readFileSync } = require('node:fs');
 const test = require('node:test');
 
 function trackedJavaScriptFiles() {
@@ -22,4 +23,15 @@ test('tracked JavaScript files parse successfully', () => {
   }
 
   assert.deepEqual(failures, []);
+});
+
+test('Model S configurator submits Model S checkout metadata', () => {
+  const html = readFileSync('hk2/order-model-s.html', 'utf8');
+
+  assert.match(html, /<h1>Model S<\/h1>/);
+  assert.match(html, /<strong>\$62,990<\/strong>/);
+  assert.match(html, /data-order-model="Model S"/);
+  assert.match(html, /data-order-trim="Standard Wheels"/);
+  assert.match(html, /data-order-price="\$62,990"/);
+  assert.match(html, /data-order-image="models\.jpg"/);
 });
