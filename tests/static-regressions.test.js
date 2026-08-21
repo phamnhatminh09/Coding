@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const { execFileSync } = require('node:child_process');
+const { readFileSync } = require('node:fs');
 const test = require('node:test');
 
 function gitTrackedJsFiles() {
@@ -24,4 +25,17 @@ test('tracked JavaScript files parse successfully', () => {
       `${file} should parse successfully`
     );
   }
+});
+
+test('consultation form success message does not interpolate submitted values into HTML', () => {
+  const script = readFileSync('A/LMS \u0110H-C\u0110 - Antigravity/script.js', 'utf8');
+
+  assert.doesNotMatch(
+    script,
+    /formSuccessBlock\.innerHTML\s*=\s*`[\s\S]*\$\{(?:fullname|phone|email|school)\}/,
+    'submitted contact fields must not be rendered through innerHTML'
+  );
+  assert.match(script, /nameText\.textContent = fullname/);
+  assert.match(script, /phoneText\.textContent = phone/);
+  assert.match(script, /emailText\.textContent = email/);
 });
