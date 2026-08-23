@@ -621,30 +621,66 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const renderPaymentCart = () => {
+            paymentCartItems.replaceChildren();
             if (!cart.length) {
-                paymentCartItems.innerHTML = `<p class="payment-empty">${getTranslation("No vehicles selected yet.", currentLanguage.value)}</p>`;
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "payment-empty";
+                emptyMessage.textContent = getTranslation("No vehicles selected yet.", currentLanguage.value);
+                paymentCartItems.appendChild(emptyMessage);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
+                cart.forEach((item, index) => {
                     const qty = Math.max(1, Number(item.quantity) || 1);
                     const unitPrice = parsePrice(item.price);
                     const lineTotal = unitPrice * qty;
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join("");
+
+                    const cartItem = document.createElement("article");
+                    cartItem.className = "payment-cart-item";
+
+                    const image = document.createElement("img");
+                    image.src = item.image || "mod3.png";
+                    image.alt = item.model || "Model";
+
+                    const details = document.createElement("div");
+
+                    const modelName = document.createElement("h3");
+                    modelName.textContent = item.model || "Model";
+
+                    const trimName = document.createElement("p");
+                    trimName.textContent = item.trim || "Base";
+
+                    const qtyRow = document.createElement("div");
+                    qtyRow.className = "payment-qty-row";
+
+                    const decrementButton = document.createElement("button");
+                    decrementButton.type = "button";
+                    decrementButton.className = "qty-btn";
+                    decrementButton.setAttribute("data-cart-idx", String(index));
+                    decrementButton.setAttribute("data-qty-action", "dec");
+                    decrementButton.textContent = "-";
+
+                    const qtyValue = document.createElement("span");
+                    qtyValue.className = "qty-value";
+                    qtyValue.textContent = String(qty);
+
+                    const incrementButton = document.createElement("button");
+                    incrementButton.type = "button";
+                    incrementButton.className = "qty-btn";
+                    incrementButton.setAttribute("data-cart-idx", String(index));
+                    incrementButton.setAttribute("data-qty-action", "inc");
+                    incrementButton.textContent = "+";
+
+                    qtyRow.append(decrementButton, qtyValue, incrementButton);
+
+                    const unitPriceText = document.createElement("small");
+                    unitPriceText.textContent = `${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}`;
+
+                    const lineTotalText = document.createElement("strong");
+                    lineTotalText.textContent = formatPrice(lineTotal);
+
+                    details.append(modelName, trimName, qtyRow, unitPriceText, lineTotalText);
+                    cartItem.append(image, details);
+                    paymentCartItems.appendChild(cartItem);
+                });
             }
 
             const subtotal = getCartSubtotal();
