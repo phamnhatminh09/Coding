@@ -11,16 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* Mobile nav */
+  const setNavIcon = (className) => {
+    const icon = navToggle?.querySelector('i');
+    if (icon) {
+      icon.className = className;
+    }
+  };
+
   navToggle?.addEventListener('click', () => {
     navMenu?.classList.toggle('is-open');
-    const icon = navToggle.querySelector('i');
-    icon.className = navMenu?.classList.contains('is-open') ? 'bx bx-x' : 'bx bx-menu';
+    setNavIcon(navMenu?.classList.contains('is-open') ? 'bx bx-x' : 'bx bx-menu');
   });
 
   navMenu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       navMenu?.classList.remove('is-open');
-      navToggle?.querySelector('i').className = 'bx bx-menu';
+      setNavIcon('bx bx-menu');
     });
   });
 
