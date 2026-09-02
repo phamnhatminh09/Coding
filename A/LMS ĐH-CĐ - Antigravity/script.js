@@ -311,16 +311,47 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardSub && cardSub.classList.contains('form-subtitle')) cardSub.style.display = 'none';
 
         formSuccessBlock.style.display = 'flex';
-        formSuccessBlock.innerHTML = `
-          <div class="success-icon"><i class="bx bx-check"></i></div>
-          <h4>Đăng ký thành công!</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
-          </p>
-          <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
-            <i class="bx bx-refresh"></i> Quay lại form
-          </button>
-        `;
+
+        const successIcon = document.createElement('div');
+        successIcon.className = 'success-icon';
+        successIcon.innerHTML = '<i class="bx bx-check"></i>';
+
+        const successTitle = document.createElement('h4');
+        successTitle.textContent = 'Đăng ký thành công!';
+
+        const successMessage = document.createElement('p');
+        successMessage.style.color = 'var(--text-muted)';
+        successMessage.style.fontSize = '0.95rem';
+        successMessage.style.lineHeight = '1.5';
+        successMessage.style.marginBottom = '20px';
+
+        const nameValue = document.createElement('strong');
+        nameValue.textContent = fullname;
+        const phoneValue = document.createElement('strong');
+        phoneValue.textContent = phone;
+        const emailValue = document.createElement('strong');
+        emailValue.textContent = email;
+        successMessage.append(
+          'Cảm ơn ',
+          nameValue,
+          ' đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT ',
+          phoneValue,
+          ' hoặc gửi thư đến email ',
+          emailValue,
+          ' sớm nhất trong vòng 24h làm việc.'
+        );
+
+        const resetButton = document.createElement('button');
+        resetButton.type = 'button';
+        resetButton.className = 'btn btn-secondary btn-sm';
+        resetButton.style.fontSize = '0.8rem';
+        resetButton.style.padding = '8px 16px';
+        resetButton.innerHTML = '<i class="bx bx-refresh"></i> Quay lại form';
+        resetButton.addEventListener('click', () => {
+          location.reload();
+        });
+
+        formSuccessBlock.replaceChildren(successIcon, successTitle, successMessage, resetButton);
         
         consultForm.reset();
       }, 1500);
