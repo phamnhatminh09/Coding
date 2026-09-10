@@ -621,30 +621,73 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const renderPaymentCart = () => {
+            paymentCartItems.replaceChildren();
             if (!cart.length) {
-                paymentCartItems.innerHTML = `<p class="payment-empty">${getTranslation("No vehicles selected yet.", currentLanguage.value)}</p>`;
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "payment-empty";
+                emptyMessage.textContent = getTranslation("No vehicles selected yet.", currentLanguage.value);
+                paymentCartItems.appendChild(emptyMessage);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
+                cart.forEach((item, index) => {
                     const qty = Math.max(1, Number(item.quantity) || 1);
                     const unitPrice = parsePrice(item.price);
                     const lineTotal = unitPrice * qty;
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join("");
+
+                    const cartItem = document.createElement("article");
+                    cartItem.className = "payment-cart-item";
+
+                    const image = document.createElement("img");
+                    image.src = item.image || "mod3.png";
+                    image.alt = item.model || "Model";
+                    cartItem.appendChild(image);
+
+                    const details = document.createElement("div");
+
+                    const model = document.createElement("h3");
+                    model.textContent = item.model || "Model";
+                    details.appendChild(model);
+
+                    const trim = document.createElement("p");
+                    trim.textContent = item.trim || "Base";
+                    details.appendChild(trim);
+
+                    const quantityRow = document.createElement("div");
+                    quantityRow.className = "payment-qty-row";
+
+                    const decrementButton = document.createElement("button");
+                    decrementButton.type = "button";
+                    decrementButton.className = "qty-btn";
+                    decrementButton.setAttribute("data-cart-idx", String(index));
+                    decrementButton.setAttribute("data-qty-action", "dec");
+                    decrementButton.textContent = "-";
+                    quantityRow.appendChild(decrementButton);
+
+                    const quantityValue = document.createElement("span");
+                    quantityValue.className = "qty-value";
+                    quantityValue.textContent = String(qty);
+                    quantityRow.appendChild(quantityValue);
+
+                    const incrementButton = document.createElement("button");
+                    incrementButton.type = "button";
+                    incrementButton.className = "qty-btn";
+                    incrementButton.setAttribute("data-cart-idx", String(index));
+                    incrementButton.setAttribute("data-qty-action", "inc");
+                    incrementButton.textContent = "+";
+                    quantityRow.appendChild(incrementButton);
+
+                    details.appendChild(quantityRow);
+
+                    const unit = document.createElement("small");
+                    unit.textContent = `${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}`;
+                    details.appendChild(unit);
+
+                    const total = document.createElement("strong");
+                    total.textContent = formatPrice(lineTotal);
+                    details.appendChild(total);
+
+                    cartItem.appendChild(details);
+                    paymentCartItems.appendChild(cartItem);
+                });
             }
 
             const subtotal = getCartSubtotal();
