@@ -311,16 +311,42 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardSub && cardSub.classList.contains('form-subtitle')) cardSub.style.display = 'none';
 
         formSuccessBlock.style.display = 'flex';
-        formSuccessBlock.innerHTML = `
-          <div class="success-icon"><i class="bx bx-check"></i></div>
-          <h4>Đăng ký thành công!</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
-          </p>
-          <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
-            <i class="bx bx-refresh"></i> Quay lại form
-          </button>
-        `;
+        formSuccessBlock.replaceChildren();
+
+        const successIcon = document.createElement('div');
+        successIcon.className = 'success-icon';
+        const checkIcon = document.createElement('i');
+        checkIcon.className = 'bx bx-check';
+        successIcon.appendChild(checkIcon);
+
+        const successTitle = document.createElement('h4');
+        successTitle.textContent = 'Đăng ký thành công!';
+
+        const successText = document.createElement('p');
+        successText.style.cssText = 'color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;';
+        successText.append('Cảm ơn ');
+        const fullnameText = document.createElement('strong');
+        fullnameText.textContent = fullname;
+        successText.append(fullnameText, ' đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT ');
+        const phoneText = document.createElement('strong');
+        phoneText.textContent = phone;
+        successText.append(phoneText, ' hoặc gửi thư đến email ');
+        const emailText = document.createElement('strong');
+        emailText.textContent = email;
+        successText.append(emailText, ' sớm nhất trong vòng 24h làm việc.');
+
+        const reloadButton = document.createElement('button');
+        reloadButton.type = 'button';
+        reloadButton.className = 'btn btn-secondary btn-sm';
+        reloadButton.style.cssText = 'font-size:0.8rem;padding:8px 16px;';
+        const reloadIcon = document.createElement('i');
+        reloadIcon.className = 'bx bx-refresh';
+        reloadButton.append(reloadIcon, ' Quay lại form');
+        reloadButton.addEventListener('click', () => {
+          location.reload();
+        });
+
+        formSuccessBlock.append(successIcon, successTitle, successText, reloadButton);
         
         consultForm.reset();
       }, 1500);
