@@ -315,12 +315,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="success-icon"><i class="bx bx-check"></i></div>
           <h4>Đăng ký thành công!</h4>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
+            Cảm ơn <strong id="success-fullname"></strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong id="success-phone"></strong> hoặc gửi thư đến email <strong id="success-email"></strong> sớm nhất trong vòng 24h làm việc.
           </p>
           <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
             <i class="bx bx-refresh"></i> Quay lại form
           </button>
         `;
+        formSuccessBlock.querySelector('#success-fullname').textContent = fullname;
+        formSuccessBlock.querySelector('#success-phone').textContent = phone;
+        formSuccessBlock.querySelector('#success-email').textContent = email;
         
         consultForm.reset();
       }, 1500);
