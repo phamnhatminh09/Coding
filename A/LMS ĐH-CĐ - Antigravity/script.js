@@ -315,12 +315,18 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="success-icon"><i class="bx bx-check"></i></div>
           <h4>Đăng ký thành công!</h4>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
+            Cảm ơn <strong data-success-fullname></strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong data-success-phone></strong> hoặc gửi thư đến email <strong data-success-email></strong> sớm nhất trong vòng 24h làm việc.
           </p>
-          <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
+          <button class="btn btn-secondary btn-sm" type="button" data-success-reset style="font-size:0.8rem;padding:8px 16px;">
             <i class="bx bx-refresh"></i> Quay lại form
           </button>
         `;
+        formSuccessBlock.querySelector('[data-success-fullname]').textContent = fullname;
+        formSuccessBlock.querySelector('[data-success-phone]').textContent = phone;
+        formSuccessBlock.querySelector('[data-success-email]').textContent = email;
+        formSuccessBlock.querySelector('[data-success-reset]').addEventListener('click', () => {
+          location.reload();
+        });
         
         consultForm.reset();
       }, 1500);
