@@ -619,32 +619,73 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             return 0;
         };
+        const getSafeCartImage = (image) => {
+            const fallback = "mod3.png";
+            const filename = String(image || fallback);
+            return /^[\w.-]+\.(?:png|jpe?g|avif|webp)$/i.test(filename) ? filename : fallback;
+        };
+
+        const createQtyButton = (index, action, label) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "qty-btn";
+            button.dataset.cartIdx = String(index);
+            button.dataset.qtyAction = action;
+            button.textContent = label;
+            return button;
+        };
+
+        const createPaymentCartItem = (item, index) => {
+            const qty = Math.max(1, Number(item.quantity) || 1);
+            const unitPrice = parsePrice(item.price);
+            const lineTotal = unitPrice * qty;
+            const article = document.createElement("article");
+            article.className = "payment-cart-item";
+
+            const image = document.createElement("img");
+            image.src = getSafeCartImage(item.image);
+            image.alt = String(item.model || "Model");
+
+            const details = document.createElement("div");
+            const title = document.createElement("h3");
+            title.textContent = String(item.model || "Model");
+            const trim = document.createElement("p");
+            trim.textContent = String(item.trim || "Base");
+
+            const qtyRow = document.createElement("div");
+            qtyRow.className = "payment-qty-row";
+            const qtyValue = document.createElement("span");
+            qtyValue.className = "qty-value";
+            qtyValue.textContent = String(qty);
+            qtyRow.append(
+                createQtyButton(index, "dec", "-"),
+                qtyValue,
+                createQtyButton(index, "inc", "+")
+            );
+
+            const unit = document.createElement("small");
+            unit.textContent = `${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}`;
+            const total = document.createElement("strong");
+            total.textContent = formatPrice(lineTotal);
+
+            details.append(title, trim, qtyRow, unit, total);
+            article.append(image, details);
+            return article;
+        };
 
         const renderPaymentCart = () => {
+            paymentCartItems.replaceChildren();
             if (!cart.length) {
-                paymentCartItems.innerHTML = `<p class="payment-empty">${getTranslation("No vehicles selected yet.", currentLanguage.value)}</p>`;
+                const empty = document.createElement("p");
+                empty.className = "payment-empty";
+                empty.textContent = getTranslation("No vehicles selected yet.", currentLanguage.value);
+                paymentCartItems.appendChild(empty);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
-                    const qty = Math.max(1, Number(item.quantity) || 1);
-                    const unitPrice = parsePrice(item.price);
-                    const lineTotal = unitPrice * qty;
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join("");
+                const fragment = document.createDocumentFragment();
+                cart.forEach((item, index) => {
+                    fragment.appendChild(createPaymentCartItem(item, index));
+                });
+                paymentCartItems.appendChild(fragment);
             }
 
             const subtotal = getCartSubtotal();
