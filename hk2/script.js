@@ -4,6 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const LANGUAGE_KEY = "teslaLanguage";
     const parsePrice = (value) => Number(String(value || "0").replace(/[^0-9.-]+/g, "")) || 0;
     const formatPrice = (num) => `$${Number(num || 0).toLocaleString("en-US")}`;
+    const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    }[char]));
     const dictionary = {
         Home: { vi: "Trang chủ" },
         Products: { vi: "Sản phẩm" },
@@ -628,12 +635,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     const qty = Math.max(1, Number(item.quantity) || 1);
                     const unitPrice = parsePrice(item.price);
                     const lineTotal = unitPrice * qty;
+                    const image = escapeHTML(item.image || "mod3.png");
+                    const model = escapeHTML(item.model || "Model");
+                    const trim = escapeHTML(item.trim || "Base");
                     return `
                     <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
+                        <img src="${image}" alt="${model}">
                         <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
+                            <h3>${model}</h3>
+                            <p>${trim}</p>
                             <div class="payment-qty-row">
                                 <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
                                 <span class="qty-value">${qty}</span>
