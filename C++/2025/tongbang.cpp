@@ -24,18 +24,13 @@ void Solve() {
 		else cout << mmod((mmod(m) * mmod(n)) * (mmod(m) * mmod(n))) / 4;
 	}
 	else {
-		ll j = 0, sum = 0;
-		vector<int> firstrow(n / 2);
-		for (int i = 1; i <= n; i += 2) {
-			firstrow[j] = i;
-			j++;
-		}
+		ll half = n / 2;
+		ll sum = mmod(half) * mmod(half);
 		
 		ll even = m / 2, odd;
 		if (m % 2 == 0) odd = m / 2;
 		else odd = m / 2 + 1;
 		
-		for (int x : firstrow) sum += x;
 		sum = mmod(sum);
 		
 		ll even_interval = mmod(mmod(n) / 2 * (mmod(n) + 1)), odd_interval = mmod(mmod(n) / 2 * (mmod(n) - 1));
