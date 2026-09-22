@@ -285,7 +285,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const getCart = () => {
         try {
             const parsed = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-            return Array.isArray(parsed) ? parsed : [];
+            return Array.isArray(parsed)
+                ? parsed.filter((item) => item && typeof item === "object" && !Array.isArray(item))
+                : [];
         } catch (error) {
             return [];
         }
@@ -620,31 +622,63 @@ document.addEventListener("DOMContentLoaded", () => {
             return 0;
         };
 
+        const createQuantityButton = (index, action, label) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "qty-btn";
+            button.dataset.cartIdx = String(index);
+            button.dataset.qtyAction = action;
+            button.textContent = label;
+            return button;
+        };
+
         const renderPaymentCart = () => {
+            paymentCartItems.replaceChildren();
+
             if (!cart.length) {
-                paymentCartItems.innerHTML = `<p class="payment-empty">${getTranslation("No vehicles selected yet.", currentLanguage.value)}</p>`;
+                const emptyMessage = document.createElement("p");
+                emptyMessage.className = "payment-empty";
+                emptyMessage.textContent = getTranslation("No vehicles selected yet.", currentLanguage.value);
+                paymentCartItems.appendChild(emptyMessage);
             } else {
-                paymentCartItems.innerHTML = cart.map((item, index) => {
+                cart.forEach((item, index) => {
                     const qty = Math.max(1, Number(item.quantity) || 1);
                     const unitPrice = parsePrice(item.price);
                     const lineTotal = unitPrice * qty;
-                    return `
-                    <article class="payment-cart-item">
-                        <img src="${item.image || "mod3.png"}" alt="${item.model || "Model"}">
-                        <div>
-                            <h3>${item.model || "Model"}</h3>
-                            <p>${item.trim || "Base"}</p>
-                            <div class="payment-qty-row">
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="dec">-</button>
-                                <span class="qty-value">${qty}</span>
-                                <button type="button" class="qty-btn" data-cart-idx="${index}" data-qty-action="inc">+</button>
-                            </div>
-                            <small>${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}</small>
-                            <strong>${formatPrice(lineTotal)}</strong>
-                        </div>
-                    </article>
-                    `;
-                }).join("");
+
+                    const cartItem = document.createElement("article");
+                    cartItem.className = "payment-cart-item";
+
+                    const image = document.createElement("img");
+                    image.src = item.image || "mod3.png";
+                    image.alt = item.model || "Model";
+
+                    const body = document.createElement("div");
+                    const title = document.createElement("h3");
+                    title.textContent = item.model || "Model";
+                    const trim = document.createElement("p");
+                    trim.textContent = item.trim || "Base";
+
+                    const qtyRow = document.createElement("div");
+                    qtyRow.className = "payment-qty-row";
+                    const qtyValue = document.createElement("span");
+                    qtyValue.className = "qty-value";
+                    qtyValue.textContent = String(qty);
+                    qtyRow.append(
+                        createQuantityButton(index, "dec", "-"),
+                        qtyValue,
+                        createQuantityButton(index, "inc", "+")
+                    );
+
+                    const unit = document.createElement("small");
+                    unit.textContent = `${getTranslation("Unit", currentLanguage.value)}: ${formatPrice(unitPrice)}`;
+                    const lineTotalEl = document.createElement("strong");
+                    lineTotalEl.textContent = formatPrice(lineTotal);
+
+                    body.append(title, trim, qtyRow, unit, lineTotalEl);
+                    cartItem.append(image, body);
+                    paymentCartItems.appendChild(cartItem);
+                });
             }
 
             const subtotal = getCartSubtotal();
