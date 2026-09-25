@@ -276,6 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==================== 7. CONSULTATION FORM SUBMISSION ==================== */
   const consultForm = document.getElementById('consultation-form');
   const formSuccessBlock = document.getElementById('form-success-block');
+  const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
 
   if (consultForm && formSuccessBlock) {
     consultForm.addEventListener('submit', (e) => {
@@ -311,11 +318,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardSub && cardSub.classList.contains('form-subtitle')) cardSub.style.display = 'none';
 
         formSuccessBlock.style.display = 'flex';
+        const safeFullname = escapeHTML(fullname);
+        const safePhone = escapeHTML(phone);
+        const safeEmail = escapeHTML(email);
         formSuccessBlock.innerHTML = `
           <div class="success-icon"><i class="bx bx-check"></i></div>
           <h4>Đăng ký thành công!</h4>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
+            Cảm ơn <strong>${safeFullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${safePhone}</strong> hoặc gửi thư đến email <strong>${safeEmail}</strong> sớm nhất trong vòng 24h làm việc.
           </p>
           <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
             <i class="bx bx-refresh"></i> Quay lại form
