@@ -311,16 +311,50 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardSub && cardSub.classList.contains('form-subtitle')) cardSub.style.display = 'none';
 
         formSuccessBlock.style.display = 'flex';
-        formSuccessBlock.innerHTML = `
-          <div class="success-icon"><i class="bx bx-check"></i></div>
-          <h4>Đăng ký thành công!</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
-          </p>
-          <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
-            <i class="bx bx-refresh"></i> Quay lại form
-          </button>
-        `;
+
+        const successIcon = document.createElement('div');
+        successIcon.className = 'success-icon';
+        const checkIcon = document.createElement('i');
+        checkIcon.className = 'bx bx-check';
+        successIcon.appendChild(checkIcon);
+
+        const title = document.createElement('h4');
+        title.textContent = 'Đăng ký thành công!';
+
+        const message = document.createElement('p');
+        message.style.color = 'var(--text-muted)';
+        message.style.fontSize = '0.95rem';
+        message.style.lineHeight = '1.5';
+        message.style.marginBottom = '20px';
+
+        const nameStrong = document.createElement('strong');
+        nameStrong.textContent = fullname;
+        const phoneStrong = document.createElement('strong');
+        phoneStrong.textContent = phone;
+        const emailStrong = document.createElement('strong');
+        emailStrong.textContent = email;
+
+        message.append(
+          'Cảm ơn ',
+          nameStrong,
+          ' đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT ',
+          phoneStrong,
+          ' hoặc gửi thư đến email ',
+          emailStrong,
+          ' sớm nhất trong vòng 24h làm việc.'
+        );
+
+        const reloadButton = document.createElement('button');
+        reloadButton.className = 'btn btn-secondary btn-sm';
+        reloadButton.type = 'button';
+        reloadButton.style.fontSize = '0.8rem';
+        reloadButton.style.padding = '8px 16px';
+        const refreshIcon = document.createElement('i');
+        refreshIcon.className = 'bx bx-refresh';
+        reloadButton.append(refreshIcon, ' Quay lại form');
+        reloadButton.addEventListener('click', () => location.reload());
+
+        formSuccessBlock.replaceChildren(successIcon, title, message, reloadButton);
         
         consultForm.reset();
       }, 1500);
