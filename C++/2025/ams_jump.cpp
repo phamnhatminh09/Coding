@@ -17,14 +17,14 @@ const int dy[] = {0, 0, -1, 1};
 
 
 vector<int> prep(int n, const vector<int>& a) {
-	vector<int> res(n, -1);
+	vector<int> res(n, n);
 	stack<int> st;
 	
-	for(int i = n; i >= 0; --i) {
-		while (!st.empty() && st.top() <= a[i]) st.pop();
+	for(int i = n - 1; i >= 0; --i) {
+		while (!st.empty() && a[st.top()] <= a[i]) st.pop();
 		
 		if (!st.empty()) res[i] = st.top();
-		st.push(a[i]);
+		st.push(i);
 	}
 	
 	return res;
@@ -34,31 +34,35 @@ void Solve() {
 	int n;
 	cin >> n;
 	
-	vector<int> h(n), j(n);
+	vector<int> h(n);
+	vector<ll> j(n);
 	for (int i = 0; i < n; ++i) cin >> h[i];
 	for (int i = 0; i < n; ++i) cin >> j[i];
 	
-	h[n] = *max_element(h.begin(), h.end()) + 1;
-	vector<int> cnt = prep(n, h);
-	
-	for (int i = 0; i < n; ++i) {
-		if (cnt[i] == h[n]) cnt[i] = n;
-		else {
-			auto it = find(h.begin(), h.end(), cnt[i]);
-			if (it != h.end()) cnt[i] = distance(h.begin(), it);
+	vector<int> nxt = prep(n, h);
+	int lg = 1;
+	while ((1LL << lg) <= n) ++lg;
+	vector<vector<int>> up(lg, vector<int>(n + 1, n));
+	for (int i = 0; i < n; ++i) up[0][i] = nxt[i];
+
+	for (int bit = 1; bit < lg; ++bit) {
+		for (int i = 0; i <= n; ++i) {
+			up[bit][i] = up[bit - 1][up[bit - 1][i]];
 		}
 	}
-	
+
 	for (int i = 0; i < n; ++i) {
-		int x;
-		if (i + j[i] < n) x = cnt[i + j[i] - 1];
-		else x = n;
-		
-		if (h[x] == h[n]) cout << -1 << ' ';
-		else {
-			if (cnt[i] == cnt[i + 1]) cout << h[x + 1] << ' ';
-			else cout << h[x] << ' ';
+		int cur = i;
+		ll steps = min<ll>(j[i], n);
+		for (int bit = lg - 1; bit >= 0; --bit) {
+			if (steps >= (1LL << bit)) {
+				steps -= (1LL << bit);
+				cur = up[bit][cur];
+			}
 		}
+
+		if (cur == n) cout << -1 << ' ';
+		else cout << h[cur] << ' ';
 	}
 }
 
