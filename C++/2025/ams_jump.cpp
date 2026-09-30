@@ -16,20 +16,6 @@ const int dx[] = {-1, 1, 0, 0};
 const int dy[] = {0, 0, -1, 1};
 
 
-vector<int> prep(int n, const vector<int>& a) {
-	vector<int> res(n, -1);
-	stack<int> st;
-	
-	for(int i = n; i >= 0; --i) {
-		while (!st.empty() && st.top() <= a[i]) st.pop();
-		
-		if (!st.empty()) res[i] = st.top();
-		st.push(a[i]);
-	}
-	
-	return res;
-}
-
 void Solve() {
 	int n;
 	cin >> n;
@@ -37,28 +23,44 @@ void Solve() {
 	vector<int> h(n), j(n);
 	for (int i = 0; i < n; ++i) cin >> h[i];
 	for (int i = 0; i < n; ++i) cin >> j[i];
-	
-	h[n] = *max_element(h.begin(), h.end()) + 1;
-	vector<int> cnt = prep(n, h);
-	
+
+	const int sentinel = n;
+	constexpr int lg = 31;
+	vector<int> nxt(n + 1, sentinel);
+	vector<array<int, lg>> up(n + 1);
+	stack<int> st;
+
+	for (int i = n - 1; i >= 0; --i) {
+		while (!st.empty() && h[st.top()] <= h[i]) st.pop();
+		nxt[i] = st.empty() ? sentinel : st.top();
+		st.push(i);
+	}
+
 	for (int i = 0; i < n; ++i) {
-		if (cnt[i] == h[n]) cnt[i] = n;
-		else {
-			auto it = find(h.begin(), h.end(), cnt[i]);
-			if (it != h.end()) cnt[i] = distance(h.begin(), it);
+		up[i][0] = nxt[i];
+	}
+	for (int bit = 0; bit < lg; ++bit) {
+		up[sentinel][bit] = sentinel;
+	}
+	for (int bit = 1; bit < lg; ++bit) {
+		for (int i = 0; i < n; ++i) {
+			up[i][bit] = up[up[i][bit - 1]][bit - 1];
 		}
 	}
-	
+
 	for (int i = 0; i < n; ++i) {
-		int x;
-		if (i + j[i] < n) x = cnt[i + j[i] - 1];
-		else x = n;
-		
-		if (h[x] == h[n]) cout << -1 << ' ';
-		else {
-			if (cnt[i] == cnt[i + 1]) cout << h[x + 1] << ' ';
-			else cout << h[x] << ' ';
+		int cur = i;
+		int steps = j[i];
+
+		for (int bit = lg - 1; bit >= 0 && cur != sentinel; --bit) {
+			if (steps >= (1 << bit)) {
+				steps -= (1 << bit);
+				cur = up[cur][bit];
+			}
 		}
+
+		if (cur == sentinel) cout << -1 << ' ';
+		else cout << h[cur] << ' ';
 	}
 }
 
