@@ -16,49 +16,40 @@ const int dx[] = {-1, 1, 0, 0};
 const int dy[] = {0, 0, -1, 1};
 
 
-vector<int> prep(int n, const vector<int>& a) {
-	vector<int> res(n, -1);
-	stack<int> st;
-	
-	for(int i = n; i >= 0; --i) {
-		while (!st.empty() && st.top() <= a[i]) st.pop();
-		
-		if (!st.empty()) res[i] = st.top();
-		st.push(a[i]);
-	}
-	
-	return res;
-}
-
 void Solve() {
 	int n;
 	cin >> n;
 	
-	vector<int> h(n), j(n);
+	vector<int> h(n);
+	vector<ll> j(n);
 	for (int i = 0; i < n; ++i) cin >> h[i];
 	for (int i = 0; i < n; ++i) cin >> j[i];
-	
-	h[n] = *max_element(h.begin(), h.end()) + 1;
-	vector<int> cnt = prep(n, h);
-	
-	for (int i = 0; i < n; ++i) {
-		if (cnt[i] == h[n]) cnt[i] = n;
-		else {
-			auto it = find(h.begin(), h.end(), cnt[i]);
-			if (it != h.end()) cnt[i] = distance(h.begin(), it);
-		}
+
+	const int LOG = 63;
+	vector<vector<int>> up(LOG, vector<int>(n + 1, n));
+	stack<int> st;
+
+	for (int i = n - 1; i >= 0; --i) {
+		while (!st.empty() && h[st.top()] <= h[i]) st.pop();
+		up[0][i] = st.empty() ? n : st.top();
+		st.push(i);
 	}
 	
-	for (int i = 0; i < n; ++i) {
-		int x;
-		if (i + j[i] < n) x = cnt[i + j[i] - 1];
-		else x = n;
-		
-		if (h[x] == h[n]) cout << -1 << ' ';
-		else {
-			if (cnt[i] == cnt[i + 1]) cout << h[x + 1] << ' ';
-			else cout << h[x] << ' ';
+	for (int bit = 1; bit < LOG; ++bit) {
+		for (int i = 0; i <= n; ++i) {
+			up[bit][i] = up[bit - 1][up[bit - 1][i]];
 		}
+	}
+
+	for (int i = 0; i < n; ++i) {
+		int cur = i;
+		ll steps = j[i];
+
+		for (int bit = 0; bit < LOG && cur != n; ++bit) {
+			if (steps & (1LL << bit)) cur = up[bit][cur];
+		}
+
+		cout << (cur == n ? -1 : h[cur]) << ' ';
 	}
 }
 
