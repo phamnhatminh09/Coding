@@ -311,16 +311,40 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardSub && cardSub.classList.contains('form-subtitle')) cardSub.style.display = 'none';
 
         formSuccessBlock.style.display = 'flex';
-        formSuccessBlock.innerHTML = `
-          <div class="success-icon"><i class="bx bx-check"></i></div>
-          <h4>Đăng ký thành công!</h4>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
-            Cảm ơn <strong>${fullname}</strong> đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT <strong>${phone}</strong> hoặc gửi thư đến email <strong>${email}</strong> sớm nhất trong vòng 24h làm việc.
-          </p>
-          <button class="btn btn-secondary btn-sm" onclick="location.reload();" style="font-size:0.8rem;padding:8px 16px;">
-            <i class="bx bx-refresh"></i> Quay lại form
-          </button>
-        `;
+        formSuccessBlock.replaceChildren();
+
+        const successIcon = document.createElement('div');
+        successIcon.className = 'success-icon';
+        successIcon.innerHTML = '<i class="bx bx-check"></i>';
+
+        const title = document.createElement('h4');
+        title.textContent = 'Đăng ký thành công!';
+
+        const message = document.createElement('p');
+        message.style.color = 'var(--text-muted)';
+        message.style.fontSize = '0.95rem';
+        message.style.lineHeight = '1.5';
+        message.style.marginBottom = '20px';
+        message.append('Cảm ơn ');
+        const fullnameText = document.createElement('strong');
+        fullnameText.textContent = fullname;
+        message.append(fullnameText, ' đã liên hệ. OES sẽ gọi lại cho bạn qua SĐT ');
+        const phoneText = document.createElement('strong');
+        phoneText.textContent = phone;
+        message.append(phoneText, ' hoặc gửi thư đến email ');
+        const emailText = document.createElement('strong');
+        emailText.textContent = email;
+        message.append(emailText, ' sớm nhất trong vòng 24h làm việc.');
+
+        const resetButton = document.createElement('button');
+        resetButton.className = 'btn btn-secondary btn-sm';
+        resetButton.type = 'button';
+        resetButton.style.fontSize = '0.8rem';
+        resetButton.style.padding = '8px 16px';
+        resetButton.innerHTML = '<i class="bx bx-refresh"></i> Quay lại form';
+        resetButton.addEventListener('click', () => location.reload());
+
+        formSuccessBlock.append(successIcon, title, message, resetButton);
         
         consultForm.reset();
       }, 1500);
