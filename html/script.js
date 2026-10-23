@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Lấy dữ liệu từ localStorage nếu có
     if (localStorage.getItem('pollCounts')) {
-        pollCounts = JSON.parse(localStorage.getItem('pollCounts'));
+        try {
+            pollCounts = normalizePollCounts(JSON.parse(localStorage.getItem('pollCounts')));
+        } catch (error) {
+            localStorage.removeItem('pollCounts');
+        }
     }
     
     // Xử lý bình chọn
@@ -25,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         pollButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const animalType = this.getAttribute('data-animal');
-                pollCounts[animalType]++;
+                if (!Object.prototype.hasOwnProperty.call(pollCounts, animalType)) return;
+                pollCounts[animalType] = (Number(pollCounts[animalType]) || 0) + 1;
                 
                 // Lưu vào localStorage
                 localStorage.setItem('pollCounts', JSON.stringify(pollCounts));
@@ -45,9 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    function normalizePollCounts(counts) {
+        return {
+            mammal: Math.max(0, Number(counts?.mammal) || 0),
+            bird: Math.max(0, Number(counts?.bird) || 0),
+            reptile: Math.max(0, Number(counts?.reptile) || 0)
+        };
+    }
     
     function updatePollResult() {
         if (!pollResult) return;
+        pollCounts = normalizePollCounts(pollCounts);
         
         const total = pollCounts.mammal + pollCounts.bird + pollCounts.reptile;
         
@@ -60,13 +74,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const birdPercent = Math.round((pollCounts.bird / total) * 100);
         const reptilePercent = Math.round((pollCounts.reptile / total) * 100);
         
-        pollResult.innerHTML = `
-            Kết quả bình chọn:<br>
-            <strong>Động vật có vú:</strong> ${pollCounts.mammal} phiếu (${mammalPercent}%)<br>
-            <strong>Chim:</strong> ${pollCounts.bird} phiếu (${birdPercent}%)<br>
-            <strong>Bò sát:</strong> ${pollCounts.reptile} phiếu (${reptilePercent}%)<br>
-            <small>Tổng số phiếu: ${total}</small>
-        `;
+        pollResult.replaceChildren();
+        pollResult.append("Kết quả bình chọn:", document.createElement('br'));
+        appendPollLine("Động vật có vú:", pollCounts.mammal, mammalPercent);
+        appendPollLine("Chim:", pollCounts.bird, birdPercent);
+        appendPollLine("Bò sát:", pollCounts.reptile, reptilePercent);
+        const totalLine = document.createElement('small');
+        totalLine.textContent = `Tổng số phiếu: ${total}`;
+        pollResult.appendChild(totalLine);
+    }
+
+    function appendPollLine(label, count, percent) {
+        const strong = document.createElement('strong');
+        strong.textContent = label;
+        pollResult.append(strong, ` ${count} phiếu (${percent}%)`, document.createElement('br'));
     }
     
     // Hiệu ứng cuộn mượt cho các liên kết nội bộ
