@@ -18,16 +18,16 @@ void Solve() {
     for (int i = 0; i < m; ++i) cin >> a[i];
     for (int i = 0; i < m; ++i) cin >> b[i];
 
-    vector<vector<int>> type(k + 1);
+    vector<vector<int>> type(m + 1);
     for (int i = 0; i < n; ++i) type[t[i]].push_back(i);
 
-    vector<int> cnt(k + 1, 0), v;
+    vector<int> cnt(m + 1, 0), v;
     int temp = -1, curr = 0;
 
     for (int i = 0; i < n; ++i) {
         bool found = false;
         
-        for (int j = 1; j <= k; ++j) {
+        for (int j = 1; j <= m; ++j) {
             if ((j == temp && curr == k) || cnt[j] >= type[j].size()) continue;
             v.push_back(type[j][cnt[j]]);
             cnt[j]++;
@@ -43,7 +43,7 @@ void Solve() {
         }
         
         if (!found) {
-            for (int j = 1; j <= k; ++j) {
+            for (int j = 1; j <= m; ++j) {
                 if (cnt[j] < type[j].size()) {
                     v.push_back(type[j][cnt[j]]);
                     cnt[j]++;
