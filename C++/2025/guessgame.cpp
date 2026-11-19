@@ -24,11 +24,12 @@ void Solve() {
 		cout << m << '\n';
 		
 		cout.flush();
-		cin >> s;
+		if (!(cin >> s)) return;
 		
 		if (s == "BIGGER") l = m + 1;
 		else if (s == "SMALLER") r = m - 1;
 		else if (s == "HOLA") return;
+		else return;
 	}
 }
 
